@@ -1,0 +1,9 @@
+title: AI Village
+email: contact@aivillage.org
+description: Educating DEF CON about the use and abuse of AI in security and privacy
+show_downloads: false
+google_analytics:
+theme: jekyll-theme-midnight
+
+twitter_username: aivillage_dc
+github_username: ai-village
