@@ -22,6 +22,8 @@ const styles = theme => ({
     marginLeft: -12,
     marginRight: 20,
     color: grey[500],
+    textTransform: 'none',
+    fontSize: '1em',
   },
 });
 
@@ -36,13 +38,16 @@ class Navbar extends React.Component {
             <img className={classes.logo} src={logoPath} />
           </Typography>
           <Button className={classes.navButton}>
+            Announcements
+          </Button>
+          <Button className={classes.navButton}>
             Blog
           </Button>
           <Button className={classes.navButton}>
             Patron
           </Button>
           <Button className={classes.navButton}>
-            Team
+            Join Us
           </Button>
         </Toolbar>
       </AppBar>
