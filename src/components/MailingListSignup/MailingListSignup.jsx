@@ -23,7 +23,7 @@ const styles = theme => ({
     textAlign: 'center',
     flex: '0 1 100%',
     color: grey[600],
-    fontSize: '1.5rem',
+    fontSize: '1.5vw',
     fontWeight: 400,
     fontFamily: 'source sans pro',
     paddingBottom: '3%',

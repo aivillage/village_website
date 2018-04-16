@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Typed from 'react-typed';
 import { withStyles } from 'material-ui/styles';
 import withRoot from '../../withRoot';
 
@@ -13,7 +14,7 @@ const styles = theme => ({
   mission: {
     textAlign: 'center',
     color: '#38404F',
-    fontSize: '3.25rem',
+    fontSize: '3.25vw',
     fontWeight: 400,
     fontFamily: 'source serif pro',
   },
@@ -30,7 +31,27 @@ class Header extends React.Component {
     return (
       <div className={classes.header}>
         <div className={classes.mission}>
-          Educating the security world on the<br/><a className={classes.emphasis}>use and abuse of AI</a> in security and privacy.
+          Educating&nbsp;
+          <Typed 
+            strings={[
+              'the world',
+              'DEF CON',
+              'ourselves',
+              'you',
+              'politicians',
+              'security professionals',
+              'the public',
+              'decision makers',
+              'children',
+              'hackers',
+            ]}
+            typeSpeed={100}
+            backSpeed={100}
+            backDelay={1000}
+            shuffle={true}
+            smartBackspace={true}
+            loop={true} />
+          on the<br/><a className={classes.emphasis}>use and abuse of AI</a> in security and privacy.
         </div>
       </div>
     );

@@ -9,11 +9,16 @@ import withRoot from '../../withRoot';
 const styles = theme => ({
   footer: {
     backgroundColor: '#F3F4F6',
+    height: 56,
   },
   footerIcon: {
-    paddingRight: '3%',
+    marginTop: 16,
+    paddingRight: '4%',
     color: grey[600],
     cursor: 'pointer',
+    '&:hover': {
+      color: '#0084b4',
+    },
   }
 });
 
