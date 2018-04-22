@@ -1,0 +1,28 @@
+{
+  "assetsByChunkName": {
+    "component---src-pages-china-18-jsx": [
+      "component---src-pages-china-18-jsx-4b57773b9c750b769fbc.js",
+      "component---src-pages-china-18-jsx-4b57773b9c750b769fbc.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "commons": [
+      "commons-4186e32d9ad91d36c824.js",
+      "commons-4186e32d9ad91d36c824.js.map"
+    ],
+    "component---src-pages-index-jsx": [
+      "component---src-pages-index-jsx-3e3b74df2785ac2105d9.js",
+      "component---src-pages-index-jsx-3e3b74df2785ac2105d9.js.map"
+    ],
+    "app": [
+      "app-64e8665ef337bc28d7c3.js",
+      "app-64e8665ef337bc28d7c3.js.map"
+    ],
+    "path---china-18": [
+      "path---china-18-a0e39f21c11f6a62c5ab.js",
+      "path---china-18-a0e39f21c11f6a62c5ab.js.map"
+    ]
+  }
+}
