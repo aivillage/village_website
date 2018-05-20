@@ -25,3 +25,6 @@ root
 |   +-- css
 |   +-- ...
 ```
+
+# Contributors
+Main developer of the site is [@cchio](https://github.com/cchio). Please contact him for any escalations or questions.
