@@ -92,30 +92,30 @@
 <tr>
 <td align="center">1000</td>
 <td align="center">Village Exhibits</td>
-<td align="center">Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs - F1F1cin</td>
+<td align="center">Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs <br/>- F1F1cin</td>
 </tr>
 
 <tr>
 <td align="center">1100</td>
-<td align="center">StuxNNet: Practical Live Memory Attacks on Machine Learning Systems - Raphael Norwitz</td>
-<td align="center">Scrutinizing the Weakness and Strength of AI Systems - Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo</td>
+<td align="center">StuxNNet: Practical Live Memory Attacks on Machine Learning Systems <br/>- Raphael Norwitz</td>
+<td align="center">Scrutinizing the Weakness and Strength of AI Systems <br/>- Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo</td>
 </tr>
 
 <tr>
 <td align="center">1200</td>
-<td align="center">Machine learning model hardening for fun and profit - Ariel Herbert-Voss</td>
-<td align="center">StuxNNet: Practical Live Memory Attacks on Machine Learning Systems - Raphael Norwitz</td>
+<td align="center">Machine learning model hardening for fun and profit <br/>- Ariel Herbert-Voss</td>
+<td align="center">StuxNNet: Practical Live Memory Attacks on Machine Learning Systems <br/>- Raphael Norwitz</td>
 </tr>
 
 <tr>
 <td align="center">1300</td>
-<td align="center">AI vs AI: Undercover the Billions of Black Market in e-Commerce - Dr Bin Zhao, Jin Yang</td>
-<td align="center">Facilitating Postmortem Program Analysis with Deep Learning - Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo</td>
+<td align="center">AI vs AI: Undercover the Billions of Black Market in e-Commerce <br/>- Dr Bin Zhao, Jin Yang</td>
+<td align="center">Facilitating Postmortem Program Analysis with Deep Learning <br/>- Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo</td>
 </tr>
 
 <tr>
 <td align="center">1400</td>
-<td align="center">WORKSHOP: Pwning Machine Learning Systems - Clarence Chio</td>
+<td align="center">WORKSHOP: Pwning Machine Learning Systems <br/>- Clarence Chio</td>
 <td align="center">Closing</td>
 </tr>
 
@@ -133,6 +133,8 @@
 
 <h3 id="stuxnnet-practical-live-memory-attacks-on-machine-learning-systems">StuxNNet: Practical Live Memory Attacks on Machine Learning Systems</h3>
 
+<p><a href="material/cn18-norwitz/slides.pdf">slides</a>, <a href="material/cn18-norwitz/pdf_naieve.mp4">video 1</a>, <a href="material/cn18-norwitz/pdf_trojan.mp4">video 2</a></p>
+
 <p>Like all software systems, the execution of machine learning models is dictated by logic represented as data in memory. Unlike traditional software, machine learning systems&rsquo; behavior depends less on precise machine opcodes and more on weight vectors and bias parameters. In terms of possible threat models this makes a huge difference: an attacker cannot arbitrarily perturb the program code of a typical executable and have it run error free, however these weight and bias values can be scrambled arbitrarily without any risk of causing a crash. With selective retraining and backpropagation, we demonstrate how one can easily retrain networks to behave completely differently or respond predictably to certain triggers. Thus an attacker looking to compromise an ML system can simply patch these values in live memory, thereby taking control of system with minimal risk of system malfunctions or other detectable side-effects. In this talk, we demonstrate proof of concept malware to attack Neural Networks on Windows 7 and discuss different training paradigms we&rsquo;ve used. In particular, we focus on minimizing the size of the patch needed to change the model&rsquo;s behavior to prove an attack with realistic bounds on network communication. We hope that seeing our malware run against various different frameworks - and showcasing devastating potential of a patched network - will provide valuable insight into the mechanisms tomorrow&rsquo;s hackers could use, and spark a discussion around systems level AI security.</p>
 
 <h4 id="speaker-bio">Speaker Bio</h4>
@@ -143,6 +145,8 @@
 
 <h3 id="machine-learning-model-hardening-for-fun-and-profit">Machine learning model hardening for fun and profit</h3>
 
+<p><a href="material/cn18-voss/slides.pdf">slides</a></p>
+
 <p>Machine learning has been widely and enthusiastically applied to a variety of problems to great success and is increasingly used to develop systems that handle sensitive data - despite having seen that for out-of-the-box applications, determined adversaries can extract the training data set and other sensitive information. Suggested techniques for improving the privacy and security of these systems include differential privacy, homomorphic encryption, and secure multi-party computation. In this talk, we’ll take a look at the modern machine learning pipeline and identify the threat models that are solved using these techniques. We’ll evaluate the possible costs to accuracy and time complexity and present practical application tips for model hardening.</p>
 
 <h4 id="speaker-bio-1">Speaker Bio</h4>
@@ -152,6 +156,8 @@
 <hr />
 
 <h3 id="ai-vs-ai-undercover-the-billions-of-black-market-in-e-commerce">AI vs AI: Undercover the Billions of Black Market in e-Commerce</h3>
+
+<p><a href="material/cn18-zhao/slides.pdf">slides</a></p>
 
 <p>Black market in e-Commerce is an industry of billions of dollars drawing thousands of scalpers and hackers. Traditionally, this black market is full of manual labor and low technology. The booming development of AI has also seen a vast abuse of AI technologies in this black market. This evolving black market costs billions of losses to e-Commerce companies, like Alibaba and Amazon. It also undermines the reputation of them. How to fight this black market and win back customers? We undercover the industrial chain of this black market and the detailed social division of labor, as well as various advanced tools. We also developed an AI-based defense system to intercept and block the malicious or suspicious transactions. Our evaluation on the system shows that we have lower than 0.5% false positives on malicious or scalping transactions and orders.</p>
 
@@ -164,6 +170,8 @@
 <hr />
 
 <h3 id="workshop-pwning-machine-learning-systems">WORKSHOP: Pwning Machine Learning Systems</h3>
+
+<p><a href="https://hub.docker.com/r/cchio/dccn18/">docker container</a></p>
 
 <p>Pwning machine learning systems is an offensive-focused workshop that gives attendees a whirlwind introduction to the world of adversarial machine learning. This two-hour workshop will not be your run-of-the-mill introduction to machine learning course, (are you kidding? you can get that from a thousand different places online!) but will focus on hands-on examples, and actually attacking these systems. Every concept covered in this workshop will be backed-up with either a worked example or a challenge activity, with minimal lecturing and maximum &ldquo;doing&rdquo;. By the end of the workshop, students will be able to start pwning machine-learning-powered malware classifiers, intrusion detectors, and WAFs. We will cover two major kinds of attacks on machine learning and deep learning systems - model poisoning and adversarial generation. As a bonus, attendees will emerge from the session with a fully-upgraded machine learning B.S. detector, giving them the ability to call B.S. on any &ldquo;next-generation system&rdquo; that claims to be impenetrable because of machine learning. This is an intermediate technical class suitable for attendees with some ability to read and write basic Python code. To get the most out of this workshop, surface-level understanding of machine learning is good. (be able to give a one-line answer to the question - &ldquo;What is machine learning?&rdquo;)</p>
 
