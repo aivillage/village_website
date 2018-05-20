@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="cchio">
+    
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://aivillage.org">
+    <title>
+  Dimensionality and Adversarial Examples · 
+</title>
+
+    <link rel="canonical" href="https://aivillage.org/posts/dimensionality-and-adversarial/">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://aivillage.org/css/style.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
+
+    
+
+    <link rel="icon" type="image/png" href="https://aivillage.org/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aivillage.org/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.40.3" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://aivillage.org">
+      AI VILLAGE
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/about/">About</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/code-of-conduct/">Code-of-Conduct</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/team/">Team</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/events/">Events</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfDzURLjTMoSvjWYDinEu9n1sNc5HOBGWjU5UAzL-aNSjkwjA/viewform" target="_blank" style="color:red;">CFP</a>
+      </li>
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Dimensionality and Adversarial Examples</h1>
+      <h2 class="author-date">comath, 9 May 2018</h2>
+
+      
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full">
+          MathJax.Hub.Config({
+            tex2jax: {
+              inlineMath: [['$','$']],
+              displayMath: [['$$','$$']],
+              processEscapes: true,
+              processEnvironments: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+              TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+            }
+          });
+          MathJax.Hub.Queue(function() {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+          });
+          </script>
+      
+    </header>
+
+    
+
+<p>Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Adversarial examples are minor modifications made to a piece of data such that when it’s feed into a machine learning model it incorrectly handles the data. This might be a problem in self driving cars. Someone who disliked self driving trucks could release a large adversarial bumper sticker that confused the vision system and leads to self driving trucks crashing. This is also a problem in malware detection, trivial modifications to the raw bytes of a malware file, like changing the header, could lead to a deep learning system misclassifying the malware sample as benign. Providing a proper defense is crucial for a safe deployment of machine learning in our lives. We define it mathematically as:</p>
+
+<p>Definition: Let $f: \mathbb{R}^N \to {L_1,L_2, \dots L_n}$ be a function whose range is a discrete set of labels, let $x$ such that $f(x) = L_i$, and let $\hat{x}$ such that $% &lt;![CDATA[
+\lVert x-\hat{x} \rVert_p &lt; \epsilon %]]&gt;$ such that $f(\hat{x}) = L_j$ and $i \neq j$. Then $\hat{x}$ is an adversarial example with threshold $\epsilon$.</p>
+
+<p>This mathematical definition is inadequate to cover everything we’d like to call an adversarial example. It doesn’t cover per-pixel classification or segmentation and most NLP situations. However, much of the literature is focused on this mathematical definition. The definition will look familiar to all former calculus students, it is based on the idea of continuity and it relates adversarial examples to discontinuities. Most machine learning systems are continuous (specifically, almost differentiable) by construction, so them showing discontinuous behavior is alarming. It’s not that the math is wrong, it’s just that these systems are demonstrating something related to <a href="https://en.wikipedia.org/wiki/Chaos_theory">chaos</a>. It’s not the same, but to explain why and why it’s likely intractable, we have to make sense of the curse of dimensionality.</p>
+
+<h2 id="the-curse-of-dimensionality">The Curse of Dimensionality</h2>
+
+<p>For MNIST, the images lie in 784 dimensional space, one dimension per pixel. These dimensions have some spatial relation to each other, we like to think of them as a grid. This spatial relationship is important to some machine learning models, like convolutional layers. For us, we will largely ignore the spatial relations when constructing adversarial examples.</p>
+
+<p>These spatial relations of image vectors can be incorporated into the actual data, an 8 translated around the 28x28 grid remains an 8. This means that “eightness” has at least 2 degrees of freedom, or dimensions. There are more dimensions, small rotations and scaling the 8 up and down a little leave it an 8. These can be incorporated into our training with data-augmentation. But, there are also less obvious ways to modify our chosen 8 and keep it’s “eightness”. For example we can scale the top and bottom holes independently.</p>
+
+<p>Locally to our chosen eight there may be 7 to 10 directions to manipulate it and keep the inherent “eightness”, without doing something outside of what we’d call obvious. These can be combined, so there’s actually many more than just 10 ways to change it in the direction of “eightness”. It’s just that these are combinations of the 7 to 10 inherent ways. This forms a little k-dimensional disk near our favorite 8. This disk is all ways to manipulate the eight and retain “eightness”. This disk lives in the 784 dimensional space, so thinking of a frisbie doesn’t quite hit the mark. It’s really hard to imagine how small this disk is.</p>
+
+<p>So, an 8 has a local set of other, valid 8s, near it that looks like a 7 to 10 dimensional disk in $\mathbb{R}^{784}$. These glue together to define a surface of eightness, called a manifold, and mathematicians like to say that “eightness” is a low dimensional manifold embedded in $\mathbb{R}^{784}$. This can knot in on itself, and generally be a mess to work with and visualize (this is what tSNE and spectral embeddings try to solve). This manifold has no volume in $\mathbb{R}^{784}$, just like a line doesn’t have volume in $\mathbb{R}^{2}$ or $\mathbb{R}^{3}$. From a mathematician’s perspective this manifold is a nice smooth set and is identified with “eightness”. We say that the dataset of about 5000 eights is sampled from this manifold, with noise. We hope that our model learns to distinguish between this and other manifolds that represent “oneness”, “twoness” and so on.</p>
+
+<p>The data set is sampled from human drawn eights and is nice and clean. What, traditionally, wasn’t done, was to manipulate the just the top left pixel. This has nothing to do with “eightness” to humans, but the ML system doesn’t “think” like us. To account for this we should throw in even more generated examples where we add random noise to each element of our training set. We know that adversarial examples are close to our image. How many extra generated samples would we need?</p>
+
+<p>Our images lie in 784 dimensional space, but they are only encoded, per pixel, by 8 bits. Suppose we just wanted to 100% guarantee protection against least significant bit twiddling. We can flip the least significant bit of all 784 dimensions, giving us $\mathbb{2}^{784}$ combinations! There is no way to test even a decent fraction of these. This is the essence of the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>. Even if we add many thousands of points uniformly sampled from this space to each of our dataset we wouldn’t be able to guarantee protection. To train these models perfectly would be like cracking thousands of completely random 20 character passwords. The high dimensional nature of our data is where the</p>
+
+<p>From the literature it seems that the adversarial examples might form their own <a href="https://openreview.net/pdf?id=B1gJ1L2aW">subspace</a>. Say we have an adversarial area close by that is inherently 20 dimensional. This is just like the the local eight-space described above, but comes about from the model, not the data. Because we needed much more data than we could possibly generate there are areas where the machine learning model was not trained to handle. We would like the ML model to generalize to these areas, but if you go off in specific weird directions the models seem to break.</p>
+
+<p>It’s basically impossible to visualize how these low dimensional spaces look, but think of the 20 adversarial directions as $2^{20}$ “bad” combinations in the above combinatorial example. So the chance of hitting a bad combination is $\frac{2^{20}}{2^{784}} = 2^{-764}$, or basically 0. The probability of randomly hitting these is incredibly low, but there are many adversarial generation techniques that could unveil them to an attacker. You don’t know what technique will be used to generate the adversarial sample and you don’t know if they have a new one that you don’t know about. So, the challenge is to train a deep learning system that doesn’t have any adversarial examples close to good data.</p>
+
+<h2 id="work-around">Work Around?</h2>
+
+<p>We have techniques to generate adversarial examples, so why don’t we generate them and add them to the training set? This is the core idea of adversarial training, first tried <a href="https://arxiv.org/abs/1412.6572">here</a>. Goodfellow, Shlens and Szegedy used a fast means of generating adversarial examples to augment the data set, the Fast Gradient Sign Method (FGSM), to augment the dataset. This ought to fix the model slowly by removing adversarial directions from the model. This, however is not what happens. The model learns to artificially create a steep gradient in a non-adversarial direction (<a href="https://arxiv.org/abs/1705.07204">see the ensemble paper</a>). This leads the FGSM to jump in a safe direction and not an adversarial direction. Thus all this training technique accomplishes is training the neural network to mask it’s gradient. This is easy for it to do as it’s usually heavily over parameterized. The ensemble paper also outlines a defense where you trade off the attacks between many models. This seems to work, but the result may be susceptible to non-traditional adversarial attacks.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>To properly defend from adversarial attacks in all forms, not just the strict mathematical definition, is probably going to require some major changes to deep learning (and other forms of machine learning). This is probably the most interesting field to work in as it’s at the heart of why deep learning works. It also has major implications for security applications of deep learning, malware signatures will probably be replaced by deep learning models. The cat and mouse game of bypassing virus scanners will eventually be a question of the security of your model against adversarial examples.</p>
+
+  </article>
+
+  <br/>
+
+  
+  
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    <a href="https://twitter.com/aivillage_dc">TWITTER</a> | <a href="https://t.co/Tcqv22XI8i">SLACK</a> | <a href="https://github.com/aivillage">GITHUB</a>
+  </section>
+</footer>
+
+    </main>
+
+  </body>
+
+</html>

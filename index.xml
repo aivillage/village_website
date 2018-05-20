@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://aivillage.org/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 11 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aivillage.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DEFCON China BETA 2018</title>
+      <link>https://aivillage.org/events/china2018/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/events/china2018/</guid>
+      <description>Time 12 May (Sat) 13 May (Sun)     1000 Village Exhibits Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs - F1F1cin   1100 StuxNNet: Practical Live Memory Attacks on Machine Learning Systems - Raphael Norwitz Scrutinizing the Weakness and Strength of AI Systems - Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo   1200 Machine learning model hardening for fun and profit - Ariel Herbert-Voss StuxNNet: Practical Live Memory Attacks on Machine Learning Systems - Raphael Norwitz   1300 AI vs AI: Undercover the Billions of Black Market in e-Commerce - Dr Bin Zhao, Jin Yang Facilitating Postmortem Program Analysis with Deep Learning - Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo   1400 WORKSHOP: Pwning Machine Learning Systems - Clarence Chio Closing   1700 Village Exhibits -    Abstracts StuxNNet: Practical Live Memory Attacks on Machine Learning Systems Like all software systems, the execution of machine learning models is dictated by logic represented as data in memory.</description>
+    </item>
+    
+    <item>
+      <title>Dimensionality and Adversarial Examples</title>
+      <link>https://aivillage.org/posts/dimensionality-and-adversarial/</link>
+      <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/dimensionality-and-adversarial/</guid>
+      <description>Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.</description>
+    </item>
+    
+    <item>
+      <title>About the AI Village</title>
+      <link>https://aivillage.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/about/</guid>
+      <description>The AI Village is a community of hackers and data scientists working to educate the world on the use and abuse of artificial intelligence in security and privacy. We are a part of DEF CON, the world&amp;rsquo;s longest running and largest underground hacking conference.</description>
+    </item>
+    
+    <item>
+      <title>Code of Conduct</title>
+      <link>https://aivillage.org/code-of-conduct/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/code-of-conduct/</guid>
+      <description>All delegates, speakers, sponsors and volunteers at AI Village are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
+THE QUICK VERSION AI Village is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of participants in any form.</description>
+    </item>
+    
+    <item>
+      <title>TEAM</title>
+      <link>https://aivillage.org/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/team/</guid>
+      <description>Coming soon</description>
+    </item>
+    
+  </channel>
+</rss>
