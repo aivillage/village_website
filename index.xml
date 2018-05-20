@@ -26,7 +26,7 @@
       <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/posts/dimensionality-and-adversarial/</guid>
-      <description>Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.</description>
+      <description>contributed by comath Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.</description>
     </item>
     
     <item>
@@ -35,7 +35,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/about/</guid>
-      <description>The AI Village is a community of hackers and data scientists working to educate the world on the use and abuse of artificial intelligence in security and privacy. We are a part of DEF CON, the world&amp;rsquo;s longest running and largest underground hacking conference.</description>
+      <description>The AI Village is a community of hackers and data scientists working to educate the world on the use and abuse of artificial intelligence in security and privacy.
+We have a presence at DEF CON, the world&amp;rsquo;s longest running and largest underground hacking conference.</description>
     </item>
     
     <item>
@@ -45,7 +46,7 @@
       
       <guid>https://aivillage.org/code-of-conduct/</guid>
       <description>All delegates, speakers, sponsors and volunteers at AI Village are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
-THE QUICK VERSION AI Village is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of participants in any form.</description>
+THE SHORT VERSION AI Village is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of participants in any form.</description>
     </item>
     
     <item>
@@ -54,7 +55,8 @@ THE QUICK VERSION AI Village is dedicated to providing a harassment-free experie
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/team/</guid>
-      <description>Coming soon</description>
+      <description> Join us on our Slack channel (invitation)
+CFP Review Board  @ak1010 @alexcpsec @filar @gradient_janitor @phtully @redragonvn @SaraTerp @Straithe @DavidFreeman  Core  @_delta_zero @bwall @cchio @comath @filar @selena  Speakers DEFCON CHINA BETA (11-13 May 2018)  @adversariel @BinZhao @cchio @F1F1cin @raphael_norwitz @WenboGuo  </description>
     </item>
     
   </channel>
