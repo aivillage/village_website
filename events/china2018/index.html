@@ -63,11 +63,24 @@
       <li class="navigation-item">
         <a class="navigation-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfDzURLjTMoSvjWYDinEu9n1sNc5HOBGWjU5UAzL-aNSjkwjA/viewform" target="_blank" style="color:red;">CFP</a>
       </li>
+      <span class="burger" href="javascript:void(0);" onclick="toggleBurger()">
+        &#x25BC;
+      </span>
     </ul>
     
   </section>
 </nav>
 
+<script type="text/javascript">
+  function toggleBurger() {
+    var x = document.getElementsByClassName("navigation")[0];
+    if (x.className === "navigation") {
+      x.className += " responsive";
+    } else {
+      x.className = "navigation";
+    }
+  }
+</script>
 
       <div class="content">
         
@@ -193,6 +206,8 @@
 
 <h3 id="scrutinizing-the-weakness-and-strength-of-ai-systems">Scrutinizing the Weakness and Strength of AI Systems</h3>
 
+<p><a href="material/cn18-guo/slides1.pdf">slides</a></p>
+
 <p>Simpler machine learning (ML) methods like decision tree and K-nearest neighbor have limited classification capability but provide better transparency. As a result, they can provide end users with an explanation of individual decisions and even allow them to scrutinize model strengths and weaknesses.</p>
 
 <p>In comparison with those simple learning techniques above, complex learning models (e.g., deep neural networks) typically exhibit tremendous improvement in classification performance. However, they are almost completely opaque, even to the engineers that build them. Presumably as such, they have not yet been widely adopted in critical problem domains, such as defending against cyber attacks, diagnosing deadly diseases and making million-dollar trading decisions.</p>
@@ -210,6 +225,8 @@
 <hr />
 
 <h3 id="facilitating-postmortem-program-analysis-with-deep-learning">Facilitating Postmortem Program Analysis with Deep Learning</h3>
+
+<p><a href="material/cn18-guo/slides2.pdf">slides</a></p>
 
 <p>In many postmortem program analysis tasks, a security analyst is forced to track down the root cause of a software crash at the binary level without the source code at hand. To do that, the analyst typically needs to analyze a crash dump, identify the execution path leading to the crash, and perform data flow analysis against the identified path. Since data flow analysis requires the support of points-to analysis, the effectiveness of the postmortem program analysis heavily relies upon the capability of distinguishing memory alias.</p>
 

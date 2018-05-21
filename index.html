@@ -61,11 +61,24 @@
       <li class="navigation-item">
         <a class="navigation-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfDzURLjTMoSvjWYDinEu9n1sNc5HOBGWjU5UAzL-aNSjkwjA/viewform" target="_blank" style="color:red;">CFP</a>
       </li>
+      <span class="burger" href="javascript:void(0);" onclick="toggleBurger()">
+        &#x25BC;
+      </span>
     </ul>
     
   </section>
 </nav>
 
+<script type="text/javascript">
+  function toggleBurger() {
+    var x = document.getElementsByClassName("navigation")[0];
+    if (x.className === "navigation") {
+      x.className += " responsive";
+    } else {
+      x.className = "navigation";
+    }
+  }
+</script>
 
       <div class="content">
         
@@ -77,6 +90,10 @@
   </div>
   <span id="typed"></span>
 </section>
+
+<div class="announcements">
+  <h3>Announcements</h3>
+</div>
 
 <script type="text/javascript">
   var typed = new Typed("#typed-msg", {
