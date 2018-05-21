@@ -65,6 +65,7 @@ Starting with a short analysis on the current state of ML-related security, rang
 ---
 
 ### Scrutinizing the Weakness and Strength of AI Systems
+[slides](material/cn18-guo/slides1.pdf)
 
 Simpler machine learning (ML) methods like decision tree and K-nearest neighbor have limited classification capability but provide better transparency. As a result, they can provide end users with an explanation of individual decisions and even allow them to scrutinize model strengths and weaknesses.
 
@@ -83,6 +84,7 @@ In this talk, my colleague and I will introduce a series of techniques that can 
 ---
 
 ### Facilitating Postmortem Program Analysis with Deep Learning
+[slides](material/cn18-guo/slides2.pdf)
 
 In many postmortem program analysis tasks, a security analyst is forced to track down the root cause of a software crash at the binary level without the source code at hand. To do that, the analyst typically needs to analyze a crash dump, identify the execution path leading to the crash, and perform data flow analysis against the identified path. Since data flow analysis requires the support of points-to analysis, the effectiveness of the postmortem program analysis heavily relies upon the capability of distinguishing memory alias.
 
