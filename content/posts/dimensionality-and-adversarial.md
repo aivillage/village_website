@@ -1,12 +1,10 @@
 +++
 date = "2018-05-09"
 title = "Dimensionality and Adversarial Examples"
-writer = "comath"
-writerUrl = "https://comath.github.io/"
+author = "comath"
+authorUrl = "https://comath.github.io/"
 math = "true"
 +++
-
-<div style="text-align: right">contributed by <a href="https://comath.github.io/" target="_blank">comath</a></div>
 
 Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.
 

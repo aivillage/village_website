@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf public/*
 cd themes/hugo-coder
 make
 cd ../..
@@ -12,3 +13,4 @@ git add .
 git commit -m "new deployment"
 git push
 cd ../code
+git pull
