@@ -19,6 +19,7 @@ Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https
 
 ## Core
 * [@_delta_zero](https://twitter.com/_delta_zero)
+* [@adversariel](https://twitter.com/adversariel)
 * [@bwall](https://twitter.com/botnet_hunter)
 * [@cchio](https://twitter.com/cchio)
 * [@comath](https://twitter.com/comathematician)
