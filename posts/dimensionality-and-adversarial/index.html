@@ -129,7 +129,7 @@
 
 <p>This mathematical definition is inadequate to cover everything we’d like to call an adversarial example. It doesn’t cover per-pixel classification or segmentation and most NLP situations. However, much of the literature is focused on this mathematical definition. The definition will look familiar to all former calculus students, it is based on the idea of continuity and it relates adversarial examples to discontinuities. Most machine learning systems are continuous (specifically, almost differentiable) by construction, so them showing discontinuous behavior is alarming. It’s not that the math is wrong, it’s just that these systems are demonstrating something related to <a href="https://en.wikipedia.org/wiki/Chaos_theory">chaos</a>. It’s not the same, but to explain why and why it’s likely intractable, we have to make sense of the curse of dimensionality.</p>
 
-<h2 id="the-curse-of-dimensionality">The Curse of Dimensionality</h2>
+<h2 id="the-shape-of-data">The Shape of Data</h2>
 
 <p>For MNIST, the images lie in 784 dimensional space, one dimension per pixel. These dimensions have some spatial relation to each other, we like to think of them as a grid. This spatial relationship is important to some machine learning models, like convolutional layers. For us, we will largely ignore the spatial relations when constructing adversarial examples.</p>
 
@@ -138,6 +138,14 @@
 <p>Locally to our chosen eight there may be 7 to 10 directions to manipulate it and keep the inherent “eightness”, without doing something outside of what we’d call obvious. These can be combined, so there’s actually many more than just 10 ways to change it in the direction of “eightness”. It’s just that these are combinations of the 7 to 10 inherent ways. This forms a little k-dimensional disk near our favorite 8. This disk is all ways to manipulate the eight and retain “eightness”. This disk lives in the 784 dimensional space, so thinking of a frisbie doesn’t quite hit the mark. It’s really hard to imagine how small this disk is.</p>
 
 <p>So, an 8 has a local set of other, valid 8s, near it that looks like a 7 to 10 dimensional disk in $\mathbb{R}^{784}$. These glue together to define a surface of eightness, called a manifold, and mathematicians like to say that “eightness” is a low dimensional manifold embedded in $\mathbb{R}^{784}$. This can knot in on itself, and generally be a mess to work with and visualize (this is what tSNE and spectral embeddings try to solve). This manifold has no volume in $\mathbb{R}^{784}$, just like a line doesn’t have volume in $\mathbb{R}^{2}$ or $\mathbb{R}^{3}$. From a mathematician’s perspective this manifold is a nice smooth set and is identified with “eightness”. We say that the dataset of about 5000 eights is sampled from this manifold, with noise. We hope that our model learns to distinguish between this and other manifolds that represent “oneness”, “twoness” and so on.</p>
+
+<h2 id="point-cloud-of-a-torus">Point cloud of a torus</h2>
+
+<iframe src="../material/dimensionality_pointcloud.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
+
+<p>In the above example we&rsquo;ve sampled our data from a torus with relatively little noise. This is a 2 dimensional surface embedded in 3 dimensions. So, locally we have 2 degrees of freedom to manipulate, giving us a 2 dimensional disk around our chosen point. If you hide the main torus you can see the little area around the disk approximates a plane, it&rsquo;s pretty flat. What we can do to figure out the disk associated to the point is a local principal component analysis. That is we do a PCA on the nearest few hundred points. This will tell us which directions the local neighborhood varies most in.</p>
+
+<h2 id="the-curse-of-dimensionality">The Curse of Dimensionality</h2>
 
 <p>The data set is sampled from human drawn eights and is nice and clean. What, traditionally, wasn’t done, was to manipulate the just the top left pixel. This has nothing to do with “eightness” to humans, but the ML system doesn’t “think” like us. To account for this we should throw in even more generated examples where we add random noise to each element of our training set. We know that adversarial examples are close to our image. How many extra generated samples would we need?</p>
 
