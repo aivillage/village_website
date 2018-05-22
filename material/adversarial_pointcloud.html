@@ -40,43 +40,69 @@
 				var particles_torus = new THREE.Points( geometry_torus, material );
 				return particles_torus;
 			}
-			var particles_green_torus = makePointCloud(1,0.4,0.2,15000,0x00aa00) 
-			var particles_blue_torus = makePointCloud(1,0.4,0.2,15000,0x0000ff) 
-			particles_blue_torus.position.x = 0.5
-			particles_green_torus.position.x = -0.5
+			var particles_green_torus = makePointCloud(1,0.4,0.2,15000,0x00aa00);
+			var particles_blue_torus = makePointCloud(1,0.4,0.2,15000,0x0000ff);
+			particles_blue_torus.position.x = 0.5;
+			particles_green_torus.position.x = -0.5;
 			particles_blue_torus.rotation.x = 0.5 * Math.PI;
 
 			scene.add( particles_green_torus );
-			scene.add( particles_blue_torus );
-			
-			
-			function makeAdversarialPointCloud(majorR,minorR,noise,numPoints,torusColor) {
-				var geometry_cone = new THREE.BufferGeometry();
-				var vertices_torus = [];
-				for ( var i = 0; i < numPoints; i ++ ) {
-					var theta = 2*Math.PI * Math.random();
-					var phi = 2*Math.PI * Math.random();
-					var x = (majorR + minorR*Math.cos(theta))*Math.cos(phi) + noise*Math.random();
-					var y = (majorR + minorR*Math.cos(theta))*Math.sin(phi) + noise*Math.random();
-					var z = minorR*Math.sin(theta) + noise*Math.random();
-					vertices_torus.push( x, y, z );
+			var showing_green_torus = true;
+			function hideGreenTorus(event) {
+				if (showing_green_torus) {
+					scene.remove( particles_green_torus );
+					showing_green_torus = false;
+				} else {
+					scene.add( particles_green_torus );
+					showing_green_torus = true;
 				}
-				geometry_cone.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices_torus, 3 ) );
-				material = new THREE.PointsMaterial( { color:torusColor, size: 0.5, sizeAttenuation: false,  alphaTest: 0.5} );
+			}
+			scene.add( particles_blue_torus );
+			var showing_blue_torus = true;
+			function hideBlueTorus(event) {
+				if (showing_blue_torus) {
+					scene.remove( particles_blue_torus );
+					showing_blue_torus = false;
+				} else {
+					scene.add( particles_blue_torus );
+					showing_blue_torus = true;
+				}
+			}
+			
+			
+			function makeAdversarialPointCloud(x,y,z,l,o,noise,numPoints,adversarialColor) {
+				var geometry_cone = new THREE.BufferGeometry();
+				var vertices_cone = [];
+				for ( var i = 0; i < numPoints; i ++ ) {
+					var t = (l) * Math.random();
+					var x_noise = noise*Math.random();
+					var y_noise = noise*Math.random();
+					var z_noise = noise*Math.random();
+					vertices_cone.push( x*(t + o) + x_noise, y*(t + o) + y_noise, z*(t + o) + z_noise );
+				}
+				geometry_cone.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices_cone, 3 ) );
+				material = new THREE.PointsMaterial( { color:adversarialColor, size: 0.5, sizeAttenuation: false,  alphaTest: 0.5} );
 				var particles_torus = new THREE.Points( geometry_cone, material );
 				return particles_torus;
 			}
+			var particles_adversarial = makeAdversarialPointCloud(1,-1,1,0.2,0,0.05,100,0xaa0000);
+			particles_adversarial.position.x = -1.275 - 0.5;
+			particles_adversarial.position.y = 1.275;
+			particles_adversarial.position.z = -0.2;
 
-			var showing_torus = true;
-			function hideTorus(event) {
-				if (showing_torus) {
-					scene.remove( particles_green_torus );
-					showing_torus = false;
-				} else {
-					scene.add( particles_green_torus );
-					showing_torus = true;
-				}
-			}
+			scene.add( particles_adversarial );
+
+			var geometry_disk = new THREE.CircleGeometry( 0.1, 15 );
+			var material_disk = new THREE.MeshBasicMaterial( {color:0x00aa00});
+			material_disk.side = THREE.DoubleSide;
+			var local_disk = new THREE.Mesh( geometry_disk, material_disk );
+			local_disk.position.x = (1.5)*Math.cos(0.75*Math.PI) - 0.5;
+			local_disk.position.y = (1.5)*Math.sin(0.75*Math.PI);
+			local_disk.rotation.x = 0.25 * Math.PI;
+			local_disk.rotation.y = 0.25 * Math.PI;
+			//local_disk.rotation.z = 0.5 * 2 * Math.PI;
+			scene.add( local_disk );
+
 
 
 			var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -104,8 +130,8 @@
 			}
 			animate();
 		</script>
-		<button style="top:0" id="main_pointcloud" onclick="hideTorus()">Hide Main Torus</button>
-		<button style="top:0" id="local_disk" onclick="hideDisk()">Hide Disk</button>
+		<button style="top:0" id="hideGreen" onclick="hideGreenTorus()">Hide Green Torus</button>
+		<button style="top:0" id="hideBlue" onclick="hideBlueTorus()">Hide Blue Torus</button>
 		</div>
 	</body>
 </html>

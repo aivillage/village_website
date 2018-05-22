@@ -139,7 +139,7 @@
 
 <p>So, an 8 has a local set of other, valid 8s, near it that looks like a 7 to 10 dimensional disk in $\mathbb{R}^{784}$. These glue together to define a surface of eightness, called a manifold, and mathematicians like to say that “eightness” is a low dimensional manifold embedded in $\mathbb{R}^{784}$. This can knot in on itself, and generally be a mess to work with and visualize (this is what tSNE and spectral embeddings try to solve). This manifold has no volume in $\mathbb{R}^{784}$, just like a line doesn’t have volume in $\mathbb{R}^{2}$ or $\mathbb{R}^{3}$. From a mathematician’s perspective this manifold is a nice smooth set and is identified with “eightness”. We say that the dataset of about 5000 eights is sampled from this manifold, with noise. We hope that our model learns to distinguish between this and other manifolds that represent “oneness”, “twoness” and so on.</p>
 
-<h2 id="point-cloud-of-a-torus">Point cloud of a torus</h2>
+<h3 id="toroidal-example">Toroidal Example</h3>
 
 <iframe src="../material/dimensionality_pointcloud.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
 
@@ -154,6 +154,12 @@
 <p>From the literature it seems that the adversarial examples might form their own <a href="https://openreview.net/pdf?id=B1gJ1L2aW">subspace</a>. Say we have an adversarial area close by that is inherently 20 dimensional. This is just like the the local eight-space described above, but comes about from the model, not the data. Because we needed much more data than we could possibly generate there are areas where the machine learning model was not trained to handle. We would like the ML model to generalize to these areas, but if you go off in specific weird directions the models seem to break.</p>
 
 <p>It’s basically impossible to visualize how these low dimensional spaces look, but think of the 20 adversarial directions as $2^{20}$ “bad” combinations in the above combinatorial example. So the chance of hitting a bad combination is $\frac{2^{20}}{2^{784}} = 2^{-764}$, or basically 0. The probability of randomly hitting these is incredibly low, but there are many adversarial generation techniques that could unveil them to an attacker. You don’t know what technique will be used to generate the adversarial sample and you don’t know if they have a new one that you don’t know about. So, the challenge is to train a deep learning system that doesn’t have any adversarial examples close to good data.</p>
+
+<h3 id="another-toroidal-example">Another Toroidal Example</h3>
+
+<iframe src="../material/adversarial_pointcloud.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
+
+<p>This time if we look at a low dimensional example where we have 2 point clouds for 2 classes, a green class and a blue class. These two point clouds are all that the classifier ever saw while training. We&rsquo;d hope that the classifier learns two tori, but that&rsquo;s not what happens. Even in perfect <a href="https://arxiv.org/abs/1801.02774">conditions</a> the classifiers we use just don&rsquo;t pay attention to the shape of the data very well. The adversarial examples (in red) near the point we&rsquo;re interested in (indicated by the disk) form a 1 dimensional line, with a bit of noise. This could have been caused by many different artifacts in the interaction between the data and the classifier. Since there&rsquo;s no data sampled from this area for training, there&rsquo;s noting to correct the classifier when we input them.</p>
 
 <h2 id="work-around">Work Around?</h2>
 
