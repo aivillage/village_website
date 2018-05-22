@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 11 May 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aivillage.org/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://aivillage.org/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>DEFCON China BETA 2018</title>
@@ -15,152 +17,7 @@
       <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/events/china2018/</guid>
-      <description>
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;center&#34;&gt;Time&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;12 May (Sat)&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;13 May (Sun)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;1000&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Village Exhibits&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs &lt;br/&gt;- F1F1cin&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;1100&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;StuxNNet: Practical Live Memory Attacks on Machine Learning Systems &lt;br/&gt;- Raphael Norwitz&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Scrutinizing the Weakness and Strength of AI Systems &lt;br/&gt;- Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;1200&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Machine learning model hardening for fun and profit &lt;br/&gt;- Ariel Herbert-Voss&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;StuxNNet: Practical Live Memory Attacks on Machine Learning Systems &lt;br/&gt;- Raphael Norwitz&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;1300&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;AI vs AI: Undercover the Billions of Black Market in e-Commerce &lt;br/&gt;- Dr Bin Zhao, Jin Yang&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Facilitating Postmortem Program Analysis with Deep Learning &lt;br/&gt;- Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;1400&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;WORKSHOP: Pwning Machine Learning Systems &lt;br/&gt;- Clarence Chio&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Closing&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;center&#34;&gt;1700&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;Village Exhibits&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&#34;abstracts:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Abstracts&lt;/h1&gt;
-
-&lt;h3 id=&#34;stuxnnet-practical-live-memory-attacks-on-machine-learning-systems:48d3d3add5a3adeee88a956426a5e059&#34;&gt;StuxNNet: Practical Live Memory Attacks on Machine Learning Systems&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;material/cn18-norwitz/slides.pdf&#34;&gt;slides&lt;/a&gt;, &lt;a href=&#34;material/cn18-norwitz/pdf_naieve.mp4&#34;&gt;video 1&lt;/a&gt;, &lt;a href=&#34;material/cn18-norwitz/pdf_trojan.mp4&#34;&gt;video 2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Like all software systems, the execution of machine learning models is dictated by logic represented as data in memory. Unlike traditional software, machine learning systems&amp;rsquo; behavior depends less on precise machine opcodes and more on weight vectors and bias parameters. In terms of possible threat models this makes a huge difference: an attacker cannot arbitrarily perturb the program code of a typical executable and have it run error free, however these weight and bias values can be scrambled arbitrarily without any risk of causing a crash. With selective retraining and backpropagation, we demonstrate how one can easily retrain networks to behave completely differently or respond predictably to certain triggers. Thus an attacker looking to compromise an ML system can simply patch these values in live memory, thereby taking control of system with minimal risk of system malfunctions or other detectable side-effects. In this talk, we demonstrate proof of concept malware to attack Neural Networks on Windows 7 and discuss different training paradigms we&amp;rsquo;ve used. In particular, we focus on minimizing the size of the patch needed to change the model&amp;rsquo;s behavior to prove an attack with realistic bounds on network communication. We hope that seeing our malware run against various different frameworks - and showcasing devastating potential of a patched network - will provide valuable insight into the mechanisms tomorrow&amp;rsquo;s hackers could use, and spark a discussion around systems level AI security.&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Raphael Norwitz&lt;/strong&gt; is a recent graduate from Columbia University with a BA in Computer Science and MS in Machine Learning, and an incoming engineer on the Acropolis Hypervisor team at Nutanix. He has experience with Linux Kernel development, data science and malware analysis. He has interned at Google, Drawbridge, and Nimbledroid, and has published research with Columbia&amp;rsquo;s Wireless and Mobile Networking lab. For fun, he likes to be outdoors and train Brazilian Ju-Jitsu.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;machine-learning-model-hardening-for-fun-and-profit:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Machine learning model hardening for fun and profit&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;material/cn18-voss/slides.pdf&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Machine learning has been widely and enthusiastically applied to a variety of problems to great success and is increasingly used to develop systems that handle sensitive data - despite having seen that for out-of-the-box applications, determined adversaries can extract the training data set and other sensitive information. Suggested techniques for improving the privacy and security of these systems include differential privacy, homomorphic encryption, and secure multi-party computation. In this talk, we’ll take a look at the modern machine learning pipeline and identify the threat models that are solved using these techniques. We’ll evaluate the possible costs to accuracy and time complexity and present practical application tips for model hardening.&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio-1:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Ariel Herbert-Voss&lt;/strong&gt; is a PhD student at Harvard University, where she specializes in deep learning, cybersecurity, and mathematical optimization. Like many machine learning researchers, she spent plenty of time thinking about deep learning from a computational neuroscience point of view without realizing that skulls make biological neural networks a lot less hackable than artificial ones. Now she thinks about securing deep learning algorithms and offensive applications.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;ai-vs-ai-undercover-the-billions-of-black-market-in-e-commerce:48d3d3add5a3adeee88a956426a5e059&#34;&gt;AI vs AI: Undercover the Billions of Black Market in e-Commerce&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;material/cn18-zhao/slides.pdf&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Black market in e-Commerce is an industry of billions of dollars drawing thousands of scalpers and hackers. Traditionally, this black market is full of manual labor and low technology. The booming development of AI has also seen a vast abuse of AI technologies in this black market. This evolving black market costs billions of losses to e-Commerce companies, like Alibaba and Amazon. It also undermines the reputation of them. How to fight this black market and win back customers? We undercover the industrial chain of this black market and the detailed social division of labor, as well as various advanced tools. We also developed an AI-based defense system to intercept and block the malicious or suspicious transactions. Our evaluation on the system shows that we have lower than 0.5% false positives on malicious or scalping transactions and orders.&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio-2:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Dr. Bin Zhao&lt;/strong&gt; (SOLO PRESENTER) graduated from the Cyber Security Lab at the Pennsylvania State University in 2015. His primary interests are network security, software security, mobile data leakage, and network protocol analysis. After graduating, he worked for Palo Alto Networks and was responsible for the core products Application Identification (AppID) and IPS. As a senior staff engineer, he led the development of SSL-based Clientless VPN. Currently he is working in JD.com Silicon Valley R&amp;amp;D Center as a security architect. He is mainly responsible for anti-leakage on mobile app data and financial information, black market information mining.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Jin Yang&lt;/strong&gt; got her master’s degree from Carnegie Mellon University in 2014. She joined FireEye as a software engineer. She worked on distributed system, developed and tested the Java-based APIs. She developed Python based software infrastructure and components for automatic rule generation. Later she joined Google as a SE and working on the big data platform. She joined JD.com Silicon Valley R&amp;amp;D center in June 2017 and is primarily responsible for scalping order interception.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;workshop-pwning-machine-learning-systems:48d3d3add5a3adeee88a956426a5e059&#34;&gt;WORKSHOP: Pwning Machine Learning Systems&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/r/cchio/dccn18/&#34;&gt;docker container&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Pwning machine learning systems is an offensive-focused workshop that gives attendees a whirlwind introduction to the world of adversarial machine learning. This two-hour workshop will not be your run-of-the-mill introduction to machine learning course, (are you kidding? you can get that from a thousand different places online!) but will focus on hands-on examples, and actually attacking these systems. Every concept covered in this workshop will be backed-up with either a worked example or a challenge activity, with minimal lecturing and maximum &amp;ldquo;doing&amp;rdquo;. By the end of the workshop, students will be able to start pwning machine-learning-powered malware classifiers, intrusion detectors, and WAFs. We will cover two major kinds of attacks on machine learning and deep learning systems - model poisoning and adversarial generation. As a bonus, attendees will emerge from the session with a fully-upgraded machine learning B.S. detector, giving them the ability to call B.S. on any &amp;ldquo;next-generation system&amp;rdquo; that claims to be impenetrable because of machine learning. This is an intermediate technical class suitable for attendees with some ability to read and write basic Python code. To get the most out of this workshop, surface-level understanding of machine learning is good. (be able to give a one-line answer to the question - &amp;ldquo;What is machine learning?&amp;rdquo;)&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio-3:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Clarence Chio&lt;/strong&gt; is an engineer and entrepreneur who has given talks, workshops, and trainings on machine learning and security at DEF CON, BLACK HAT, and other security/software engineering conferences/meetups across more than a dozen countries. He is a co-author of the new O&amp;rsquo;Reilly Book &amp;ldquo;Machine Learning &amp;amp; Security: Protecting Systems with Data and Algorithms&amp;rdquo;. He was previously a member of the security research team at Shape Security, a community speaker with Intel, and a security consultant for Oracle. Clarence advises a handful of startups on security data science, and is the founder and organizer of the “Data Mining for Cyber Security” meetup group, the largest gathering of security data scientists in the San Francisco Bay Area. He holds a B.S. and M.S. in Computer Science from Stanford University, specializing in data mining and artificial intelligence.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;machine-learning-as-a-tool-for-societal-exploitation-a-summary-on-the-current-and-future-state-of-affairs:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs&lt;/h3&gt;
-
-&lt;p&gt;Starting with a short analysis on the current state of ML-related security, ranging from location mapping through ambient sounds to Quantum Black&amp;rsquo;s sports-related work and various endpoint detection systems in different states of development, we move towards discussion on the adoption of machine learning to escalate cyber warfare. We end with the concept of &amp;lsquo;tricking&amp;rsquo; machine learning software in order to lessen its impact on actors regardless of their affiliation and show a simple instance of the effect this &amp;lsquo;tricking&amp;rsquo; can have on human profiling (such as that done by the advertising giants).&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio-4:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;F1F1cin&lt;/strong&gt; is a computer science student and researcher at Columbia University who definitely does (not) suffer from an unhealthy malware obsession. You can usually find F1F1cin strolling in the land of VirusBay, where this interest has been continuously fed, placing F1F1cin among the top contributors of the platform. Their interest in cyberwarfare and societal policy was initiated by S. Bellovin through his Computers and Society course at the university. This talk is fairly out of the ordinary for F1F1cin, but that&amp;rsquo;s okay. (We will soon be dealing with human-targeted malware anyway.)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;scrutinizing-the-weakness-and-strength-of-ai-systems:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Scrutinizing the Weakness and Strength of AI Systems&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;material/cn18-guo/slides1.pdf&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Simpler machine learning (ML) methods like decision tree and K-nearest neighbor have limited classification capability but provide better transparency. As a result, they can provide end users with an explanation of individual decisions and even allow them to scrutinize model strengths and weaknesses.&lt;/p&gt;
-
-&lt;p&gt;In comparison with those simple learning techniques above, complex learning models (e.g., deep neural networks) typically exhibit tremendous improvement in classification performance. However, they are almost completely opaque, even to the engineers that build them. Presumably as such, they have not yet been widely adopted in critical problem domains, such as defending against cyber attacks, diagnosing deadly diseases and making million-dollar trading decisions.&lt;/p&gt;
-
-&lt;p&gt;In this talk, my colleague and I will introduce a series of techniques that can yield explanations for the individual decision of a machine learning model and, more importantly, facilitate one to scrutinize a model&amp;rsquo;s overall strengths and weaknesses. We will demonstrate how we could potentially utilize these techniques to examine and patch the weakness of our machine learning products.&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio-5:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Wenbo Guo&lt;/strong&gt; (SOLO PRESENTER) is a Ph.D. student in the College of information Science and Technology at Pennsylvania State University. Currently, he is a research intern at JD security research center in Silicon Valley. Before joining the Penn State, he got his Master degree from Shanghai Jiao Tong University in 2017. His research mainly focuses on deep learning as well as its applications in program analysis and security. More specifically, He specializes in interpreting and scrutinizing deep learning models and designing novel deep learning models for binary and malware analysis. He has published several research papers in the high quality journals and conferences, including the top-tier conference in data mining: ACM SIGKDD Conference on Knowledge Discovery and Data Mining.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dr. Jimmy Su&lt;/strong&gt; leads the JD security research center in Silicon Valley. He joined JD in January 2017. Before joining JD, he was the director of advanced threat research at FireEye Labs. He led the research and development of multiple world leading security products at FireEye, including network security, email security, mobile security, fraud detection, and end-point security. He led a global team including members from the United States, Pakistan, and Singapore from research to product releases on the FireEye&amp;rsquo;s first machine learning based malware similarity analysis Cloud platform. This key technology advance was released on all core FireEye products including network security, email security, and mobile security. He won the Q2 2016 FireEye innovation award for his seminal work on similarity analysis. He earned his PhD degree in Computer Science at the University of California, Berkeley in 2010. After his graduation, he joined Professor Dawn Song&amp;rsquo;s team as a post doc focusing on similarity analysis of x86 and Android applications. In 2011, he joined Professor Song in the mobile security startup Ensighta, leading the research and development of the automatic malware analysis platform. Ensighta was acquired by FireEye in December of 2012. He joined FireEye through the acquisition. JD security research center in Silicon Valley focuses on these seven areas: account security, APT detection, bot detection, data security, AI applications in security, Big Data applications in security, and IoT security.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dr. Xinyu Xing&lt;/strong&gt; is an Assistant Professor at the Pennsylvania State University. Currently, he is a visiting professor at JD security research center in Silicon Valley. His research interest includes exploring, designing and developing tools to automate vulnerability discovery, failure reproduction, vulnerability diagnosis (and triage), exploit and security patch generation. Recently, he is also interested in developing deep learning techniques to perform highly accurate binary and malware analysis. His past research has been featured by many mainstream medium, such as Technology Review, New Scientists and NYTimes etc. He was also the organizer of NSA memory corruption forensics competition.​&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;facilitating-postmortem-program-analysis-with-deep-learning:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Facilitating Postmortem Program Analysis with Deep Learning&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;material/cn18-guo/slides2.pdf&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In many postmortem program analysis tasks, a security analyst is forced to track down the root cause of a software crash at the binary level without the source code at hand. To do that, the analyst typically needs to analyze a crash dump, identify the execution path leading to the crash, and perform data flow analysis against the identified path. Since data flow analysis requires the support of points-to analysis, the effectiveness of the postmortem program analysis heavily relies upon the capability of distinguishing memory alias.&lt;/p&gt;
-
-&lt;p&gt;To address this issue, value-set analysis techniques are typically used. However, they are unsatisfactory for alias analysis particularly in the context of software failure diagnosis. In this talk, my colleague and I will introduce a recurrent neural network architecture to enhance the capability of memory alias analysis, especially in the context of software failure diagnosis. Along with this talk, we will demonstrate our neural network can significantly improve value-set analysis with respect to its capability in analyzing memory aliases and, more importantly, escalate the capability of a security analyst in tracking down the root cause of software failure.&lt;/p&gt;
-
-&lt;h4 id=&#34;speaker-bio-6:48d3d3add5a3adeee88a956426a5e059&#34;&gt;Speaker Bio&lt;/h4&gt;
-
-&lt;p&gt;See above&lt;/p&gt;
-</description>
+      <description>Time 12 May (Sat) 13 May (Sun)     1000 Village Exhibits Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs - F1F1cin   1100 StuxNNet: Practical Live Memory Attacks on Machine Learning Systems - Raphael Norwitz Scrutinizing the Weakness and Strength of AI Systems - Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo   1200 Machine learning model hardening for fun and profit - Ariel Herbert-Voss StuxNNet: Practical Live Memory Attacks on Machine Learning Systems - Raphael Norwitz   1300 AI vs AI: Undercover the Billions of Black Market in e-Commerce - Dr Bin Zhao, Jin Yang Facilitating Postmortem Program Analysis with Deep Learning - Dr Xinyu Xing, Dr Jimmy Su, Wenbo Guo   1400 WORKSHOP: Pwning Machine Learning Systems - Clarence Chio Closing   1700 Village Exhibits -    Abstracts StuxNNet: Practical Live Memory Attacks on Machine Learning Systems slides, video 1, video 2</description>
     </item>
     
     <item>
@@ -169,45 +26,7 @@
       <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/posts/dimensionality-and-adversarial/</guid>
-      <description>
-
-&lt;p&gt;Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.&lt;/p&gt;
-
-&lt;h2 id=&#34;introduction:7b359b3400b08d59908e70a8f6dc41aa&#34;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;Adversarial examples are minor modifications made to a piece of data such that when it’s feed into a machine learning model it incorrectly handles the data. This might be a problem in self driving cars. Someone who disliked self driving trucks could release a large adversarial bumper sticker that confused the vision system and leads to self driving trucks crashing. This is also a problem in malware detection, trivial modifications to the raw bytes of a malware file, like changing the header, could lead to a deep learning system misclassifying the malware sample as benign. Providing a proper defense is crucial for a safe deployment of machine learning in our lives. We define it mathematically as:&lt;/p&gt;
-
-&lt;p&gt;Definition: Let $f: \mathbb{R}^N \to {L_1,L_2, \dots L_n}$ be a function whose range is a discrete set of labels, let $x$ such that $f(x) = L_i$, and let $\hat{x}$ such that $% &amp;lt;![CDATA[
-\lVert x-\hat{x} \rVert_p &amp;lt; \epsilon %]]&amp;gt;$ such that $f(\hat{x}) = L_j$ and $i \neq j$. Then $\hat{x}$ is an adversarial example with threshold $\epsilon$.&lt;/p&gt;
-
-&lt;p&gt;This mathematical definition is inadequate to cover everything we’d like to call an adversarial example. It doesn’t cover per-pixel classification or segmentation and most NLP situations. However, much of the literature is focused on this mathematical definition. The definition will look familiar to all former calculus students, it is based on the idea of continuity and it relates adversarial examples to discontinuities. Most machine learning systems are continuous (specifically, almost differentiable) by construction, so them showing discontinuous behavior is alarming. It’s not that the math is wrong, it’s just that these systems are demonstrating something related to &lt;a href=&#34;https://en.wikipedia.org/wiki/Chaos_theory&#34;&gt;chaos&lt;/a&gt;. It’s not the same, but to explain why and why it’s likely intractable, we have to make sense of the curse of dimensionality.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-curse-of-dimensionality:7b359b3400b08d59908e70a8f6dc41aa&#34;&gt;The Curse of Dimensionality&lt;/h2&gt;
-
-&lt;p&gt;For MNIST, the images lie in 784 dimensional space, one dimension per pixel. These dimensions have some spatial relation to each other, we like to think of them as a grid. This spatial relationship is important to some machine learning models, like convolutional layers. For us, we will largely ignore the spatial relations when constructing adversarial examples.&lt;/p&gt;
-
-&lt;p&gt;These spatial relations of image vectors can be incorporated into the actual data, an 8 translated around the 28x28 grid remains an 8. This means that “eightness” has at least 2 degrees of freedom, or dimensions. There are more dimensions, small rotations and scaling the 8 up and down a little leave it an 8. These can be incorporated into our training with data-augmentation. But, there are also less obvious ways to modify our chosen 8 and keep it’s “eightness”. For example we can scale the top and bottom holes independently.&lt;/p&gt;
-
-&lt;p&gt;Locally to our chosen eight there may be 7 to 10 directions to manipulate it and keep the inherent “eightness”, without doing something outside of what we’d call obvious. These can be combined, so there’s actually many more than just 10 ways to change it in the direction of “eightness”. It’s just that these are combinations of the 7 to 10 inherent ways. This forms a little k-dimensional disk near our favorite 8. This disk is all ways to manipulate the eight and retain “eightness”. This disk lives in the 784 dimensional space, so thinking of a frisbie doesn’t quite hit the mark. It’s really hard to imagine how small this disk is.&lt;/p&gt;
-
-&lt;p&gt;So, an 8 has a local set of other, valid 8s, near it that looks like a 7 to 10 dimensional disk in $\mathbb{R}^{784}$. These glue together to define a surface of eightness, called a manifold, and mathematicians like to say that “eightness” is a low dimensional manifold embedded in $\mathbb{R}^{784}$. This can knot in on itself, and generally be a mess to work with and visualize (this is what tSNE and spectral embeddings try to solve). This manifold has no volume in $\mathbb{R}^{784}$, just like a line doesn’t have volume in $\mathbb{R}^{2}$ or $\mathbb{R}^{3}$. From a mathematician’s perspective this manifold is a nice smooth set and is identified with “eightness”. We say that the dataset of about 5000 eights is sampled from this manifold, with noise. We hope that our model learns to distinguish between this and other manifolds that represent “oneness”, “twoness” and so on.&lt;/p&gt;
-
-&lt;p&gt;The data set is sampled from human drawn eights and is nice and clean. What, traditionally, wasn’t done, was to manipulate the just the top left pixel. This has nothing to do with “eightness” to humans, but the ML system doesn’t “think” like us. To account for this we should throw in even more generated examples where we add random noise to each element of our training set. We know that adversarial examples are close to our image. How many extra generated samples would we need?&lt;/p&gt;
-
-&lt;p&gt;Our images lie in 784 dimensional space, but they are only encoded, per pixel, by 8 bits. Suppose we just wanted to 100% guarantee protection against least significant bit twiddling. We can flip the least significant bit of all 784 dimensions, giving us $\mathbb{2}^{784}$ combinations! There is no way to test even a decent fraction of these. This is the essence of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Curse_of_dimensionality&#34;&gt;curse of dimensionality&lt;/a&gt;. Even if we add many thousands of points uniformly sampled from this space to each of our dataset we wouldn’t be able to guarantee protection. To train these models perfectly would be like cracking thousands of completely random 20 character passwords. The high dimensional nature of our data is where the&lt;/p&gt;
-
-&lt;p&gt;From the literature it seems that the adversarial examples might form their own &lt;a href=&#34;https://openreview.net/pdf?id=B1gJ1L2aW&#34;&gt;subspace&lt;/a&gt;. Say we have an adversarial area close by that is inherently 20 dimensional. This is just like the the local eight-space described above, but comes about from the model, not the data. Because we needed much more data than we could possibly generate there are areas where the machine learning model was not trained to handle. We would like the ML model to generalize to these areas, but if you go off in specific weird directions the models seem to break.&lt;/p&gt;
-
-&lt;p&gt;It’s basically impossible to visualize how these low dimensional spaces look, but think of the 20 adversarial directions as $2^{20}$ “bad” combinations in the above combinatorial example. So the chance of hitting a bad combination is $\frac{2^{20}}{2^{784}} = 2^{-764}$, or basically 0. The probability of randomly hitting these is incredibly low, but there are many adversarial generation techniques that could unveil them to an attacker. You don’t know what technique will be used to generate the adversarial sample and you don’t know if they have a new one that you don’t know about. So, the challenge is to train a deep learning system that doesn’t have any adversarial examples close to good data.&lt;/p&gt;
-
-&lt;h2 id=&#34;work-around:7b359b3400b08d59908e70a8f6dc41aa&#34;&gt;Work Around?&lt;/h2&gt;
-
-&lt;p&gt;We have techniques to generate adversarial examples, so why don’t we generate them and add them to the training set? This is the core idea of adversarial training, first tried &lt;a href=&#34;https://arxiv.org/abs/1412.6572&#34;&gt;here&lt;/a&gt;. Goodfellow, Shlens and Szegedy used a fast means of generating adversarial examples to augment the data set, the Fast Gradient Sign Method (FGSM), to augment the dataset. This ought to fix the model slowly by removing adversarial directions from the model. This, however is not what happens. The model learns to artificially create a steep gradient in a non-adversarial direction (&lt;a href=&#34;https://arxiv.org/abs/1705.07204&#34;&gt;see the ensemble paper&lt;/a&gt;). This leads the FGSM to jump in a safe direction and not an adversarial direction. Thus all this training technique accomplishes is training the neural network to mask it’s gradient. This is easy for it to do as it’s usually heavily over parameterized. The ensemble paper also outlines a defense where you trade off the attacks between many models. This seems to work, but the result may be susceptible to non-traditional adversarial attacks.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion:7b359b3400b08d59908e70a8f6dc41aa&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;To properly defend from adversarial attacks in all forms, not just the strict mathematical definition, is probably going to require some major changes to deep learning (and other forms of machine learning). This is probably the most interesting field to work in as it’s at the heart of why deep learning works. It also has major implications for security applications of deep learning, malware signatures will probably be replaced by deep learning models. The cat and mouse game of bypassing virus scanners will eventually be a question of the security of your model against adversarial examples.&lt;/p&gt;
-</description>
+      <description>Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.</description>
     </item>
     
     <item>
@@ -216,12 +35,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/about/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;images/tablecloth.jpg&#34; alt=&#34;ai village tablecloth&#34; title=&#34;AI Village Tablecloth&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The AI Village is a community of hackers and data scientists working to educate the world on the use and abuse of artificial intelligence in security and privacy.&lt;/p&gt;
-
-&lt;p&gt;We have a presence at DEF CON, the world&amp;rsquo;s longest running and largest underground hacking conference.&lt;/p&gt;
-</description>
+      <description>The AI Village is a community of hackers and data scientists working to educate the world on the use and abuse of artificial intelligence in security and privacy.
+We have a presence at DEF CON, the world&amp;rsquo;s longest running and largest underground hacking conference.</description>
     </item>
     
     <item>
@@ -230,36 +45,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/code-of-conduct/</guid>
-      <description>
-
-&lt;p&gt;All delegates, speakers, sponsors and volunteers at AI Village are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.&lt;/p&gt;
-
-&lt;h1 id=&#34;the-short-version:d3030a18b089fdb1fbfabf6e75e4aef0&#34;&gt;THE SHORT VERSION&lt;/h1&gt;
-
-&lt;p&gt;AI Village is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of participants in any form. Sexual language and imagery is not appropriate for any AI Village venue, including talks, workshops, parties, Twitter and other online media.&lt;/p&gt;
-
-&lt;p&gt;Participants violating these rules may be sanctioned or expelled from the village at the discretion of the village organizers. Any violation of the &lt;a href=&#34;https://www.defcon.org/html/links/dc-code-of-conduct.html&#34;&gt;DEF CON code of conduct&lt;/a&gt; will also result in immediate expulsion from the village and the conference at the discretion of the village and conference organizers.&lt;/p&gt;
-
-&lt;h1 id=&#34;the-full-version:d3030a18b089fdb1fbfabf6e75e4aef0&#34;&gt;THE FULL VERSION&lt;/h1&gt;
-
-&lt;p&gt;Harassment includes offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention.&lt;/p&gt;
-
-&lt;p&gt;Participants asked to stop any harassing behavior are expected to comply immediately.&lt;/p&gt;
-
-&lt;p&gt;Sponsors are also subject to the anti-harassment policy. In particular, sponsors should not use sexualized images, activities, or other material.&lt;/p&gt;
-
-&lt;p&gt;If a participant engages in harassing behavior, the village organizers may take any action they deem appropriate, including warning the offender or immediate expulsion from the village.&lt;/p&gt;
-
-&lt;p&gt;If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact village staff immediately.&lt;/p&gt;
-
-&lt;p&gt;Village staff will be happy to help participants contact hotel/venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the village. We value your attendance.&lt;/p&gt;
-
-&lt;p&gt;We expect participants to follow these rules at all village venues and village-related social events.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Borrowed with love from &lt;a href=&#34;https://www.camlis.org/code-of-conduct/&#34;&gt;CAMLIS.org&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>All delegates, speakers, sponsors and volunteers at AI Village are required to agree with the following code of conduct. Organizers will enforce this code throughout the event.
+THE SHORT VERSION AI Village is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of participants in any form.</description>
     </item>
     
     <item>
@@ -268,51 +55,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/team/</guid>
-      <description>
-
-&lt;p&gt;Join us on our &lt;a href=&#34;https://aivillage.slack.com/&#34;&gt;Slack&lt;/a&gt; channel (&lt;a href=&#34;https://t.co/Tcqv22XI8i&#34;&gt;invitation&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h2 id=&#34;cfp-review-board:0032aa43ab4d0a52da10e3dd5643e52b&#34;&gt;CFP Review Board&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/ak1010&#34;&gt;@ak1010&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/alexcpsec&#34;&gt;@alexcpsec&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/filar&#34;&gt;@filar&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#&#34;&gt;@gradient_janitor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/phtully&#34;&gt;@phtully&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/redragonvn&#34;&gt;@redragonvn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/bodaceacat&#34;&gt;@SaraTerp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/Straithe&#34;&gt;@Straithe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://theory.stanford.edu/~dfreeman/&#34;&gt;@DavidFreeman&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;core:0032aa43ab4d0a52da10e3dd5643e52b&#34;&gt;Core&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/_delta_zero&#34;&gt;@_delta_zero&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/adversariel&#34;&gt;@adversariel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/botnet_hunter&#34;&gt;@bwall&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/cchio&#34;&gt;@cchio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/comathematician&#34;&gt;@comath&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/filar&#34;&gt;@filar&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#&#34;&gt;@selena&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;speakers:0032aa43ab4d0a52da10e3dd5643e52b&#34;&gt;Speakers&lt;/h2&gt;
-
-&lt;h4 id=&#34;defcon-china-beta-11-13-may-2018:0032aa43ab4d0a52da10e3dd5643e52b&#34;&gt;DEFCON CHINA BETA (11-13 May 2018)&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/adversariel&#34;&gt;@adversariel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#&#34;&gt;@BinZhao&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/cchio&#34;&gt;@cchio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/F1F1cin&#34;&gt;@F1F1cin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://twitter.com/raphael_norwitz&#34;&gt;@raphael_norwitz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.personal.psu.edu/wzg13/&#34;&gt;@WenboGuo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Join us on our Slack channel (invitation)
+CFP Review Board  @ak1010 @alexcpsec @filar @gradient_janitor @phtully @redragonvn @SaraTerp @Straithe @DavidFreeman  Core  @_delta_zero @adversariel @bwall @cchio @comath @filar @selena  Speakers DEFCON CHINA BETA (11-13 May 2018)  @adversariel @BinZhao @cchio @F1F1cin @raphael_norwitz @WenboGuo  </description>
     </item>
     
   </channel>
