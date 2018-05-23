@@ -6,6 +6,7 @@ make
 cd ../..
 hugo
 cd ../site-assets
+git pull
 rm -rf ./*
 cp -r ../code/public/* .
 cp -r ../code/CNAME .
