@@ -159,7 +159,7 @@
 
 <iframe src="../material/adversarial_pointcloud.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
 
-<p>This time if we look at a low dimensional example where we have 2 point clouds for 2 classes, a green class and a blue class. These two point clouds are all that the classifier ever saw while training. We&rsquo;d hope that the classifier learns two tori, but that&rsquo;s not what happens. Even in perfect <a href="https://arxiv.org/abs/1801.02774">conditions</a> the classifiers we use just don&rsquo;t pay attention to the shape of the data very well. The adversarial examples (in red) near the point we&rsquo;re interested in (indicated by the disk) form a 1 dimensional line, with a bit of noise. This could have been caused by many different artifacts in the interaction between the data and the classifier. Since there&rsquo;s no data sampled from this area for training, there&rsquo;s noting to correct the classifier when we input them.</p>
+<p>This time if we look at a low dimensional example where we have 2 point clouds for 2 classes, a green class and a blue class. These two point clouds are all that the classifier ever saw while training. We&rsquo;d hope that the classifier learns two tori, but that&rsquo;s not what happens. Even in perfect <a href="https://arxiv.org/abs/1801.02774">conditions</a> the classifiers we use just don&rsquo;t pay attention to the shape of the data very well. The adversarial examples (in red) near the point we&rsquo;re interested in (indicated by the disk) form a 1 dimensional line, with a bit of noise. This could have been caused by many different artifacts in the interaction between the data and the classifier. Since there&rsquo;s no data sampled from this area for training, there&rsquo;s noting to correct the classifier when we input them. This is the low dimensional case, the data in the high dimensional case is far more sparse and there&rsquo;s many more nooks and cranies for these adversarial examples to live.</p>
 
 <h2 id="work-around">Work Around?</h2>
 
@@ -173,6 +173,27 @@
 
   <br/>
 
+  
+      <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aivillage" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   
   
 </section>
