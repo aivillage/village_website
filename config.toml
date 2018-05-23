@@ -11,6 +11,8 @@ pygmentsstyle = "b2"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+disqusShortname = "aivillage"
+
 [params]
   keywords = "blog,developer,personal"
 
