@@ -56,6 +56,7 @@ Pwning machine learning systems is an offensive-focused workshop that gives atte
 ---
 
 ### Machine Learning as a Tool for Societal Exploitation: A Summary on the Current and Future State of Affairs
+[slides](material/cn18-f1f1cin/slides.pdf)
 
 Starting with a short analysis on the current state of ML-related security, ranging from location mapping through ambient sounds to Quantum Black's sports-related work and various endpoint detection systems in different states of development, we move towards discussion on the adoption of machine learning to escalate cyber warfare. We end with the concept of 'tricking' machine learning software in order to lessen its impact on actors regardless of their affiliation and show a simple instance of the effect this 'tricking' can have on human profiling (such as that done by the advertising giants).
 
