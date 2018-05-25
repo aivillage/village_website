@@ -6,10 +6,19 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 11 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aivillage.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DEFCON 26 Las Vegas</title>
+      <link>https://aivillage.org/events/vegas2018/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/events/vegas2018/</guid>
+      <description>The AI Village at DEFCON is a place where experts in AI and security (or both!) can come together to learn and discuss the use, and misuse, of artificial intelligence in traditional security. Artificial Learning techniques are rapidly being deployed in core security technologies like malware detection and network traffic analysis, but their use has also opened up a variety of new attack vectors against the systems that use them.</description>
+    </item>
     
     <item>
       <title>DEFCON China BETA 2018</title>
@@ -36,6 +45,7 @@
       
       <guid>https://aivillage.org/about/</guid>
       <description>The AI Village is a community of hackers and data scientists working to educate the world on the use and abuse of artificial intelligence in security and privacy.
+We are not sponsored by any one company, and it is our mission to maintain it as such as the community grows.
 We have a presence at DEF CON, the world&amp;rsquo;s longest running and largest underground hacking conference.</description>
     </item>
     
@@ -50,13 +60,24 @@ THE SHORT VERSION AI Village is dedicated to providing a harassment-free experie
     </item>
     
     <item>
+      <title>Sponsors</title>
+      <link>https://aivillage.org/sponsors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/sponsors/</guid>
+      <description> Our sponsors make this all possible!
+If you or your company is interested to be a sponsor, please get in touch with us.
+Gold Sponsors  &amp;nbsp;&amp;nbsp;&amp;nbsp;</description>
+    </item>
+    
+    <item>
       <title>TEAM</title>
       <link>https://aivillage.org/team/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/team/</guid>
       <description> Join us on our Slack channel (invitation)
-CFP Review Board  @ak1010 @alexcpsec @filar @gradient_janitor @phtully @redragonvn @SaraTerp @Straithe @DavidFreeman  Core  @_delta_zero @adversariel @bwall @cchio @comath @filar @selena  Speakers DEFCON CHINA BETA (11-13 May 2018)  @adversariel @BinZhao @cchio @F1F1cin @raphael_norwitz @WenboGuo  </description>
+CFP Review Board  @ak1010 @alexcpsec @filar @gradient_janitor @phtully @redragonvn @SaraTerp @Straithe @DavidFreeman  Core  @_delta_zero @adversariel @bwall @cchio @comath @filar @lysine_chan  Speakers DEFCON CHINA BETA (11-13 May 2018)  @adversariel @BinZhao @cchio @F1F1cin @raphael_norwitz @WenboGuo  Team  @antojosep007 @dth0m @eugeneteo @grue_ @J_L_Igyarto @rseymour  </description>
     </item>
     
   </channel>
