@@ -5,6 +5,9 @@
     </a>
     {{ with .Site.Menus.main }}
     <ul class="navigation-list float-right">
+      <li class="navigation-item">
+        <a class="navigation-link" href="/events/vegas2018" style="color:red;">DEFCON26</a>
+      </li>
       {{ range sort . }}
       <li class="navigation-item">
         <a class="navigation-link" href="{{ .URL }}">{{ .Name }}</a>

@@ -24,7 +24,7 @@ Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https
 * [@cchio](https://twitter.com/cchio)
 * [@comath](https://twitter.com/comathematician)
 * [@filar](https://twitter.com/filar)
-* [@selena](#)
+* [@lysine_chan](#)
 
 ---
 
@@ -36,3 +36,13 @@ Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https
 * [@F1F1cin](https://twitter.com/F1F1cin)
 * [@raphael_norwitz](https://twitter.com/raphael_norwitz)
 * [@WenboGuo](http://www.personal.psu.edu/wzg13/)
+
+---
+
+## Team
+* [@antojosep007](https://twitter.com/antojosep007)
+* [@dth0m](https://twitter.com/dth0m)
+* [@eugeneteo](https://twitter.com/eugeneteo)
+* [@grue_](https://twitter.com/grue_)
+* [@J_L_Igyarto](https://twitter.com/J_L_Igyarto)
+* [@rseymour](https://twitter.com/rseymour)

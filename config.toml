@@ -20,7 +20,7 @@ disqusShortname = "aivillage"
 	custom_css = []
 
 [[menu.main]]
-  name = "Blog"
+  name = "Posts"
   weight = 1
   url  = "/posts/"
 [[menu.main]]
@@ -28,7 +28,7 @@ disqusShortname = "aivillage"
   weight = 2
   url = "/about/"
 [[menu.main]]
-  name = "Code-of-Conduct"
+  name = "Conduct"
   weight = 3
   url = "/code-of-conduct/"
 [[menu.main]]
@@ -39,3 +39,7 @@ disqusShortname = "aivillage"
   name = "Events"
   weight = 5
   url = "/events/"
+[[menu.main]]
+  name = "Sponsors"
+  weight = 5
+  url = "/sponsors/"
