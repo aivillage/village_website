@@ -28,7 +28,7 @@ Panelists
 * [@drhyrum](https://twitter.com/drhyrum)
 * [@gradient_janitor](#)
 * [@malwareunicorn](https://twitter.com/malwareunicorn)
-* [@rseymour](https://twitter.com/rseymour)
+* [@rharang](https://twitter.com/rharang)
 
 #### Abstract:
 Malware classification is one of the most successful uses of Machine Learning in the InfoSec industry. This panel will dive into following topic areas:
