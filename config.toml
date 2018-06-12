@@ -1,0 +1,45 @@
+baseurl = "https://aivillage.org"
+
+theme = "hugo-coder"
+
+languagecode = "en"
+
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "b2"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+disqusShortname = "aivillage"
+
+[params]
+  keywords = "blog,developer,personal"
+
+  # Custom CSS
+	custom_css = []
+
+[[menu.main]]
+  name = "Posts"
+  weight = 1
+  url  = "/posts/"
+[[menu.main]]
+  name = "About"
+  weight = 2
+  url = "/about/"
+[[menu.main]]
+  name = "Conduct"
+  weight = 3
+  url = "/code-of-conduct/"
+[[menu.main]]
+  name = "Team"
+  weight = 4
+  url = "/team/"
+[[menu.main]]
+  name = "Events"
+  weight = 5
+  url = "/events/"
+[[menu.main]]
+  name = "Sponsors"
+  weight = 5
+  url = "/sponsors/"
