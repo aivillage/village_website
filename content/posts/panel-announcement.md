@@ -11,17 +11,12 @@ With DEF CON just two months away, we're excited to announce two panels that wil
 ## (Responsible?) Offensive Machine Learning
 
 Panelists
+* [@_delta_zero](https://twitter.com/_delta_zero) (Moderating)
+* [@bodaceacat](https://twitter.com/bodaceacat)
+* [@filar](https://twitter.com/filar)
+* [@Straithe](https://twitter.com/Straithe)
 
-@_delta_zero (Moderating)
-
-@bodeaceacat
-
-@Straithe
-
-@filar
-
-
-Abstract:
+#### Abstract:
 Cool evil hacks using machine learning are exploding in popularity. Not all ML abuse looks like Terminators, but also DeepFakes, political impersonation, and distracting autonomous cars.
 
 What does "Max Evil" in machine learning look like, really? What ethical boundaries and limitations exist in researching and implementing offensive use cases? Which holes in machine learning systems create the most incidental damage? And what can be done about all this?
@@ -29,19 +24,13 @@ What does "Max Evil" in machine learning look like, really? What ethical boundar
 ## Machine Learning and Malware Analysis Panel
 
 Panelists
+* [@bwall](https://twitter.com/botnet_hunter) (Moderating)
+* [@drhyrum](https://twitter.com/drhyrum)
+* [@gradient_janitor](#)
+* [@malwareunicorn](https://twitter.com/malwareunicorn)
+* [@rseymour](https://twitter.com/rseymour)
 
-@bwall (Moderating)
-
-@hyrum
-
-@gradient_janitor
-
-@Rich
-
-@malwareunicorn
-
-
-Abstract:
+#### Abstract:
 Malware classification is one of the most successful uses of Machine Learning in the InfoSec industry. This panel will dive into following topic areas:
 What is the current state of the art for Machine Learning in Malware Classification?
 What are the biggest challenges currently present in the field?
