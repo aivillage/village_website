@@ -8,27 +8,39 @@ math = "false"
 
 With DEF CON just two months away, we're excited to announce two panels that will be held at AI Village this year! Here's what we have planned for attendees so far:
 
-##(Responsible?) Offensive Machine Learning
+## (Responsible?) Offensive Machine Learning
 
 Panelists
+
 @_delta_zero (Moderating)
+
 @bodeaceacat
+
 @Straithe
+
 @filar
+
 
 Abstract:
 Cool evil hacks using machine learning are exploding in popularity. Not all ML abuse looks like Terminators, but also DeepFakes, political impersonation, and distracting autonomous cars.
 
 What does "Max Evil" in machine learning look like, really? What ethical boundaries and limitations exist in researching and implementing offensive use cases? Which holes in machine learning systems create the most incidental damage? And what can be done about all this?
 
-##Machine Learning and Malware Analysis Panel
+## Machine Learning and Malware Analysis Panel
 
 Panelists
+
 @bwall (Moderating)
+
 @hyrum
+
 @gradient_janitor
+
 @Rich
+
 @malwareunicorn
+
+
 Abstract:
 Malware classification is one of the most successful uses of Machine Learning in the InfoSec industry. This panel will dive into following topic areas:
 What is the current state of the art for Machine Learning in Malware Classification?
