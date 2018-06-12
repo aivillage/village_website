@@ -23,6 +23,17 @@ Abstract: Cool evil hacks using machine learning are exploding in popularity. No
     </item>
     
     <item>
+      <title>Max evil MLsec: why should you care?</title>
+      <link>https://aivillage.org/posts/max-evil-sjterp/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/max-evil-sjterp/</guid>
+      <description>“Max evil” MLsec: why should you care? Originally posted on Medium - follow @sarajayneterp and like her article there
+MLsec is the intersection of machine learning, artificial intelligence, deep learning and information security. It has an active community (see the MLsec project, Defcon’s AI Village and the CAMLIS conference) and a host of applications including the offensive ones outlined in “The Malicious Use of AI”.
+One of the things we’ve been talking about is what it means to be ethical in this space.</description>
+    </item>
+    
+    <item>
       <title>Dimensionality and Adversarial Examples</title>
       <link>https://aivillage.org/posts/dimensionality-and-adversarial/</link>
       <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
