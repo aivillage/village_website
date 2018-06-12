@@ -1,12 +1,12 @@
 +++
-date = "2018-06-09"
+date = "2018-06-11"
 title = "AI Village Panel Announcement"
 author = "AI Village"
 authorUrl = "https://aivillage.org/"
 math = "false"
 +++
 
-With DEF CON exactly two months away, we're excited to announce two panels that will be held at AI Village this year! Here's what we have planned for attendees so far:
+With DEF CON just two months away, we're excited to announce two panels that will be held at AI Village this year! Here's what we have planned for attendees so far:
 
 ##(Responsible?) Offensive Machine Learning
 
@@ -15,7 +15,6 @@ Panelists
 @bodeaceacat
 @Straithe
 @filar
-@suresh
 
 Abstract:
 Cool evil hacks using machine learning are exploding in popularity. Not all ML abuse looks like Terminators, but also DeepFakes, political impersonation, and distracting autonomous cars.
