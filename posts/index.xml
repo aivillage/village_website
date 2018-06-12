@@ -6,7 +6,7 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aivillage.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,14 +14,12 @@
     <item>
       <title>AI Village Panel Announcement</title>
       <link>https://aivillage.org/posts/panel-announcement/</link>
-      <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://aivillage.org/posts/panel-announcement/</guid>
       <description>With DEF CON just two months away, we&amp;rsquo;re excited to announce two panels that will be held at AI Village this year! Here&amp;rsquo;s what we have planned for attendees so far:
-##(Responsible?) Offensive Machine Learning
-Panelists @_delta_zero (Moderating) @bodeaceacat @Straithe @filar
-Abstract: Cool evil hacks using machine learning are exploding in popularity. Not all ML abuse looks like Terminators, but also DeepFakes, political impersonation, and distracting autonomous cars.
-What does &amp;ldquo;Max Evil&amp;rdquo; in machine learning look like, really?</description>
+(Responsible?) Offensive Machine Learning Panelists * @_delta_zero (Moderating) * @bodaceacat * @filar * @Straithe
+Abstract: Cool evil hacks using machine learning are exploding in popularity. Not all ML abuse looks like Terminators, but also DeepFakes, political impersonation, and distracting autonomous cars.</description>
     </item>
     
     <item>
