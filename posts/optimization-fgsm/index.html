@@ -146,7 +146,7 @@
 <p>Normally we descend the gradient by including the parameters that the network (or any other model that is differentiable) uses, $\theta$. The variable $\theta$ is all parameters in the model, the matrix and bias in a fully connected layer, the convolutional filters, lumped together. These are included in $N(x)$ and $J(x,y)$ like class attributes, but we can make it functorial and explicit by writing $N(x,\theta)$ and $J(x,y,\theta)$. When we train a network we actually travel over the surface defined by $J(x,y,\theta)$ with respect for $\theta $.</p>
 
 <p>High error is bad and the direction to increase the error the fastest is the gradient, $\nabla_{\theta}J(x_i,y_i,\theta_{i})$. Therefore, we go the opposite direction by a step,
-$$ \theta_{i+1}=\theta_{i}-\epsilon \nabla_{\theta} J(x_i,y_i,\theta_{i}) $$</p>
+$$ \theta_{i+1}=\theta_{i}-\epsilon \nabla_{\theta} J(x_i,y_i,\theta_{i}), $$</p>
 
 <p>where the $\epsilon $ is a small value we chose. Do this in a randomized loop over all your data several times and you&rsquo;ve got Stochiastic Gradient Decent.
 Think of this as rolling down a very complex hill in $ \theta \in \mathbb{R}^D $ where the dimension, $D$, can be in the millions.</p>
