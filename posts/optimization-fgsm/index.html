@@ -185,7 +185,7 @@ $ \hat{x} = x + \epsilon \nabla_x J(x,y) $</p>
 
 <p>Since this is an <strong>untargeted</strong> attack we primarily care about if the attack changed the label that the model assigns to that sample. In the gradient method&rsquo;s case we have the following results:</p>
 
-<iframe src="../material/gradient_method/index.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
+<iframe src="../material/fgsm_images/gradient_method/index.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
 
 <p>The three images are, the base classes, the modified classes, and 10 times the difference. In the center we show red for an unsuccessful attack and green for a successful one.</p>
 
@@ -200,6 +200,8 @@ x_norm = x_norm.view(x_grad.size())
 
 x_adv = x_adv + self.epsilon*x_norm</pre></div>
 <p>Lets see how well this works:</p>
+
+<iframe src="../material/fgsm_images/normalized_gradient_method/index.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
 
 <p>Normalized Gradient Method
 0.266
@@ -221,25 +223,19 @@ x_adv = x_adv + self.epsilon*x_norm</pre></div>
 
 <p>Looking back at the normalized gradient method, we can think of it as moving as far as possible in the &ldquo;best&rdquo; direction. We&rsquo;ve taken a greedy guess at the best direction with the gradient, there might be a better direction that&rsquo;s not the same as the gradient. We then take the biggest step possible, while staying inside the sphere of radius $\epsilon$. This process happens in a high dimensional sphere, but it&rsquo;s not too different from the low dimensional one.</p>
 
+<p><img src="../material/fgsm_images/l2constraint.png" alt="Spherical Constraint"></p>
+
 <p>The gradient in this image is the black arrow, the adversarial step is the green one, and the quantity of red is the height of the loss function. We can see that we&rsquo;ve stepped right to the border. However there&rsquo;s darker, higher loss areas just outside of the circle.</p>
 
 <p>For $L_\infty$ we can move further, we are constrained by a high dimensional cube with side lengths $2\epsilon$ instead of a sphere of radius $\epsilon$. The corners of the cube are much further out than the surface of the sphere. To see this we can look at the same situation as above, but with a square instead of a circle.</p>
+
+<p><img src="../material/fgsm_images/l_inty_constraint.png" alt="Cube Constraint"></p>
 
 <p>Clearly we want to move to the corners. To do this we don&rsquo;t normalize the gradient we take the sign of the gradient. This is accomplished by switching out the creation line in the gradient attack with the following:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x_adv = x + self.epsilon*x_grad.sign_()</pre></div>
 <p>To see this attack, with the same epsilons as before:</p>
 
-<p>Gradient Sign Method
-0.881
-0.885
-0.887
-0.893
-0.896
-0.897
-0.899
-0.899
-0.897
-0.897</p>
+<iframe src="../material/fgsm_images/gradient_sign_method/index.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
 
 <p>Clearly the most effective so far. However, you can see that we really should stick to low $\epsilon$s else it overwhelms the image.</p>
 

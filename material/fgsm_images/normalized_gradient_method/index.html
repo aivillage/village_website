@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Slideshow</title>
+		<style type="text/css">
+			body {
+				font-family: 'Fira Mono',monospace;
+			}
+			.title{
+				text-align: center; 
+				font-size: 1.5rem;
+			}
+
+			.caption{
+				float: left; 
+				text-align: center; 
+				width:33%;
+				font-size: 2rem;
+			}
+
+			.forward, .backward{
+				float: left;
+				text-align: center; 
+				width:33%;
+				font-size: 2rem;
+				cursor: pointer;
+				background-color: rgba(0,0,0,0.1);
+			}
+
+			
+			.forward:hover, .backward:hover {
+			  background-color: rgba(0,0,0,0.6);
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var i = 0; 			// Start Point
+			var images = [];	// Images Array
+			var time = 300;	// Time Between Switch
+				 
+			// Image List
+			
+			images = ["ngm_0.10.png",
+					  "ngm_0.20.png",
+					  "ngm_0.30.png",
+					  "ngm_0.40.png",
+					  "ngm_0.50.png",
+					  "ngm_0.60.png",
+					  "ngm_0.70.png",
+					  "ngm_0.80.png",
+					  "ngm_0.90.png",
+					  "ngm_1.00.png"];
+
+			epsilons = ["0.10",
+						"0.20",
+						"0.30",
+						"0.40",
+						"0.50",
+						"0.60",
+						"0.70",
+						"0.80",
+						"0.90",
+						"1.00"];
+
+			successRates = [0.266,
+											0.446,
+											0.573,
+											0.657,
+											0.713,
+											0.749,
+											0.771,
+											0.785,
+											0.798,
+											0.807];
+			function start(n){
+				document.getElementById("epsilon").innerHTML = "Step size: " + epsilons[0];
+				document.slide.src = images[0];
+				document.getElementById("successRates").innerHTML = "Success rate: " + successRates[0];
+				i = 0;
+			}
+			// Change Image
+			function changeImg(n){
+				document.getElementById("epsilon").innerHTML = "Step size: " + epsilons[n];
+				document.slide.src = images[n];
+				document.getElementById("successRates").innerHTML = "Success rate: " + successRates[n];
+				i = n;
+			}
+
+			function plusSlides(n){
+				if(n < 0){
+					n = images.length + n;
+				}
+				changeImg((i + n) % images.length);
+				console.log((i + n) % images.length)
+			}
+
+			function timedChange() {
+				changeImg();
+				// Check If Index Is Under Max
+				if(i < images.length - 1){
+				  // Add 1 to Index
+				  i++; 
+				} else { 
+					// Reset Back To O
+					i = 0;
+				}
+				changeImg(i);
+
+				// Run function every x seconds
+				setTimeout("timedChange()", time);
+			}
+
+			// Run function when page loads
+			window.onload=start;
+		</script>
+		<!-- Slideshow container -->
+		 <div class="title" id="epsilon"> </div>
+		 <img name="slide" width=100% />
+
+		 <div class="forward" onclick="plusSlides(-1)">&#10094;</div>
+		 <div class="caption" id="successRates"> </div>
+		 <div class="backward" onclick="plusSlides(1)">&#10095;</div>
+	</body>
+</html>
