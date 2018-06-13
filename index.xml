@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Gradient Attacks</title>
+      <link>https://aivillage.org/posts/optimization-fgsm/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/optimization-fgsm/</guid>
+      <description>Welcome to the second post in the AI Village&amp;rsquo;s adversarial machine learning series. This one will cover the greedy fast methods that are most commonly used. We will explain what greedy means and why certain choices were made that may not be obvious to newcomers. This is meant as a read-a-long with the papers, we will not be going into a lot of detail but we will focus on the explaining the tricky minutia so that you can understand these papers more easily.</description>
+    </item>
+    
+    <item>
       <title>AI Village Panel Announcement</title>
       <link>https://aivillage.org/posts/panel-announcement/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
