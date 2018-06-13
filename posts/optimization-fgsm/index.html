@@ -223,13 +223,13 @@ x_adv = x_adv + self.epsilon*x_norm</pre></div>
 
 <p>Looking back at the normalized gradient method, we can think of it as moving as far as possible in the &ldquo;best&rdquo; direction. We&rsquo;ve taken a greedy guess at the best direction with the gradient, there might be a better direction that&rsquo;s not the same as the gradient. We then take the biggest step possible, while staying inside the sphere of radius $\epsilon$. This process happens in a high dimensional sphere, but it&rsquo;s not too different from the low dimensional one.</p>
 
-<p><img src="../material/fgsm_images/l2constraint.png" alt="Spherical Constraint"></p>
+<p><img src="../material/fgsm_images/l2constraint.png" height="500" text-align="center" alt="Spherical Constraint"></p>
 
 <p>The gradient in this image is the black arrow, the adversarial step is the green one, and the quantity of red is the height of the loss function. We can see that we&rsquo;ve stepped right to the border. However there&rsquo;s darker, higher loss areas just outside of the circle.</p>
 
 <p>For $L_\infty$ we can move further, we are constrained by a high dimensional cube with side lengths $2\epsilon$ instead of a sphere of radius $\epsilon$. The corners of the cube are much further out than the surface of the sphere. To see this we can look at the same situation as above, but with a square instead of a circle.</p>
 
-<p><img src="../material/fgsm_images/l_inty_constraint.png" alt="Cube Constraint"></p>
+<p><img src="../material/fgsm_images/l_inty_constraint.png" height="500" text-align="center" alt="Cube Constraint"></p>
 
 <p>Clearly we want to move to the corners. To do this we don&rsquo;t normalize the gradient we take the sign of the gradient. This is accomplished by switching out the creation line in the gradient attack with the following:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x_adv = x + self.epsilon*x_grad.sign_()</pre></div>
