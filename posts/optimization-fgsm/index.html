@@ -127,9 +127,9 @@
 
 <p>Welcome to the second post in the AI Village&rsquo;s adversarial machine learning series. This one will cover the greedy fast methods that are most commonly used. We will explain what greedy means and why certain choices were made that may not be obvious to newcomers. This is meant as a read-a-long with the papers, we will not be going into a lot of detail but we will focus on the explaining the tricky minutia so that you can understand these papers more easily.</p>
 
-<p>We have made a library that demonstrates these attacks. There&rsquo;s a useful template class in there <a href="https://github.com/comath/pytorch_adversarial/blob/master/attacks/attackTemplate.py">BaseAttack</a>. If you&rsquo;re in a CTF it should be private you can find the template class <a href="LINK">here</a>. It has methods for testing the effectiveness of the attack and visualization to make debugging these attacks easier. However you still need to implement the attacks yourself.</p>
+<p>We have made a library that demonstrates these attacks. There&rsquo;s a useful template class in there that we&rsquo;ll be extending <a href="https://github.com/comath/pytorch_adversarial/blob/master/attacks/attackTemplate.py">BaseAttack</a>. If you&rsquo;re in a CTF it should be private you can find the template class <a href="LINK">here</a>. It has methods for testing the effectiveness of the attack and visualization to make debugging these attacks easier. However you still need to implement the attacks yourself. All the images and results in this post come from this <a href="https://github.com/comath/pytorch_adversarial/blob/master/gradientAttacksDemo.py">script</a>.</p>
 
-<p>In the rest of that repo you can also find target models and datasets to play around with. We&rsquo;re using the <a href="https://github.com/comath/pytorch_adversarial/blob/master/attacks/targets/cifar10.py">ResNet CIFAR10</a> model for these demonstrations, but if you don&rsquo;t have GPU handy you can use the <a href="https://github.com/comath/pytorch_adversarial/blob/master/attacks/targets/mnist.py">MNIST MLP model</a>. If you&rsquo;re in a CTF you will be supplied with those models and an associated pickle so that we&rsquo;re all on the same page.</p>
+<p>In the rest of that repo you can also find target models and datasets to play around with. We&rsquo;re using the <a href="https://github.com/comath/pytorch_adversarial/blob/master/attacks/targets/cifar10ResNet.py">ResNet CIFAR10</a> model for these demonstrations, but if you don&rsquo;t have GPU handy you can use the <a href="https://github.com/comath/pytorch_adversarial/blob/master/attacks/targets/mnistMLP.py">MNIST MLP model</a>. If you&rsquo;re in a CTF you will be supplied with those models and an associated pickle so that we&rsquo;re all on the same page.</p>
 
 <h1 id="the-problem-and-optimization">The Problem and Optimization</h1>
 
@@ -150,7 +150,7 @@
 <p>Since we&rsquo;re attacking models instead of training them, we consider $\theta$ a fixed parameter. We want to change $y$ with respect to $x$. So what direction does $\nabla_x J(x,y)$ point in? It points up the hill of error, so to move the output $N(x)$ fastest away from the correct value in $x$ space we ascend the gradient.</p>
 
 <p>If we want to move in the direction that will increase the loss the most by a step of $\epsilon$, we can do this:
-$ \hat{x} = x + \epsilon \nabla_x J(x,y) $</p>
+$$ \hat{x} = x + \epsilon \nabla_x J(x,y) $$</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class GradientAttack(BaseAttack):
 	def __init__(self, model, loss, epsilon):
 		super(GradientAttack, self).__init__()
@@ -193,7 +193,10 @@ $ \hat{x} = x + \epsilon \nabla_x J(x,y) $</p>
 
 <h2 id="normalized-gradient-attack">Normalized Gradient Attack</h2>
 
-<p>One of things to note is that the difference in the gradient method is really faint. This is because at the bottom of the neural network the gradient may be very small. The gradients we see on these samples range in length from $0.003$ to $0.000002$. To put this in context the average distance between two points in the image space (a 3072 dimensional hypercube) is somewhere <a href="http://mathworld.wolfram.com/HypercubeLinePicking.html">between</a> 18 and 40, and not 0.333 like a line. So, we&rsquo;re actually moving an absolute tiny amount. To compensate for this, lets normalize our step, i.e. take the same length step every time. To do this change the line where we make the adversarial example to:</p>
+<p>One of things to note is that the difference in the gradient method is really faint. This is because at the bottom of the neural network the gradient may be very small. The gradients we see on these samples range in length from $0.003$ to $0.000002$. To put this in context the average distance between two points in the image space (a 3072 dimensional hypercube) is somewhere <a href="http://mathworld.wolfram.com/HypercubeLinePicking.html">between</a> 18 and 40, and not 0.333 like a line. So, we&rsquo;re actually moving an absolute tiny amount. To compensate for this, lets normalize our step, i.e. take the same length step every time:
+$$ \hat{x} = x + \epsilon \frac{\nabla_x J(x,y)}{\lVert \nabla_x J(x,y) \rVert_2} $$</p>
+
+<p>To do this change the line where we make the adversarial example to:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x_norm = x_grad.view(x_grad.size()[0], -1)
 x_norm = F.normalize(x_norm)
 x_norm = x_norm.view(x_grad.size())
@@ -203,18 +206,6 @@ x_adv = x_adv + self.epsilon*x_norm</pre></div>
 
 <iframe src="../material/fgsm_images/normalized_gradient_method/index.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" height="500" scrolling="no"></iframe>
 
-<p>Normalized Gradient Method
-0.266
-0.446
-0.573
-0.657
-0.713
-0.749
-0.771
-0.785
-0.798
-0.807</p>
-
 <p>This clearly enjoys a much greater success rate! We move much further. We also move exactly $\epsilon$ away from the original, so in competitions where the challenge is to minimize the distance between the normal and adversarial points, we can directly tune this parameter. However it is also the only thing we can tune, so there may be a better way.</p>
 
 <h2 id="fast-gradient-sign-method">Fast Gradient Sign Method</h2>
@@ -223,15 +214,17 @@ x_adv = x_adv + self.epsilon*x_norm</pre></div>
 
 <p>Looking back at the normalized gradient method, we can think of it as moving as far as possible in the &ldquo;best&rdquo; direction. We&rsquo;ve taken a greedy guess at the best direction with the gradient, there might be a better direction that&rsquo;s not the same as the gradient. We then take the biggest step possible, while staying inside the sphere of radius $\epsilon$. This process happens in a high dimensional sphere, but it&rsquo;s not too different from the low dimensional one.</p>
 
-<p><img src="../material/fgsm_images/l2constraint.png" height="500" align="center" alt="Spherical Constraint"></p>
+<p><img src="../material/fgsm_images/l2constraint.png" height="500" margin-left="auto" margin-right="auto" alt="Spherical Constraint"></p>
 
 <p>The gradient in this image is the black arrow, the adversarial step is the green one, and the quantity of red is the height of the loss function. We can see that we&rsquo;ve stepped right to the border. However there&rsquo;s darker, higher loss areas just outside of the circle.</p>
 
 <p>For $L_\infty$ we can move further, we are constrained by a high dimensional cube with side lengths $2\epsilon$ instead of a sphere of radius $\epsilon$. The corners of the cube are much further out than the surface of the sphere. To see this we can look at the same situation as above, but with a square instead of a circle.</p>
 
-<p><img src="../material/fgsm_images/l_inty_constraint.png" height="500" align="center" alt="Cube Constraint"></p>
+<p><img src="../material/fgsm_images/l_inty_constraint.png" height="500" margin-left="auto" margin-right="auto" alt="Cube Constraint"></p>
 
-<p>Our best guess is to move to the corners. The space is small and we&rsquo;re probably on a close to linear slope, so it is a good bet. To do this we don&rsquo;t normalize the gradient we take the sign of the gradient. This is accomplished by switching out the creation line in the gradient attack with the following:</p>
+<p>Our best guess is to move to the corners. The space is small and we&rsquo;re probably on a close to linear slope, so it is a good bet. To do this we don&rsquo;t normalize the gradient we take the sign of the gradient.
+$$ \hat{x} = x + \epsilon \text{sign}(\nabla_x J(x,y)) $$
+This is accomplished by switching out the creation line in the gradient attack with the following:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x_adv = x + self.epsilon*x_grad.sign_()</pre></div>
 <p>To see this attack, with the same epsilons as before:</p>
 
