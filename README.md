@@ -28,7 +28,7 @@ root
 
 To test that all the files are in the correct location and everything points correctly you can use `deploy_local.sh`. This will do all the steps in the normal deploy script, but not upload the result to github. 
 
-The links are all absolute and will point to the actual website, so static assets and links on this local site will not work. However it is useful for formating purposes. 
+For the local deployment, the links are all absolute and will point to the actual website, so static assets and links on your local site will not work. However it is useful for formating content. 
 
 # Contributors
 Main developer of the site is [@cchio](https://github.com/cchio). Please contact him for any escalations or questions.
