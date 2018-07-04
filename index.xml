@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>AI Village Accepted Talks</title>
+      <link>https://aivillage.org/posts/accepted-talks/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/accepted-talks/</guid>
+      <description>DEF CON 26 is only one month away! We have a large number of amazing talks planned for everyone in attendance:
+Full List    Title Speaker Type     The current state of adversarial machine learning infosecanon Presentation   StuxNNet: Practical Live Memory Attacks on Machine Learning Systems Raphael Norwitz Presentation   Holy BATSense! Deploying TBATS Machine Learning Algorithm to Detect Security Events Pranshu Bajpai Presentation   Machine Learning for Network Security Hands-on Workshop: DIYML Sebastian Garcia Workshop   Detecting Web Attacks with Recurrent Neural Networks Fedor Sakharov Presentation   Using AI to Create Music dj beep code Exhibit   It’s a Beautiful Day in the Malware Neighborhood Matt Presentation   IntelliAV: Building an Effective On-Device Android Malware Detector Mansour Ahmadi Presentation   Chatting with your programs to find vulnerabilities Chris Gardner Presentation   Hunting the Ethereum Smart Contract: Color-inspired Inspection of Potential Attacks TonTon Huang Presentation   Deep Exploit Isao Takaesu Exhibit   Beyond Adversarial Learning &amp;ndash; Security Risks in AI Implementations Kang Li Presentation   DeepPhish: Simulating the Malicious Use of AI Ivan Torroledo Presentation   AI DevOps: Behind the Scenes of a Global Anti-Virus Company&amp;rsquo;s Machine Learning Infrastructure Alex Long Presentation   Generating Labeled Data From Adversary Simulations With MITRE ATT&amp;amp;CK Brian Genz Presentation   JMPgate: Accelerating reverse engineering into hyperspace using AI Rob Brandon Presentation   Automated Planning for the Automated Red Team Andy Applebaum Presentation   Stop and Step Away from the Data: Rapid Anomaly Detection via Ransom Note File Classification Mark Mager Presentation   Identifying and correlating anomalies in Internet-wide scan traffic to newsworthy security events Andrew Morris Presentation   Machine Learning Model Hardening For Fun and Profit Ariel Herbert-Voss Presentation   The great power of AI: Algorithmic mirrors of society Aylin Caliskan Presentation   GAN to the dark side: A case study of attacking machine-learning systems to empower defenses Li Chen Presentation   Towards a framework to quantitatively assess AI safety – challenges, open questions and opportunities.</description>
+    </item>
+    
+    <item>
       <title>Gradient Attacks</title>
       <link>https://aivillage.org/posts/optimization-fgsm/</link>
       <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
