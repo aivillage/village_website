@@ -281,4 +281,4 @@ Sebastian is a malware researcher and security teacher that has extensive experi
 
 ## Closing Notes
 
-The CFP is still open! If you have something Machine Learning/AI/InfoSec related, [submit here](https://docs.google.com/forms/d/e/1FAIpQLSfDzURLjTMoSvjWYDinEu9n1sNc5HOBGWjU5UAzL-aNSjkwjA/viewform) by June 15th (Friday!)
+Our Call for Volunteers is open! If you want to help our village be a success, [sign up here](https://docs.google.com/forms/d/e/1FAIpQLSeDOhdi8A9wzY5ifH7iMVIVtkdHIGScPBLpEndcUkzPgtjQIQ/viewform)
