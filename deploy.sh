@@ -6,12 +6,16 @@ make
 cd ../..
 hugo
 cd ../site-assets
-git pull
-rm -rf ./*
-cp -r ../code/public/* .
-cp -r ../code/CNAME .
-git add .
-git commit -m "new deployment"
-git push
-cd ../code
-git pull
+if [ $? -ne 0 ]; then
+	echo "You don't have the ../site-assets directory"
+else
+	git pull
+	rm -rf ./*
+	cp -r ../www/public/* .
+	cp -r ../www/CNAME .
+	git add .
+	git commit -m "new deployment"
+	git push
+	cd ../www
+	git pull
+fi
