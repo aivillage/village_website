@@ -38,7 +38,7 @@ But first let's ask ourselves:
 
 ### What would a human do?
 
-Let's take a look at an example of a regular HTTP request to some application:
+Take a look at an example of a regular HTTP request to some application:
 
 ```http
 POST /vulnbank/online/api.php HTTP/1.1
@@ -62,7 +62,7 @@ type=user&action=login&username=ytrtry&password=tyhgfhgfhg
 If you were given a task to detect malicious requests to this application most
 likely you would like to observe the "normal" requests for a while. After taking
 a look at some requests to a number of endpoints in the application, you would have
-a general idea what benign requests look like.
+a general idea of the structure and features of benign requests.
 
 Now you are presented with the following request:
 
@@ -95,33 +95,32 @@ that resembles this human reasoning.
 ### How did we start
 
 First of all, we have taken a look at previous researches on the topic.
-Many attempts to make different statistical or machine learning algorithms detect
-attacks have been made throughout the decades. One of the approaches is to solve
-a task of classification where classes are something like "normal requests,
+Many attempts to create different statistical or machine learning algorithms to detect
+attacks have been made throughout the decades. One of the most frequent approaches is to solve
+a task of classification where classes are something like "benign requests,
 SQL injections, XSS, CSRF,.. etc". While you may achieve some decent accuracy
 on a given dataset with a classifier, this approach doesn't solve very important
 problems:
 
-1. The presence of classes. What if your model during learning is resented with
-   three classes, say "benign, SQLi, XSS" and in production it encounters, say,
+1. The presence of classes. What if your model during learning is presented with
+   three classes, say "benign, SQLi, XSS" and in production it encounters
    "CSRF" attack?
 2. What do these classes really mean? Suppose you need to defend 10 customers
    each one of them, running very different web applications. For most of them
-   you would have no idea what a single "SQL" attack against their application
+   you would have no idea what a single "SQLi" attack against their application
    really looks like. This means you would have to somehow artificially construct
-   your learning datasets which are a horrible decision because you will end up
+   your learning datasets which is a horrible decision because you will end up
    learning on data from a completely different distribution than your real data is.
-3. How interpretable are AI's decisions to you and your customer? Ok, your classifier
+3. How interpretable are your classifier's decisions to you and your customer? Ok, it
    came up with the "SQLi" label, now what? You and most importantly your customer
    (who is a) the first one to see the alert b) is not an expert on web attacks)
-   have to make guess what part of the request our model has considered to be
-   malicious.
+   has to guess which part of the request our model has considered to be malicious.
 
-Keeping that in mind we decided to anyway give classification a try.
+Keeping that in mind we have decided to anyway give classification a try.
 
-Since HTTP protocol is text-based it was obvious that had to take a look at modern
+Since HTTP protocol is text-based it was obvious that we had to take a look at modern
 text classifiers. One of the well-known examples is sentiment analysis of IMDB
-movie review dataset. One of the classifiers uses RNNs to classify these reviews.
+movie review dataset. Some solutions use RNNs to classify these reviews.
 We decided to use a similar RNN classification model with some slight differences.
 For instance, natural language classification RNNs use word embeddings however
 it is not clear what words are in a non-natural language like HTTP. That's why
