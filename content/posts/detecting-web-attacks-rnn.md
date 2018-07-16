@@ -60,7 +60,7 @@ type=user&action=login&username=ytrtry&password=tyhgfhgfhg
 ```
 
 If you were given a task to detect malicious requests to this application most
-likely you would like to observe the "normal" requests for a while. After taking
+likely you would like to observe the benign requests for a while. After taking
 a look at some requests to a number of endpoints in the application, you would have
 a general idea of the structure and features of benign requests.
 
@@ -98,20 +98,20 @@ First of all, we have taken a look at previous researches on the topic.
 Many attempts to create different statistical or machine learning algorithms to detect
 attacks have been made throughout the decades. One of the most frequent approaches is to solve
 a task of classification where classes are something like "benign requests,
-SQL injections, XSS, CSRF,.. etc". While you may achieve some decent accuracy
+SQL injections, XSS, CSRF, etc.". While one may achieve some decent accuracy
 on a given dataset with a classifier, this approach doesn't solve very important
 problems:
 
-1. The presence of classes. What if your model during learning is presented with
-   three classes, say "benign, SQLi, XSS" and in production it encounters
+1. The choice of class set. What if your model during learning is presented with
+   three classes, say "benign, SQLi, XSS" and in production it encounters a
    "CSRF" attack?
-2. What do these classes really mean? Suppose you need to defend 10 customers
+2. The meaning of these classes. Suppose you need to defend 10 customers
    each one of them, running very different web applications. For most of them
    you would have no idea what a single "SQLi" attack against their application
    really looks like. This means you would have to somehow artificially construct
    your learning datasets which is a horrible decision because you will end up
    learning on data from a completely different distribution than your real data is.
-3. How interpretable are your classifier's decisions to you and your customer? Ok, it
+3. Interpretability of the results of your model. Ok, it
    came up with the "SQLi" label, now what? You and most importantly your customer
    (who is a) the first one to see the alert b) is not an expert on web attacks)
    has to guess which part of the request our model has considered to be malicious.
@@ -187,7 +187,7 @@ we try to run a classifier on it? It looks it could reproduce the second step
 of human reasoning about what kind of attack we are dealing with.
 
 The second problem is adversarial examples that can be used to evade our detection.
-In recent year we have seen an adversarial ML researches, people make modles "see"
+In recent year we have seen an adversarial ML researches, people make models "see"
 whatever they want them to see. Obviously, if Eve tried to evade our detection model
 she would probably come up with some adversarial techniques to do so.
 
