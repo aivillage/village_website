@@ -151,9 +151,22 @@ reading a lot of related research (for instance, "attention is all you need",
 our data we able to create an anomaly-detection model that would finally work
 more in a way a human expert does.
 
+### Autoencoders
+
+At some point it became clear that an Autoencoder[5] fits our goal the most.
+Autoencoder is a networks that sets it's target values equal to it's input
+values. The idea is to teach the network to re-create things it has seen, or,
+in other words approximate an identity function. If the trained autoencoder
+is given an anomalous point it is likely to re-create it with a high degree
+of error.
+
+![bank](images/detecting-web-attacks-rnn-02.png)
+
+*image taken from [What to do when data is missing, Part II](http://curiousily.com/data-science/2017/02/02/what-to-do-when-data-is-missing-part-2.html)*
+
 ### The result
 
-Finally, we ended up with a seq2seq model that proved to be able to find
+Finally, we ended up with a seq2seq autoencoder model that proved to be able to find
 anomalies in HTTP requests. Pre-processed request data is fed both to inputs
 and the outputs of the model, thus it learns to re-create the sequences it sees.
 
@@ -193,3 +206,15 @@ she would probably come up with some adversarial techniques to do so.
 
 The third problem is performance. Now it takes days to train on our small dataset
 on two GPUs, that is not scalable at all.
+
+### References
+
+[1] [Understanding LSTM networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+[2] [Attention and Augmented Recurrent Neural Networks](https://distill.pub/2016/augmented-rnns/)
+
+[3] [Attentions is all you need](https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html)
+
+[4] [Neural Machine Translation (seq2seq) Tutorial](https://github.com/tensorflow/nmt)
+
+[5] [Autoencoders](http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/)
