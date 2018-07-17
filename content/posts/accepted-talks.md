@@ -8,44 +8,236 @@ math = "false"
 
 DEF CON 26 is only one month away! We have a large number of amazing talks planned for everyone in attendance:
 
-## Full List
+## Talk Schedule
 
- Day | Time | Title | Speaker | Type
-:---:| :---: | :---: | :---: | ---:
-Friday | 10:00 | Opening Remarks | AI Village Organizers | Keynote
-Friday | 10:20 | Adversarial Patches | Sven Cattell | Presentation
-Friday | 10:40 | Stop and Step Away from the Data: Rapid Anomaly Detection via Ransom Note File Classification | Mark Mager | Presentation
-Friday | 11:20 | JMPgate: Accelerating reverse engineering into hyperspace using AI | Rob Brandon | Presentation
-Friday | 12:00 | Lunch ||
-Friday | 13:00 | IntelliAV: Building an Effective On-Device Android Malware Detector | Mansour Ahmadi | Presentation
-Friday | 13:20 | Identifying and correlating anomalies in Internet-wide scan traffic to newsworthy security events | Andrew Morris | Presentation
-Friday | 14:00 | It’s a Beautiful Day in the Malware Neighborhood | Matt | Presentation
-Friday | 14:30 | Malware Panel |  @drhyrum, @gradient_janitor, @malwareunicorn, @rharang, @bwall (Moderator) | Panel
-Friday | 15:20 | Detecting Web Attacks with Recurrent Neural Networks | Fedor Sakharov | Presentation
-Friday | 16:00 | Machine Learning for Network Security Hands-on Workshop: DIYML | Sebastian Garcia | Workshop
-Friday | 16:00 | Using AI to Create Music | dj beep code | Exhibit
-Friday | 16:00 | Machine Learning as a Service in Your Pocket | Evan Yang | Exhibit
-Friday | 16:00 | Deep Exploit | Isao Takaesu | Exhibit
-Friday | 16:00 | Dedicated CtF Time ||
-
-Saturday | 10:00 | The current state of adversarial machine learning | infosecanon | Presentation
-Saturday | 10:20 | Chatting with your programs to find vulnerabilities | Chris Gardner | Presentation
-Saturday | 10:40 | The great power of AI: Algorithmic mirrors of society | Aylin Caliskan | Presentation
-Saturday | 11:20 | DeepPhish: Simulating the Malicious Use of AI | Ivan Torroledo | Presentation
-Saturday | 11:40 | Lunch ||
-Saturday | 13:00 | Machine Learning Model Hardening For Fun and Profit | Ariel Herbert-Voss | Presentation
-Saturday | 13:20 | Automated Planning for the Automated Red Team | Andy Applebaum | Presentation
-Saturday | 14:00 | Beyond Adversarial Learning -- Security Risks in AI Implementations | Kang Li | Presentation
-Saturday | 14:30 | (Responsible?) Offensive Machine Learning | @bodaceacat, @filar, @Straithe, @_delta_zero (Moderating) | Panel
-Saturday | 15:20 | Towards a framework to quantitatively assess AI safety – challenges, open questions and opportunities. | Ram Shankar Siva Kumar | Presentation
-Saturday | 16:00 | StuxNNet: Practical Live Memory Attacks on Machine Learning Systems | Raphael Norwitz | Presentation
-Saturday | 16:20 | Hunting the Ethereum Smart Contract: Color-inspired Inspection of Potential Attacks | TonTon Huang | Presentation
-Saturday | 17:00 | Holy BATSense! Deploying TBATS Machine Learning Algorithm to Detect Security Events | Pranshu Bajpai | Presentation
-
-Sunday | 10:00 | Generating Labeled Data From Adversary Simulations With MITRE ATT&CK | Brian Genz | Presentation
-Sunday | 10:40 | AI DevOps: Behind the Scenes of a Global Anti-Virus Company's Machine Learning Infrastructure | Alex Long | Presentation
-Sunday | 11:00 | GAN to the dark side: A case study of attacking machine-learning systems to empower defenses | Li Chen | Presentation
-Sunday | 11:40 | Closing notes and prizes | AI Village Organizers | Presentation
+<table style="width:100%">
+  <tr style="color: #FFFFFF; background: #808080;">
+    <th> Day </th>
+    <th> Time </th>
+    <th> Title </th>
+    <th> Speaker(s) </th>
+    <th> Type </th>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 10:00 </td>
+    <td> Opening Remarks </td>
+    <td> AI Village Organizers </td>
+    <td> Keynote </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 10:20 </td>
+    <td> Adversarial Patches </td>
+    <td> Sven Cattell </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 10:40 </td>
+    <td> Stop and Step Away from the Data: Rapid Anomaly Detection via Ransom Note File Classification </td>
+    <td> Mark Mager </td>
+    <td> Presentation </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 11:20 </td>
+    <td> JMPgate: Accelerating reverse engineering into hyperspace using AI </td>
+    <td> Rob Brandon </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 12:00 </td>
+    <td align="center" colspan="3"> Lunch </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 13:00 </td>
+    <td> IntelliAV: Building an Effective On-Device Android Malware Detector </td>
+    <td> Mansour Ahmadi </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 13:20 </td>
+    <td> Identifying and correlating anomalies in Internet-wide scan traffic to newsworthy security events </td>
+    <td> Andrew Morris </td>
+    <td> Presentation </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 14:00 </td>
+    <td> It’s a Beautiful Day in the Malware Neighborhood </td>
+    <td> Matt </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 14:30 </td>
+    <td> Malware Panel </td>
+    <td> @drhyrum, @gradient_janitor, @malwareunicorn, @rharang, @bwall (Moderator) </td>
+    <td> Panel </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 15:20 </td>
+    <td> Detecting Web Attacks with Recurrent Neural Networks </td>
+    <td> Fedor Sakharov </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 16:00 </td>
+    <td> Machine Learning for Network Security Hands-on Workshop: DIYML </td>
+    <td> Sebastian Garcia </td>
+    <td> Workshop </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 16:00 </td>
+    <td> Using AI to Create Music </td>
+    <td> dj beep code </td>
+    <td> Exhibit </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 16:00 </td>
+    <td> Machine Learning as a Service in Your Pocket </td>
+    <td> Evan Yang </td>
+    <td> Exhibit </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Friday </td>
+    <td> 16:00 </td>
+    <td> Deep Exploit </td>
+    <td> Isao Takaesu </td>
+    <td> Exhibit </td>
+  </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 16:00 </td>
+    <td align="center" colspan="3"> Dedicated CTF Time </td>
+  </tr>
+  <tr><td colspan="5"></td></tr>
+  <tr style="background: #E0E0E0;">
+    <td> Saturday </td>
+    <td> 10:00 </td>
+    <td> The current state of adversarial machine learning </td>
+    <td> infosecanon </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 10:20 </td>
+    <td> Chatting with your programs to find vulnerabilities </td>
+    <td> Chris Gardner </td>
+    <td> Presentation </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Saturday </td>
+    <td> 10:40 </td>
+    <td> The great power of AI: Algorithmic mirrors of society </td>
+    <td> Aylin Caliskan </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 11:20 </td>
+    <td> DeepPhish: Simulating the Malicious Use of AI </td>
+    <td> Ivan Torroledo </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 11:40 </td>
+    <td  align="center" colspan="3"> Lunch </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Saturday </td>
+    <td> 13:00 </td>
+    <td> Machine Learning Model Hardening For Fun and Profit </td>
+    <td> Ariel Herbert-Voss </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 13:20 </td>
+    <td> Automated Planning for the Automated Red Team </td>
+    <td> Andy Applebaum </td>
+    <td> Presentation </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Saturday </td>
+    <td> 14:00 </td>
+    <td> Beyond Adversarial Learning -- Security Risks in AI Implementations </td>
+    <td> Kang Li </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 14:30 </td>
+    <td> (Responsible?) Offensive Machine Learning </td>
+    <td> @bodaceacat, @filar, @Straithe, @_delta_zero (Moderating) </td>
+    <td> Panel </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Saturday </td>
+    <td> 15:20 </td>
+    <td> Towards a framework to quantitatively assess AI safety – challenges, open questions and opportunities. </td>
+    <td> Ram Shankar Siva Kumar </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 16:00 </td>
+    <td> StuxNNet: Practical Live Memory Attacks on Machine Learning Systems </td>
+    <td> Raphael Norwitz </td>
+    <td> Presentation </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Saturday </td>
+    <td> 16:20 </td>
+    <td> Hunting the Ethereum Smart Contract: Color-inspired Inspection of Potential Attacks </td>
+    <td> TonTon Huang </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 17:00 </td>
+    <td> Holy BATSense! Deploying TBATS Machine Learning Algorithm to Detect Security Events </td>
+    <td> Pranshu Bajpai </td>
+    <td> Presentation </td>
+  </tr>
+  <tr><td colspan="5"></td></tr>
+  <tr style="background: #E0E0E0;">
+    <td> Sunday </td>
+    <td> 10:00 </td>
+    <td> Generating Labeled Data From Adversary Simulations With MITRE ATT&CK </td>
+    <td> Brian Genz </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Sunday </td>
+    <td> 10:40 </td>
+    <td> AI DevOps: Behind the Scenes of a Global Anti-Virus Company's Machine Learning Infrastructure </td>
+    <td> Alex Long </td>
+    <td> Presentation </td>
+  </tr>
+  <tr style="background: #E0E0E0;">
+    <td> Sunday </td>
+    <td> 11:00 </td>
+    <td> GAN to the dark side: A case study of attacking machine-learning systems to empower defenses </td>
+    <td> Li Chen </td>
+    <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Sunday </td>
+    <td> 11:40 </td>
+    <td  align="center" colspan="3"> Closing notes and prizes </td>
+  </tr>
+  <tr><td colspan="5"></td></tr>
+</table>
 
 ## Accepted Talks
 
@@ -190,7 +382,7 @@ Andy Applebaum is a Lead Cyber Security Engineer at MITRE where he works on appl
 
 _Mark Mager_
 
-"	
+" 
 The proliferation of ransomware has become a widespread problem culminating in numerous incidents that have affected users worldwide. Current ransomware detection approaches are limited in that they either take too long to determine if a process is truly malicious or tend to miss certain processes due to focusing solely on static analysis of executables. To address these shortcomings, we developed a machine learning model to classify forensic artifacts common to ransomware infections: ransom notes. Leveraging this model, we built a ransomware detection capability that is more efficient and effective than the status quo.
 
 I will highlight the limitations to current ransomware detection technologies and how that instigated our new approach, including our research design, data collection, high value features, and how we performed testing to ensure acceptable detection rates while being resilient to false positives. I will also be conducting a live demonstration with ransomware samples to demonstrate our technology's effectiveness. Additionally, we will be releasing all related source code and our model to the public, which will enable users to generate and test their own models, as we hope to further push innovative research on effective ransomware detection capabilities."
