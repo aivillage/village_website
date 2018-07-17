@@ -165,7 +165,7 @@ in other words, approximate an identity function. If the trained autoencoder
 is given an anomalous sample it is likely to re-create it with a high degree
 of error.
 
-![bank](images/detecting-web-attacks-rnn-02.png)
+![autoencoder](images/detecting-web-attacks-rnn-02.png)
 
 *image taken from [What to do when data is missing, Part II](http://curiousily.com/data-science/2017/02/02/what-to-do-when-data-is-missing-part-2.html)*
 
@@ -192,7 +192,7 @@ parameter individually.  The code of the model and the train/test data will be r
 as a Jupyter notebook so anyone can reproduce our results and suggest improvements.
 
 
-### Further steps
+### Further steps and summary
 
 There are several weak points to improve.
 
@@ -212,6 +212,15 @@ she would probably come up with some adversarial techniques to do so.
 
 The third problem is performance. Now it takes days to train on our small dataset
 on two GPUs, that is not scalable at all.
+
+However, we would argue that this work proposes an interesting approach to build a
+model for detecting attacks on Web Applications. One of the most important things
+in this research is the attempt to mimic the reasoning of a human expert
+in an unsupervised yet interpretable manner. It is also notable that we can clearly
+see the further steps in this research and the steps seem to be very sound. It is our hope
+that this work will kick-off the interest in using Deep Learning for Attack
+Detection in many other teams and researchers and we are looking forward to collaborating
+with them.
 
 ### References
 
