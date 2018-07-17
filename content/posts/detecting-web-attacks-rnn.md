@@ -9,7 +9,7 @@ math = "false"
 Attack detection has been a part of information security for decades. First 
 known examples of IDS implementations date back to the early 80s. Here is what
 we read about that time on
-[wikipedia](https://en.wikipedia.org/wiki/Intrusion_detection_system):
+[Wikipedia](https://en.wikipedia.org/wiki/Intrusion_detection_system):
 
 > Dorothy E. Denning, assisted by Peter G. Neumann, published a model of an IDS
 > in 1986 that formed the basis for many systems today.[20] Her model used
@@ -20,16 +20,21 @@ we read about that time on
 Let's note the part about statistics for anomaly detection.
 
 Nowadays, some decades later the industry around attack detection has formed.
-There are different kinds of products like IDSs, IPSs, WAFs, firewalls etc most of
+There are different kinds of products like IDSs, IPSs, WAFs, firewalls, etc, most of
 which offer rule-based attack detection. The idea of using some kind of statistical
 anomaly detection to detect attacks in production doesn't seem that realistic as it
 used to back in a day. But does it?
 
-### Detection of attacks on Web Applications
+### Detection of attacks on web applications
 
-Most WAFs nowadays attempt to detect attacks in a similar fashion: that is some
-rule-based engine embedded into a reverse proxy of some type. Rule-based detection
-has some disadvantages, for instance, they fail to detect novel attacks while these
+The first firewalls tailored to detect application specific attacks started to appear on 
+the market in the early 90s. Both attack techniques and protection mechainsms have evolved 
+dramatically since then with attackers being a step forward at any time.
+
+Most WAFs nowadays attempt to detect attacks in a similar fashion: some rule-based engine 
+embedded into a reverse proxy of some type. The most prominent example is mod_security, 
+a WAF module for Apache web server, which was created in 2002. Rule-based detection
+has some disadvantages, for instance, they fail to detect novel attacks aka 0days while these
 same attacks can easily be detected by a human expert. If you think about it, that's
 not very surprising, human brain works very differently from a set of regular
 expressions.
@@ -85,16 +90,16 @@ type=user&action=login&username=none'+union+select+1,2,login,password,5,6,7,NULL
 ```
 
 It immediately catches your eye that something is wrong here. It takes some
-more time to understand what is and as soon as you locate the exact piece
+more time to understand what it is and as soon as you locate the exact piece
 of request that is anomalous, you can start thinking about what type of attack
 it is.
 Essentially, our goal is to make our attack detection AI work in some fashion
 that resembles this human reasoning.
 
 
-### How did we start
+### How we started
 
-First of all, we have taken a look at previous researches on the topic.
+First of all, we have taken a look at previous research on the topic.
 Many attempts to create different statistical or machine learning algorithms to detect
 attacks have been made throughout the decades. One of the most frequent approaches is to solve
 a task of classification where classes are something like "benign requests,
@@ -104,60 +109,60 @@ problems:
 
 1. The choice of class set. What if your model during learning is presented with
    three classes, say "benign, SQLi, XSS" and in production it encounters a
-   "CSRF" attack?
-2. The meaning of these classes. Suppose you need to defend 10 customers
-   each one of them, running very different web applications. For most of them
-   you would have no idea what a single "SQLi" attack against their application
+   "CSRF" attack or even a brand new attack technique?
+2. The meaning of these classes. Suppose you need to protect ten customers
+   each of them running completely different web applications. For most of them
+   you would have no idea what a single "SQL Injection" attack against their application
    really looks like. This means you would have to somehow artificially construct
    your learning datasets which is a horrible decision because you will end up
    learning on data from a completely different distribution than your real data is.
 3. Interpretability of the results of your model. Ok, it
-   came up with the "SQLi" label, now what? You and most importantly your customer
-   (who is a) the first one to see the alert b) is not an expert on web attacks)
+   came up with the "SQL Injection" label, now what? You and most importantly your customer,
+   who is the first one to see the alert and typically is not an expert in web attacks,
    has to guess which part of the request our model has considered to be malicious.
 
-Keeping that in mind we have decided to anyway give classification a try.
+Keeping that in mind we have decided to give classification a try anyway.
 
 Since HTTP protocol is text-based it was obvious that we had to take a look at modern
 text classifiers. One of the well-known examples is sentiment analysis of IMDB
 movie review dataset. Some solutions use RNNs to classify these reviews.
 We decided to use a similar RNN classification model with some slight differences.
-For instance, natural language classification RNNs use word embeddings however
-it is not clear what words are in a non-natural language like HTTP. That's why
-we decided to use char embeddings in our model.
+For instance, natural language classification RNNs use word embeddings, however
+it is not clear what words there are in a non-natural language like HTTP. That's why
+we decided to use character embeddings in our model.
 
 After finishing developing and testing the model all the problems predicted earlier
-were obvious but at least our team has moved from useless speculations to some
+became obvious but at least our team has moved from useless speculations to some
 result.
 
-### How did we proceed
+### How we proceeded
 
 From there we have decided to take some steps in the direction of making the
-results of our model more interpretable. At some point, we came across the
-mechanism of attention and started to integrate it into our model. And that
-yielded some promising results: at some point, everything came together
+results of our model more interpretable. At some point we came across the
+mechanism of "attention" and started to integrate it into our model. And that
+yielded some promising results: finally, everything came together
 and we got some human-interpretable results. Now our model started to output
 not only the labels but also the attention coefficients for every character
 of the input.
 
 If that could be visualized, say, in a web interface, we could color the exact
-place where the "SQLi" attack has been found. That was a good result, however,
+place where the "SQL Injection" attack has been found. That was a good result, however,
 the other problems still remained unsolved.
 
-It was clear that we have to keep going in the direction of exploiting the
+It was clear that we have to keep going in the direction of benefiting from the
 attention mechanism and to drift away from the task of classification. After
 reading a lot of related research (for instance, "attention is all you need",
 "word2vec", encoder-decoder architectures) on sequence models and experimenting with
-our data we able to create an anomaly-detection model that would finally work
-more in a way a human expert does.
+our data we were able to create an anomaly-detection model that would finally work
+more or less in a way how a human expert does.
 
 ### Autoencoders
 
-At some point it became clear that an Autoencoder[5] fits our goal the most.
-Autoencoder is a networks that sets it's target values equal to it's input
+At some point it became clear that an Autoencoder [5] fits our goal the most.
+Autoencoder is a network that sets its target values equal to its input
 values. The idea is to teach the network to re-create things it has seen, or,
-in other words approximate an identity function. If the trained autoencoder
-is given an anomalous point it is likely to re-create it with a high degree
+in other words, approximate an identity function. If the trained autoencoder
+is given an anomalous sample it is likely to re-create it with a high degree
 of error.
 
 ![bank](images/detecting-web-attacks-rnn-02.png)
@@ -175,32 +180,33 @@ of a bank.
 
 ![bank](images/detecting-web-attacks-rnn-01.jpg)
 
-This model acts more like a human does: it learns only on the "normal" user
-requests to the web app. It detects anomalies in requests and it highlights
+This model acts more like a human does: it learns only the "normal" user
+requests to the web application. It detects anomalies in requests and it highlights
 the exact place of the request considered anomalous. We evaluated this model
-against some attacks on the test app and the results appeared to be promising.
+against some attacks on the test application and the results appeared to be promising.
 For instance, the image above depicts how our model detected the SQL injection
-split into two web form parameters. The code of the model and the train/test
-data will be released as a jupyter notebook so anyone can reproduce our results
-and suggest improvements.
+split into two web form parameters. Such SQL injections are called "fragmented", 
+i.e. the attack payload portions are delivered in several HTTP parameters which makes it 
+difficult for classic rule-based WAFs to detect such cases as they usually inspect each 
+parameter individually.  The code of the model and the train/test data will be released 
+as a Jupyter notebook so anyone can reproduce our results and suggest improvements.
 
 
 ### Further steps
 
-This model is a definite step forward for our team however now there are more
-new problems to find solutions to and places to improve.
+There are several weak points to improve.
 
-First of all, the next step is obvious. Recall how a human expert would detect
-an attack: first, he would notice an anomaly an only then he would start reasoning
-if it is an attack and what kind of attack that is. Our model performs the first
-step of this, it finds some anomalous sequence inside the request. What if now
-that we have reduced all the significant anomaly data to this small sequence
-leaving all the application-specific parts of request that don't look like an anomaly,
+First of all, the next step is to try to classify the attack. Recall how a human expert would detect
+an attack: first, he would notice the fact of an anomaly, then he would start reasoning
+if it is an attack and if so what kind of attack. Our model performs the first
+step of this, it finds some anomalous sequence inside the request. Now
+that we have reduced all the significant anomaly data to this small character sequence
+leaving all the application-specific parts of request that don't look like an anomaly, what if
 we try to run a classifier on it? It looks it could reproduce the second step
 of human reasoning about what kind of attack we are dealing with.
 
 The second problem is adversarial examples that can be used to evade our detection.
-In recent year we have seen an adversarial ML researches, people make models "see"
+In recent year we have seen numerous research papers on adversarial ML, people make models "see"
 whatever they want them to see. Obviously, if Eve tried to evade our detection model
 she would probably come up with some adversarial techniques to do so.
 
@@ -215,7 +221,7 @@ on two GPUs, that is not scalable at all.
 
 [3] [Attention is all you need](https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html)
 
-[4] [Attention is all you need (annotated)](https://nlp.seas.harvard.edu/2018/04/03/attention.html)j
+[4] [Attention is all you need (annotated)](https://nlp.seas.harvard.edu/2018/04/03/attention.html)
 
 [5] [Neural Machine Translation (seq2seq) Tutorial](https://github.com/tensorflow/nmt)
 
