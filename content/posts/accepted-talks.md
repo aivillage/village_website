@@ -10,33 +10,42 @@ DEF CON 26 is only one month away! We have a large number of amazing talks plann
 
 ## Full List
 
-Title | Speaker | Type
---- | :---: | ---:
-The current state of adversarial machine learning | infosecanon | Presentation
-StuxNNet: Practical Live Memory Attacks on Machine Learning Systems | Raphael Norwitz | Presentation
-Holy BATSense! Deploying TBATS Machine Learning Algorithm to Detect Security Events | Pranshu Bajpai | Presentation
-Machine Learning for Network Security Hands-on Workshop: DIYML | Sebastian Garcia | Workshop
-Detecting Web Attacks with Recurrent Neural Networks | Fedor Sakharov | Presentation
-Using AI to Create Music | dj beep code | Exhibit
-It’s a Beautiful Day in the Malware Neighborhood | Matt | Presentation
-IntelliAV: Building an Effective On-Device Android Malware Detector | Mansour Ahmadi | Presentation
-Chatting with your programs to find vulnerabilities | Chris Gardner | Presentation
-Hunting the Ethereum Smart Contract: Color-inspired Inspection of Potential Attacks | TonTon Huang | Presentation
-Deep Exploit | Isao Takaesu | Exhibit
-Beyond Adversarial Learning -- Security Risks in AI Implementations | Kang Li | Presentation
-DeepPhish: Simulating the Malicious Use of AI | Ivan Torroledo | Presentation
-AI DevOps: Behind the Scenes of a Global Anti-Virus Company's Machine Learning Infrastructure | Alex Long | Presentation
-Generating Labeled Data From Adversary Simulations With MITRE ATT&CK | Brian Genz | Presentation
-JMPgate: Accelerating reverse engineering into hyperspace using AI | Rob Brandon | Presentation
-Automated Planning for the Automated Red Team | Andy Applebaum | Presentation
-Stop and Step Away from the Data: Rapid Anomaly Detection via Ransom Note File Classification | Mark Mager | Presentation
-Identifying and correlating anomalies in Internet-wide scan traffic to newsworthy security events | Andrew Morris | Presentation
-Machine Learning Model Hardening For Fun and Profit | Ariel Herbert-Voss | Presentation
-The great power of AI: Algorithmic mirrors of society | Aylin Caliskan | Presentation
-GAN to the dark side: A case study of attacking machine-learning systems to empower defenses | Li Chen | Presentation
-Towards a framework to quantitatively assess AI safety – challenges, open questions and opportunities. | Ram Shankar Siva Kumar | Presentation
-Adversarial Patches | Sven Cattell | Presentation
-Machine Learning as a Service in Your Pocket | Evan Yang | Exhibit
+ Day | Time | Title | Speaker | Type
+:---:| :---: | :---: | :---: | ---:
+Friday | 10:00 | Opening Remarks | AI Village Organizers | Keynote
+Friday | 10:20 | Adversarial Patches | Sven Cattell | Presentation
+Friday | 10:40 | Stop and Step Away from the Data: Rapid Anomaly Detection via Ransom Note File Classification | Mark Mager | Presentation
+Friday | 11:20 | JMPgate: Accelerating reverse engineering into hyperspace using AI | Rob Brandon | Presentation
+Friday | 12:00 | Lunch ||
+Friday | 13:00 | IntelliAV: Building an Effective On-Device Android Malware Detector | Mansour Ahmadi | Presentation
+Friday | 13:20 | Identifying and correlating anomalies in Internet-wide scan traffic to newsworthy security events | Andrew Morris | Presentation
+Friday | 14:00 | It’s a Beautiful Day in the Malware Neighborhood | Matt | Presentation
+Friday | 14:30 | Malware Panel |  @drhyrum, @gradient_janitor, @malwareunicorn, @rharang, @bwall (Moderator) | Panel
+Friday | 15:20 | Detecting Web Attacks with Recurrent Neural Networks | Fedor Sakharov | Presentation
+Friday | 16:00 | Machine Learning for Network Security Hands-on Workshop: DIYML | Sebastian Garcia | Workshop
+Friday | 16:00 | Using AI to Create Music | dj beep code | Exhibit
+Friday | 16:00 | Machine Learning as a Service in Your Pocket | Evan Yang | Exhibit
+Friday | 16:00 | Deep Exploit | Isao Takaesu | Exhibit
+Friday | 16:00 | Dedicated CtF Time ||
+
+Saturday | 10:00 | The current state of adversarial machine learning | infosecanon | Presentation
+Saturday | 10:20 | Chatting with your programs to find vulnerabilities | Chris Gardner | Presentation
+Saturday | 10:40 | The great power of AI: Algorithmic mirrors of society | Aylin Caliskan | Presentation
+Saturday | 11:20 | DeepPhish: Simulating the Malicious Use of AI | Ivan Torroledo | Presentation
+Saturday | 11:40 | Lunch ||
+Saturday | 13:00 | Machine Learning Model Hardening For Fun and Profit | Ariel Herbert-Voss | Presentation
+Saturday | 13:20 | Automated Planning for the Automated Red Team | Andy Applebaum | Presentation
+Saturday | 14:00 | Beyond Adversarial Learning -- Security Risks in AI Implementations | Kang Li | Presentation
+Saturday | 14:30 | (Responsible?) Offensive Machine Learning | @bodaceacat, @filar, @Straithe, @_delta_zero (Moderating) | Panel
+Saturday | 15:20 | Towards a framework to quantitatively assess AI safety – challenges, open questions and opportunities. | Ram Shankar Siva Kumar | Presentation
+Saturday | 16:00 | StuxNNet: Practical Live Memory Attacks on Machine Learning Systems | Raphael Norwitz | Presentation
+Saturday | 16:20 | Hunting the Ethereum Smart Contract: Color-inspired Inspection of Potential Attacks | TonTon Huang | Presentation
+Saturday | 17:00 | Holy BATSense! Deploying TBATS Machine Learning Algorithm to Detect Security Events | Pranshu Bajpai | Presentation
+
+Sunday | 10:00 | Generating Labeled Data From Adversary Simulations With MITRE ATT&CK | Brian Genz | Presentation
+Sunday | 10:40 | AI DevOps: Behind the Scenes of a Global Anti-Virus Company's Machine Learning Infrastructure | Alex Long | Presentation
+Sunday | 11:00 | GAN to the dark side: A case study of attacking machine-learning systems to empower defenses | Li Chen | Presentation
+Sunday | 11:40 | Closing notes and prizes | AI Village Organizers | Presentation
 
 ## Accepted Talks
 
@@ -282,3 +291,4 @@ Sebastian is a malware researcher and security teacher that has extensive experi
 ## Closing Notes
 
 Our Call for Volunteers is open! If you want to help our village be a success, [sign up here](https://docs.google.com/forms/d/e/1FAIpQLSeDOhdi8A9wzY5ifH7iMVIVtkdHIGScPBLpEndcUkzPgtjQIQ/viewform)
+
