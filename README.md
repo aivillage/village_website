@@ -17,7 +17,7 @@ To make use of the `deploy.sh` script, your build environment should be organize
 
 ```
 root
-|-- code (CURRENT DIRECTORY) -> tracking code branch of aivillage/www.git
+|-- www (CURRENT DIRECTORY) -> tracking code branch of aivillage/www.git
 |    +-- archetypes 
 |    +-- content
 |    +-- data
