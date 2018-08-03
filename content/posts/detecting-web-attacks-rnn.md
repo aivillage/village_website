@@ -158,16 +158,21 @@ more or less in a way how a human expert does.
 
 ### Autoencoders
 
-At some point it became clear that an Autoencoder [5] fits our goal the most.
-Autoencoder is a network that sets its target values equal to its input
+At some point it became clear that an sequence-to-sequqnce Autoencoder [5]
+fits our goal the most.
+
+A sequence-to-sequence model [7] consists of two multi-layaered LSTMs:
+an encoder and a decoder. The encoder maps the input sequence to vector
+of fixed dimensionality. The decoder decodes the target vector using this
+output of the encoder.
+
+Autoencoder is a sequence-to-sequence model that sets its target values equal to its input
 values. The idea is to teach the network to re-create things it has seen, or,
 in other words, approximate an identity function. If the trained autoencoder
 is given an anomalous sample it is likely to re-create it with a high degree
 of error.
 
 ![autoencoder](images/detecting-web-attacks-rnn-02.png)
-
-*image taken from [What to do when data is missing, Part II](http://curiousily.com/data-science/2017/02/02/what-to-do-when-data-is-missing-part-2.html)*
 
 ### The result
 
@@ -235,3 +240,7 @@ with them.
 [5] [Neural Machine Translation (seq2seq) Tutorial](https://github.com/tensorflow/nmt)
 
 [6] [Autoencoders](http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/)
+
+[7] [Sequence to Sequence Learning with Neural Networks](https://arxiv.org/abs/1409.3215)
+
+[8] [Building autoencoders in Keras](https://blog.keras.io/building-autoencoders-in-keras.html)
