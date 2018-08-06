@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Adversarial Pointcloud</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<div style="width:100%;height:50px;text-align: center; color:white;" class="ui">Torus
+		<script src="threejs/three.min.js"></script>
+		<script src="threejs/OrbitControls.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			scene.background = new THREE.Color( 0xFFFFFF );
+			var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+			var geometry = new THREE.TorusGeometry( 2, 0.5, 16, 80 );
+			var material = new THREE.MeshNormalMaterial(  );
+			var torus = new THREE.Mesh( geometry, material );
+			//scene.add( torus );
+
+			function makePointCloud(majorR,minorR,noise,numPoints,torusColor) {
+				var geometry_torus = new THREE.BufferGeometry();
+				var vertices_torus = [];
+				for ( var i = 0; i < numPoints; i ++ ) {
+					var theta = 2*Math.PI * Math.random();
+					var phi = 2*Math.PI * Math.random();
+					var x = (majorR + minorR*Math.cos(theta))*Math.cos(phi) + noise*Math.random();
+					var y = (majorR + minorR*Math.cos(theta))*Math.sin(phi) + noise*Math.random();
+					var z = minorR*Math.sin(theta) + noise*Math.random();
+					vertices_torus.push( x, y, z );
+				}
+				geometry_torus.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices_torus, 3 ) );
+				material = new THREE.PointsMaterial( { color:torusColor, size: 0.5, sizeAttenuation: false,  alphaTest: 0.5} );
+				var particles_torus = new THREE.Points( geometry_torus, material );
+				return particles_torus;
+			}
+			var particles_green_torus = makePointCloud(1,0.4,0.2,10000,0x00aa00);
+			var particles_blue_torus = makePointCloud(1,0.4,0.2,10000,0x0000ff);
+			particles_blue_torus.position.x = 0.5;
+			particles_green_torus.position.x = -0.5;
+			particles_blue_torus.rotation.x = 0.5 * Math.PI;
+
+			scene.add( particles_green_torus );
+			var showing_green_torus = true;
+			function hideGreenTorus(event) {
+				if (showing_green_torus) {
+					scene.remove( particles_green_torus );
+					showing_green_torus = false;
+				} else {
+					scene.add( particles_green_torus );
+					showing_green_torus = true;
+				}
+			}
+			scene.add( particles_blue_torus );
+			var showing_blue_torus = true;
+			function hideBlueTorus(event) {
+				if (showing_blue_torus) {
+					scene.remove( particles_blue_torus );
+					showing_blue_torus = false;
+				} else {
+					scene.add( particles_blue_torus );
+					showing_blue_torus = true;
+				}
+			}
+			
+			
+			function makeAdversarialPointCloud(x,y,z,l,o,noise,numPoints,adversarialColor) {
+				var geometry_cone = new THREE.BufferGeometry();
+				var vertices_cone = [];
+				for ( var i = 0; i < numPoints; i ++ ) {
+					var t = (l) * Math.random();
+					var x_noise = noise*Math.random();
+					var y_noise = noise*Math.random();
+					var z_noise = noise*Math.random();
+					vertices_cone.push( x*(t + o) + x_noise, y*(t + o) + y_noise, z*(t + o) + z_noise );
+				}
+				geometry_cone.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices_cone, 3 ) );
+				material = new THREE.PointsMaterial( { color:adversarialColor, size: 0.5, sizeAttenuation: false,  alphaTest: 0.5} );
+				var particles_torus = new THREE.Points( geometry_cone, material );
+				return particles_torus;
+			}
+			var particles_adversarial = makeAdversarialPointCloud(1,-1,1,0.2,0,0.05,100,0xaa0000);
+			particles_adversarial.position.x = -1.275 - 0.5;
+			particles_adversarial.position.y = 1.275;
+			particles_adversarial.position.z = -0.2;
+
+			scene.add( particles_adversarial );
+
+			var geometry_disk = new THREE.CircleGeometry( 0.1, 15 );
+			var material_disk = new THREE.MeshBasicMaterial( {color:0x00aa00});
+			material_disk.side = THREE.DoubleSide;
+			var local_disk = new THREE.Mesh( geometry_disk, material_disk );
+			local_disk.position.x = (1.5)*Math.cos(0.75*Math.PI) - 0.5;
+			local_disk.position.y = (1.5)*Math.sin(0.75*Math.PI);
+			local_disk.rotation.x = 0.25 * Math.PI;
+			local_disk.rotation.y = 0.25 * Math.PI;
+			//local_disk.rotation.z = 0.5 * 2 * Math.PI;
+			scene.add( local_disk );
+
+
+
+			var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+
+			var controls = new THREE.OrbitControls( camera );
+
+			//controls.update() must be called after any manual changes to the camera's transform
+			camera.position.set( 0, 0, 7 );
+			controls.update();
+
+
+			function animate() {
+				requestAnimationFrame( animate );
+				//particles_wide.rotation.x += 0.01;
+				//particles_wide.rotation.y += 0.01;
+
+				//particles_narrow.rotation.x += 0.01;
+				//particles_narrow.rotation.y += 0.01;
+
+				//local_disk.rotation.x += 0.01;
+				//local_disk.rotation.y += 0.01;
+				controls.update();
+
+				renderer.render( scene, camera );
+			}
+			animate();
+		</script>
+		<button style="top:0" id="hideGreen" onclick="hideGreenTorus()">Hide Green Torus</button>
+		<button style="top:0" id="hideBlue" onclick="hideBlueTorus()">Hide Blue Torus</button>
+		</div>
+	</body>
+</html>

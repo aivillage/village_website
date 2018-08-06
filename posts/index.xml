@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>https://aivillage.org/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://aivillage.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AI Village Accepted Talks</title>
+      <link>https://aivillage.org/posts/accepted-talks/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/accepted-talks/</guid>
+      <description>DEF CON 26 is only one month away! We have a large number of amazing talks planned for everyone in attendance:
+Talk Schedule  Day   Time   Title   Speaker(s)   Type     Friday   10:00   Opening Remarks   AI Village Organizers   Keynote    Friday   10:20   Adversarial Patches   Sven Cattell   Presentation     Friday   10:40   Stop and Step Away from the Data: Rapid Anomaly Detection via Ransom Note File Classification   Mark Mager   Presentation    Friday   11:20   JMPgate: Accelerating reverse engineering into hyperspace using AI   Rob Brandon   Presentation     Friday   12:00  Lunch    Friday   13:00   IntelliAV: Building an Effective On-Device Android Malware Detector   Mansour Ahmadi   Presentation     Friday   13:20   Identifying and correlating anomalies in Internet-wide scan traffic to newsworthy security events   Andrew Morris   Presentation    Friday   14:00   It’s a Beautiful Day in the Malware Neighborhood   Matt   Presentation     Friday   14:30   Malware Panel   @drhyrum, @gradient_janitor, @malwareunicorn, @rharang, @bwall (Moderator)   Panel    Friday   15:20   Detecting Web Attacks with Recurrent Neural Networks   Fedor Sakharov   Presentation     Friday   16:00   Machine Learning for Network Security Hands-on Workshop: DIYML   Sebastian Garcia   Workshop    Friday   16:00   Using AI to Create Music   dj beep code   Exhibit     Friday   16:00   Machine Learning as a Service in Your Pocket   Evan Yang   Exhibit    Friday   16:00   Deep Exploit   Isao Takaesu   Exhibit     Friday   16:00  Dedicated CTF Time     Saturday   10:00   The current state of adversarial machine learning   infosecanon   Presentation     Saturday   10:20   Chatting with your programs to find vulnerabilities   Chris Gardner   Presentation    Saturday   10:40   The great power of AI: Algorithmic mirrors of society   Aylin Caliskan   Presentation     Saturday   11:20   DeepPhish: Simulating the Malicious Use of AI   Ivan Torroledo   Presentation     Saturday   11:40  Lunch    Saturday   13:00   Machine Learning Model Hardening For Fun and Profit   Ariel Herbert-Voss   Presentation     Saturday   13:20   Automated Planning for the Automated Red Team   Andy Applebaum   Presentation    Saturday   14:00   Beyond Adversarial Learning -- Security Risks in AI Implementations   Kang Li   Presentation     Saturday   14:30   (Responsible?</description>
+    </item>
+    
+    <item>
+      <title>Gradient Attacks</title>
+      <link>https://aivillage.org/posts/optimization-fgsm/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/optimization-fgsm/</guid>
+      <description>Welcome to the second post in the AI Village&amp;rsquo;s adversarial machine learning series. This one will cover the greedy fast methods that are most commonly used. We will explain what greedy means and why certain choices were made that may not be obvious to newcomers. This is meant as a read-a-long with the papers, we will not be going into a lot of detail but we will focus on the explaining the tricky minutia so that you can understand these papers more easily.</description>
+    </item>
+    
+    <item>
+      <title>AI Village Panel Announcement</title>
+      <link>https://aivillage.org/posts/panel-announcement/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/panel-announcement/</guid>
+      <description>With DEF CON just two months away, we&amp;rsquo;re excited to announce two panels that will be held at AI Village this year! Here&amp;rsquo;s what we have planned for attendees so far:
+(Responsible?) Offensive Machine Learning Panelists * @_delta_zero (Moderating) * @bodaceacat * @filar * @Straithe
+Abstract: Cool evil hacks using machine learning are exploding in popularity. Not all ML abuse looks like Terminators, but also DeepFakes, political impersonation, and distracting autonomous cars.</description>
+    </item>
+    
+    <item>
+      <title>Max evil MLsec: why should you care?</title>
+      <link>https://aivillage.org/posts/max-evil-sjterp/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/max-evil-sjterp/</guid>
+      <description>“Max evil” MLsec: why should you care? Originally posted on Medium - follow @sarajayneterp and like her article there
+MLsec is the intersection of machine learning, artificial intelligence, deep learning and information security. It has an active community (see the MLsec project, Defcon’s AI Village and the CAMLIS conference) and a host of applications including the offensive ones outlined in “The Malicious Use of AI”.
+One of the things we’ve been talking about is what it means to be ethical in this space.</description>
+    </item>
+    
+    <item>
+      <title>Dimensionality and Adversarial Examples</title>
+      <link>https://aivillage.org/posts/dimensionality-and-adversarial/</link>
+      <pubDate>Wed, 09 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/dimensionality-and-adversarial/</guid>
+      <description>Welcome to AI Village’s series on adversarial examples. This will focus on image classification attacks as they are simpler to work with and this series is meant to explain the attacks to hackers who have an interest in data science. The underlying principles are the same for attacks against malware/spam/security classifiers, though the implementation varies. This post focuses on the core reason why adversarial examples work, the high dimensional space our data occupies.</description>
+    </item>
+    
+  </channel>
+</rss>

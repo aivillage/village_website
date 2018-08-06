@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Dimensionality Pointcloud</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<div style="width:100%;height:50px;text-align: center; color:white;" class="ui">Torus
+		<script src="threejs/three.min.js"></script>
+		<script src="threejs/OrbitControls.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			scene.background = new THREE.Color( 0xFFFFFF );
+			var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+			var geometry = new THREE.TorusGeometry( 2, 0.5, 16, 80 );
+			var material = new THREE.MeshNormalMaterial(  );
+			var torus = new THREE.Mesh( geometry, material );
+			//scene.add( torus );
+
+			var majorR = 1
+			var minorR = 0.5
+			var noise = 0.05
+			var numPoints = 20000
+
+			var geometry_wide = new THREE.BufferGeometry();
+			var vertices_wide = [];
+			var geometry_narrow = new THREE.BufferGeometry();
+			var vertices_narrow = [];
+			for ( var i = 0; i < numPoints; i ++ ) {
+				var theta = 2*Math.PI * Math.random();
+				var phi = 2*Math.PI * Math.random();
+				var x = (majorR + minorR*Math.cos(theta))*Math.cos(phi) + noise*Math.random();
+				var y = (majorR + minorR*Math.cos(theta))*Math.sin(phi) + noise*Math.random();
+				var z = minorR*Math.sin(theta) + noise*Math.random();
+				if (theta > 0.4*Math.PI || phi >0.1*Math.PI) {
+					vertices_wide.push( x, y, z );
+				} else {
+					vertices_narrow.push( x, y, z );
+					
+				}
+			}
+			geometry_wide.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices_wide, 3 ) );
+			geometry_narrow.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices_narrow, 3 ) );
+			material = new THREE.PointsMaterial( { color:0x00000, size: 0.5, sizeAttenuation: false,  alphaTest: 0.5} );
+			var particles_wide = new THREE.Points( geometry_wide, material );
+			var particles_narrow = new THREE.Points( geometry_narrow, material );
+			scene.add( particles_wide );
+			scene.add( particles_narrow );
+
+			var geometry_disk = new THREE.CircleGeometry( 0.1, 15 );
+			var material_disk = new THREE.MeshBasicMaterial( {color:0x000000});
+			material_disk.side = THREE.DoubleSide;
+			var local_disk = new THREE.Mesh( geometry_disk, material_disk );
+			local_disk.position.x = (majorR + minorR*Math.cos(0.2*Math.PI))*Math.cos(0.05*Math.PI);
+			local_disk.position.y = (majorR + minorR*Math.cos(0.2*Math.PI))*Math.sin(0.05*Math.PI);
+			local_disk.position.z = minorR*Math.sin(0.2*Math.PI);
+			local_disk.rotation.x = -0.05 * Math.PI;
+			local_disk.rotation.y = 0.3 * Math.PI;
+			//local_disk.rotation.z = 0.5 * 2 * Math.PI;
+			scene.add( local_disk );
+
+			var showing_torus = true;
+			function hideTorus(event) {
+				if (showing_torus) {
+					scene.remove( particles_wide );
+					showing_torus = false;
+				} else {
+					scene.add( particles_wide );
+					showing_torus = true;
+				}
+			}
+
+			var showing_disk = true;
+			function hideDisk(event) {
+				if (showing_disk) {
+					scene.remove( local_disk );
+					showing_disk = false;
+				} else {
+					scene.add( local_disk );
+					showing_disk = true;
+				}
+			}
+
+			var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+
+			var controls = new THREE.OrbitControls( camera );
+
+			//controls.update() must be called after any manual changes to the camera's transform
+			camera.position.set( 0, 0, 5 );
+			controls.update();
+
+
+			function animate() {
+				requestAnimationFrame( animate );
+				//particles_wide.rotation.x += 0.01;
+				//particles_wide.rotation.y += 0.01;
+
+				//particles_narrow.rotation.x += 0.01;
+				//particles_narrow.rotation.y += 0.01;
+
+				//local_disk.rotation.x += 0.01;
+				//local_disk.rotation.y += 0.01;
+				controls.update();
+
+				renderer.render( scene, camera );
+			}
+			animate();
+		</script>
+		<button style="top:0" id="main_pointcloud" onclick="hideTorus()">Hide Main Torus</button>
+		<button style="top:0" id="local_disk" onclick="hideDisk()">Hide Disk</button>
+		</div>
+	</body>
+</html>
