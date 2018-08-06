@@ -11,11 +11,11 @@ if [ $? -ne 0 ]; then
 else
 	git pull
 	rm -rf ./*
-	cp -r ../www/public/* .
-	cp -r ../www/CNAME .
+	cp -r ../code/public/* .
+	cp -r ../code/CNAME .
 	git add .
 	git commit -m "new deployment"
 	git push
-	cd ../www
+	cd ../code
 	git pull
 fi

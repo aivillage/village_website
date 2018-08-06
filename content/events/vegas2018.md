@@ -9,6 +9,10 @@ The AI Village at DEFCON is a place where experts in AI and security (or both!) 
 
 For those who would rather learn through practice, there will be long & short practice workshop sessions available. (no pre-registration required - just show up early!)
 
+## WHERE?
+
+[![dc26 ai village map](images/map.png "DC26 AI Village Map")](https://www.defcon.org/images/defcon-26/dc-26-caesars-public.pdf)
+
 ## AI-CTF
 
 AI CTF is a jeopardy-style CTF with categories of challenges themed around AI & data science in a security context. Participants will compete for the highest score by solving a series of challenges with various levels of difficulty. 
