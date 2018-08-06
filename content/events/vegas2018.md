@@ -130,6 +130,13 @@ Don't worry, you won't just be sitting down waiting for models to train ;) absol
     <td> 16:00 </td>
     <td align="center" colspan="3"> Dedicated CTF Time </td>
   </tr>
+  <tr>
+    <td> Friday </td>
+    <td> 18:00 </td>
+    <td> INTRO TO DATA MASTERCLASS: Wrangling </td>
+    <td> Leo Meyerovich & Eugene Teo </td>
+    <td> Workshop </td>
+  </tr>
   <tr><td colspan="5"></td></tr>
   <tr style="background: #E0E0E0;">
     <td> Saturday </td>
@@ -219,6 +226,20 @@ Don't worry, you won't just be sitting down waiting for models to train ;) absol
     <td> Holy BATSense! Deploying TBATS Machine Learning Algorithm to Detect Security Events </td>
     <td> Pranshu Bajpai </td>
     <td> Presentation </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 17:00 </td>
+    <td> INTRO TO DATA MASTERCLASS: Tour-de-ML </td>
+    <td> Leo Meyerovich & Eugene Teo </td>
+    <td> Workshop </td>
+  </tr>
+  <tr>
+    <td> Saturday </td>
+    <td> 17:00 </td>
+    <td> INTRO TO DATA MASTERCLASS: Graphs & Anomalies </td>
+    <td> Leo Meyerovich & Eugene Teo </td>
+    <td> Workshop </td>
   </tr>
   <tr><td colspan="5"></td></tr>
   <tr style="background: #E0E0E0;">
@@ -490,3 +511,12 @@ _Sebastian Garcia_
 Creating new Machine Learning algorithms with the new frameworks its easier than ever. However, our models still need designing, evaluation, tuning and specially good datasets. In this workshop we will share high-quality and real datasets of normal users working in their computers while being attacked and infected with malware. The goal is to learn to understand the problem, label data, identify features, create your own ML model and finally test it against all the other models in the room! A fast-paced workshop going from traffic understanding to working python ML models in 2hs. Learn why ML is so difficult and so useful. Work in teams to obtain the highest detection performance and improve your knowledge. Python/NetFlows/Bro/SciKit/pandas/TensorFlow, use what you need!
 
 Sebastian is a malware researcher and security teacher that has extensive experience in machine learning applied on network traffic. He created the Stratosphere IPS project, the first machine learning-based, free-software IPS. Its goal its to protect the civil society. As a researcher in the Artificial Intelligence group of the Czech Technical University in Prague, he believes that free software and machine learning tools can help better protect users from the abuse of their digital rights. He has been teaching in several countries and Universities and working on penetration testing for both corporations and governments. He was lucky enough to talk and give workshops in CCC, BSides Budapest, Ekoparty, DeepSec, Hacktivity, Botconf, Hacklu, InBot, SecuritySessions, ECAI, CitizenLab, ArgenCor, Free Software Foundation Europe, VirusBulletin, BSides Vienna, HITB Singapore, CACIC, etc.  As a co-founder of the MatesLab hackspace he worked on honeypots, malware detection, distributed scanning (creator of dnmap) keystroke dynamics, Bluetooth analysis, privacy protection, intruder detection, robotics, microphone detection with SDR (Salamandra) and biohacking. He is also a proud co-founder of the Independent Fund for Women in Tech.
+
+## Special Workshops / CTF Help
+
+#### Intro to Data Masterclass
+
+_Leo Meyerovich & Eugene Teo_
+
+[More details here](posts/dc26-datamasterclass/)
+
