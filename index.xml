@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>AI Village: Intro to Data Masterclass at DEF CON 2018!</title>
+      <link>https://aivillage.org/posts/dc26-datamasterclass/</link>
+      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/dc26-datamasterclass/</guid>
+      <description>What the? Curious about what it means to play with GPUs, malware or human trafficking data, random forests, and giant graphs? And know just enough Python to be dangerous? Or, just want to score some easy AI Village CTF points for a few hours, meet some data hackers, and maybe score a badge?
+Stop by the Intro to Data Masterclasses for an accessible way to get started with modern data science for security data.</description>
+    </item>
+    
+    <item>
       <title>AI Village Accepted Talks</title>
       <link>https://aivillage.org/posts/accepted-talks/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
