@@ -236,7 +236,7 @@ Don't worry, you won't just be sitting down waiting for models to train ;) absol
   </tr>
   <tr>
     <td> Saturday </td>
-    <td> 17:00 </td>
+    <td> 18:00 </td>
     <td> INTRO TO DATA MASTERCLASS: Graphs & Anomalies </td>
     <td> Leo Meyerovich & Eugene Teo </td>
     <td> Workshop </td>
