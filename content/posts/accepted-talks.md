@@ -440,9 +440,9 @@ Ram Shankar is a Data Cowboy on the Azure Security Data Science team at Microsof
 
 _Sven Cattell_
 
-Adversarial examples fooling machine learning field are a burgeoning field. We propose applications to fool self driving cars or facial recognition systems but most of the techniques are purely academic. They require minute manipulations to the bit values of the pixels entering a system. Adversarial patches are an attack that could actually work. This talk will cover how to make them and further applications
+Adversarial examples that fool machine learning systems are a burgeoning field. Academics propose applications in fooling self driving cars or facial recognition systems. However, most of the techniques are useless in the real world. They require precise manipulations to the values of the pixels entering a system. Adversarial patches are an attack that could actually work. One can use them as a sticker on objects that one wants to obscure. This talk will cover how to make them and further applications.
 
-I got my Ph.D. in algebraic topology in 2016 and immediately moved into machine learning to work on something useful to people. I then completed a post-doc in mathematical machine learning where I worked on medical data. I now work at endgame.
+I got my Ph.D. in algebraic topology in 2016 and immediately moved into machine learning to work on something useful to people. I then completed a post-doc in mathematical machine learning where I worked on medical data. I now work at Endgame as a data scientist.
 
 ## Accepted Exhibits
 
