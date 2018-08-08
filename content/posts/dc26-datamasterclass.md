@@ -25,9 +25,8 @@ We’ll be using real examples from human trafficking, malware, and DGA datasets
 
 | What 	| Topic  	|  When 	|
 |---:|---	|:---:|
-|   	**Wrangling**|  Dig into trafficking & malware with Jupyter notebooks, Pandas data manipulation, and GPU-accelerated plotting  	| Friday&#160;6p   	|
-|   	**Tour-de-ML** |  Classify DGA domains with Markov Chains and Random Forest 	| Saturday&#160;5p  	|
-|   	**Graphs & Anomalies**|  See trafficking & malware events with GPU visual analytics & dimensionality reduction 	| Saturday&#160;6p  	|
+|   	**Wrangling**|  Dig into trafficking & malware with Jupyter notebooks, Pandas data manipulation, and GPU-accelerated plotting  	| Friday&#160;5:45p   	|
+|   	**Tour-de-ML, Graphs & Anomalies** |  Classify DGA domains with Markov Chains and Random Forest, See trafficking & malware events with GPU visual analytics & dimensionality reduction 	| Saturday&#160;5:30p  	|
 
 ## Where
 
@@ -41,15 +40,13 @@ We’ll be using real examples from human trafficking, malware, and DGA datasets
 
 ## Sessions
 
-### Friday 6p: Wrangling - Digging into trafficking & malware with Jupyter notebooks, Pandas data manipulation, and GPU-accelerated plotting
+### Friday 5:45p: Wrangling - Digging into trafficking & malware with Jupyter notebooks, Pandas data manipulation, and GPU-accelerated plotting
 
 The open secret of data science is the time spent wrangling. Going from raw data to something understandable and algorithm-friendly is the iterative process of loading, cleaning, fusing, inspecting, transforming, summarizing, and plotting. That comes down to data science notebooks like Jupyter, dataframe libraries like Pandas, and plotting libraries like ???.  We’ll go through each phase for network security and human trafficking logs. At the end, we’ll go into overdrive with emerging GPU dataframe and visual analytics libraries ( http://gpuopenanalytics.com/ ).
 
-### Saturday 5p: Tour-de-ML: Classifying DGA domains with Markov Chains and Random Forest
+### Saturday 5:30p: Tour-de-ML, Graphs & Anomalies: Classifying DGA domains with Markov Chains and Random Forest, Understanding trafficking & malware events with GPU visual analytics & dimensionality reduction
 
 One of the most useful applications of ML is supervised classification. With a bit of training on labeled data, the software can make automatic decisions, and we can steer better data to analysts. We'll focus on classic Markov Chains and a common ML competition winner Random Forest, and connect to modern variants like XGBoost. We'll focus on the common case of classifying text: just by the domain name, is the domain malicious or not? The example will differentiate legitimate domains from Cisco Umbrella's Popularity List, and the potentially malicious Necurs DGAs domains from The DGArchive Project. The resulting classifier will be able to classify new domain names even if they are not in the training dataset. The technique can be reapplied to emails, site content, and (a lot) more. 
-
-### Saturday 6p: Graphs & Anomalies - Understanding trafficking & malware events with GPU visual analytics & dimensionality reduction
 
 Understanding large datasets or those with all sorts of columns, such as we see with security and fraud logs, can be a daily struggle. Many data projects start with just trying to figure out what’s in there. When items do pop out, we may want to then ask how they’re related. Graph and clustering algorithms are powerful yet easy ways to understand large amounts of high-dimensional data. These techniques are often used as part of building anomaly detectors. In this session, we’ll look at network security and human trafficking data to spot and understand outliers. We’ll walk through how to quickly use UMAP algorithms, hypergraph modeling and graph querying, GPU visualization, and more.
 
