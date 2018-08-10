@@ -25,8 +25,8 @@ We’ll be using real examples from human trafficking, malware, and DGA datasets
 
 | What 	| Topic  	|  When 	|
 |---:|---	|:---:|
-|   	**Graphs & Anomalies**|  Classify DGA domains with Markov Chains and Random Forest  	| Friday&#160;6p   	|
-|   	**Tour-de-ML** | See trafficking & malware events with GPU visual analytics & dimensionality reduction 	| Saturday&#160;6p  	|
+|   	**Graphs & Anomalies**|  UNDERSTANDING TRAFFICKING & MALWARE EVENTS WITH GPU VISUAL ANALYTICS & DIMENSIONALITY REDUCTION  	| Friday&#160;6p   	|
+|   	**Tour-de-ML** | CLASSIFYING DGA DOMAINS WITH MARKOV CHAINS AND RANDOM FOREST 	| Saturday&#160;6p  	|
 
 Come 15-30min early if you’d appreciate assistance setting up!
 
@@ -42,13 +42,13 @@ Come 15-30min early if you’d appreciate assistance setting up!
 
 ## Sessions
 
-### Friday 6p: PART I - Graphs & Anomalies: Classifying DGA domains with Markov Chains and Random Forest
-
-One of the most useful applications of ML is supervised classification. With a bit of training on labeled data, the software can make automatic decisions, and we can steer better data to analysts. We'll focus on classic Markov Chains and a common ML competition winner Random Forest, and connect to modern variants like XGBoost. We'll focus on the common case of classifying text: just by the domain name, is the domain malicious or not? The example will differentiate legitimate domains from Cisco Umbrella's Popularity List, and the potentially malicious Necurs DGAs domains from The DGArchive Project. The resulting classifier will be able to classify new domain names even if they are not in the training dataset. The technique can be reapplied to emails, site content, and (a lot) more.
-
-### Saturday 6p: PART II - Tour-de-ML: Understanding trafficking & malware events with GPU visual analytics & dimensionality reduction 
+### FRIDAY 6P: PART I - GRAPHS & ANOMALIES: UNDERSTANDING TRAFFICKING & MALWARE EVENTS WITH GPU VISUAL ANALYTICS & DIMENSIONALITY REDUCTION
 
 Understanding large datasets or those with all sorts of columns, such as we see with security and fraud logs, can be a daily struggle. Many data projects start with just trying to figure out what’s in there. When items do pop out, we may want to then ask how they’re related. Graph and clustering algorithms are powerful yet easy ways to understand large amounts of high-dimensional data. These techniques are often used as part of building anomaly detectors. In this session, we’ll look at network security and human trafficking data to spot and understand outliers. We’ll walk through how to quickly use UMAP algorithms, hypergraph modeling and graph querying, GPU visualization, and more.
+
+### SATURDAY 6P: PART II - TOUR-DE-ML: CLASSIFYING DGA DOMAINS WITH MARKOV CHAINS AND RANDOM FOREST
+
+One of the most useful applications of ML is supervised classification. With a bit of training on labeled data, the software can make automatic decisions, and we can steer better data to analysts. We’ll focus on classic Markov Chains and a common ML competition winner Random Forest, and connect to modern variants like XGBoost. We’ll focus on the common case of classifying text: just by the domain name, is the domain malicious or not? The example will differentiate legitimate domains from Cisco Umbrella’s Popularity List, and the potentially malicious Necurs DGAs domains from The DGArchive Project. The resulting classifier will be able to classify new domain names even if they are not in the training dataset. The technique can be reapplied to emails, site content, and (a lot) more.
 
 
 <img src="images/tablecloth.jpg">
