@@ -40,8 +40,8 @@ not very surprising, human brain works very differently from a set of regular
 expressions.
 
 From perspectives of WAFs, the attack types can be divided into time series-based
-and a single HTTP request/response-based. We consider only single requests. In this
-case we are able to detect the following attack:
+and a single HTTP request/response-based. Our research focuses on detecting the
+latter type of attacks:
 - SQL Injection
 - Cross Site Scripting
 - XML External Entities Injection
@@ -112,14 +112,16 @@ A tricky moment here is that some traffic, looking malicious at first sight, mig
 be normal for a specific web site.
 
 For instance, let's take a look at this request:
-[malicious](images/b_request1.png)
+
+![malicious](images/b_request1.png)
 
 Is it an anomaly?
 In fact, this request is issued by the Jira bug tracker and is typical for this service,
 which means that the request is benign.
 
 Now let's take a look at another case:
-[Joomla1](images/m_request1.png)
+
+![Joomla1](images/m_request1.png)
 
 At first sight the request looks like a typical user registration on a web site
 powered by Joomla CMS. However, the requested operation is "user.register" instead
@@ -128,7 +130,7 @@ a vulnerability allowing anybody to register themselves as an administrator.
 
 This exploit is known as "Joomla < 3.6.4 Account Creation / Privilege Escalation" (CVE-2016-8869, CVE-2016-8870).
 
-[Joomla2](images/m_request2.png)
+![Joomla2](images/m_request2.png)
 
 
 ### How we started
@@ -210,18 +212,9 @@ in other words, approximate an identity function. If the trained autoencoder
 is given an anomalous sample it is likely to re-create it with a high degree
 of error.
 
-Simply put, an autoencoder model consists of two parts: an encoder and a decoder.
-The task of the encoder is to compress a certain input into a special representation.
-The task of the decoder part is to learn how to decode correctly from this representation
-to the original form. If the certain input differs greatly from other samples, the decoder
-won't be able to reconstruct the original text correctly.
-
-It means that the model has never seen a sample like this. So this input is considered
-as an anomaly.
-
 ![autoencoder](images/detecting-web-attacks-rnn-02.png)
 
-*image taken from [What to do when data is missing, Part II](http://curiousily.com/data-science/2017/02/02/what-to-do-when-data-is-missing-part-2.html)*
+### The code
 
 Our solution is made up of several parts: model initialization, training, prediction,
 and validation.
@@ -298,30 +291,14 @@ Being inspired by the attention mechanism we tried to apply it to the autoencode
 noticed that probabilities output from the last layer works better to mark the anomalous
 parts of a given request.
 
-[attention](images/malicious.png)
+![attention](images/malicious.png)
 
 At the testing stage with our samples we've got very good results: precision and
 recall are close to 0.99. And the ROC curve is around 1. Looks amazing!
 
-[ROC](images/roc.png)
+![ROC](images/roc.png)
 
-Let's recap what we have learned.
-Of course, these results are not a magic wand, my friends. We must be aware that the
-dataset consists of requests to particular application functionality and we can
-guarantee good results only on the data we learned. If we follow closely our dataset
-we can notice that parameters which changes for each application endpoint not so
-much. Let's imagine the login process. In the whole single request, we can notice
-changes only in login and password parameters. It became obvious for the autoencoder
-if you try to send something malicious because it much differs from being request.
-
-Ok, well.. what if we face something malicious directly in the parameter value or
-maybe in the parameter name... Here is LSTM layers help us. Actually, we learn not
-only what is typical for requests but also we learn how each character is typically
-relative to one another. And that's the reason why we don't need complicated embedding.
-And we learn some relation on entire sequence length for each position
-relative to each other for traffic which is typical for your specific application.
-
-The final Proof-of-Concept code can be obtained
+The final code can be obtained
 [here](https://github.com/PositiveTechnologies/seq2seq-web-attack-detection).
 
 ### The results
