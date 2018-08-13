@@ -1,5 +1,5 @@
 +++
-date = "2018-07-15"
+date = "2018-08-13"
 title = "Detecting Web Attacks with Recurrent Neural Networks"
 author = "Arseny Reutov, Irina Stepanyuk, Fedor Sakharov"
 authorUrl = "https://twitter.com/m0nt3kk1"
@@ -113,7 +113,7 @@ be normal for a specific web site.
 
 For instance, let's take a look at this request:
 
-![malicious](images/b_request1.png)
+![malicious](images/b_request1.PNG)
 
 Is it an anomaly?
 In fact, this request is issued by the Jira bug tracker and is typical for this service,
@@ -121,7 +121,7 @@ which means that the request is benign.
 
 Now let's take a look at another case:
 
-![Joomla1](images/m_request1.png)
+![Joomla1](images/m_request1.PNG)
 
 At first sight the request looks like a typical user registration on a web site
 powered by Joomla CMS. However, the requested operation is "user.register" instead
@@ -130,7 +130,7 @@ a vulnerability allowing anybody to register themselves as an administrator.
 
 This exploit is known as "Joomla < 3.6.4 Account Creation / Privilege Escalation" (CVE-2016-8869, CVE-2016-8870).
 
-![Joomla2](images/m_request2.png)
+![Joomla2](images/m_request2.PNG)
 
 
 ### How we started
@@ -296,7 +296,7 @@ parts of a given request.
 At the testing stage with our samples we've got very good results: precision and
 recall are close to 0.99. And the ROC curve is around 1. Looks amazing!
 
-![ROC](images/roc.png)
+![ROC](images/roc.PNG)
 
 The final code can be obtained
 [here](https://github.com/PositiveTechnologies/seq2seq-web-attack-detection).
