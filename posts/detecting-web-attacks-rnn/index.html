@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://aivillage.org">
+    <title>
+  Detecting Web Attacks with Recurrent Neural Networks · 
+</title>
+
+    <link rel="canonical" href="https://aivillage.org/posts/detecting-web-attacks-rnn/">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://aivillage.org/css/style.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
+
+    
+
+    <link rel="icon" type="image/png" href="https://aivillage.org/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aivillage.org/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.45.1" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://aivillage.org">
+      AI VILLAGE
+    </a>
+    
+    <ul class="navigation-list float-right">
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/events/vegas2018" style="color:red;">DEFCON26</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/posts/">Posts</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/about/">About</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/code-of-conduct/">Conduct</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/team/">Team</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/events/">Events</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="https://aivillage.org/sponsors/">Sponsors</a>
+      </li>
+      
+      <span class="burger" href="javascript:void(0);" onclick="toggleBurger()">
+        &#x25BC;
+      </span>
+    </ul>
+    
+  </section>
+</nav>
+
+<script type="text/javascript">
+  function toggleBurger() {
+    var x = document.getElementsByClassName("navigation")[0];
+    if (x.className === "navigation") {
+      x.className += " responsive";
+    } else {
+      x.className = "navigation";
+    }
+  }
+</script>
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Detecting Web Attacks with Recurrent Neural Networks</h1>
+      <h2 class="author-date"><a style="text-transform:none;" href=https://twitter.com/m0nt3kk1>Arseny Reutov, Irina Stepanyuk, Fedor Sakharov</a>, 13 August 2018</h2>
+
+      
+    </header>
+
+    
+
+<p>Attack detection has been a part of information security for decades. First
+known examples of IDS implementations date back to the early 80s. Here is what
+we read about that time on
+<a href="https://en.wikipedia.org/wiki/Intrusion_detection_system">Wikipedia</a>:</p>
+
+<blockquote>
+<p>Dorothy E. Denning, assisted by Peter G. Neumann, published a model of an IDS
+in 1986 that formed the basis for many systems today.[20] Her model used
+statistics for anomaly detection, and resulted in an early IDS at SRI
+International named the Intrusion Detection Expert System (IDES), which ran
+on Sun workstations and could consider both user and network level data</p>
+</blockquote>
+
+<p>Let&rsquo;s note the part about statistics for anomaly detection.</p>
+
+<p>Nowadays, some decades later the industry around attack detection has formed.
+There are different kinds of products like IDSs, IPSs, WAFs, firewalls, etc, most of
+which offer rule-based attack detection. The idea of using some kind of statistical
+anomaly detection to detect attacks in production doesn&rsquo;t seem that realistic as it
+used to back in a day. But does it?</p>
+
+<h3 id="detection-of-attacks-on-web-applications">Detection of attacks on web applications</h3>
+
+<p>The first firewalls tailored to detect application specific attacks started to appear on
+the market in the early 90s. Both attack techniques and protection mechanisms have evolved
+dramatically since then with attackers being a step forward at any time.</p>
+
+<p>Most WAFs nowadays attempt to detect attacks in a similar fashion: some rule-based engine
+embedded into a reverse proxy of some type. The most prominent example is mod_security,
+a WAF module for Apache web server, which was created in 2002. Rule-based detection
+has some disadvantages, for instance, they fail to detect novel attacks aka 0days while these
+same attacks can easily be detected by a human expert. If you think about it, that&rsquo;s
+not very surprising, human brain works very differently from a set of regular
+expressions.</p>
+
+<p>From perspectives of WAFs, the attack types can be divided into time series-based
+and a single HTTP request/response-based. Our research focuses on detecting the
+latter type of attacks:
+- SQL Injection
+- Cross Site Scripting
+- XML External Entities Injection
+- Path Traversal<br />
+- OS Commanding
+- Object injection
+- etc.</p>
+
+<p>But first let&rsquo;s ask ourselves:</p>
+
+<h3 id="what-would-a-human-do-when-he-sees-a-single-request">What would a human do when he sees a single request?</h3>
+
+<p>Take a look at an example of a regular HTTP request to some application:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /vulnbank/online/api.php <span style="color:#fff;font-weight:bold">HTTP</span>/<span style="color:#ff0;font-weight:bold">1.1</span>
+Host: 10.0.212.25
+Connection: keep-alive
+Content-Length: 59
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: http://10.0.212.25
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://10.0.212.25/vulnbank/online/login.php
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=4dorluj4ccherum6m9c1i0j917
+
+type=user&amp;action=login&amp;username=ytrtry&amp;password=tyhgfhgfhg</code></pre></div>
+<p>If you were given a task to detect malicious requests to this application most
+likely you would like to observe the benign requests for a while. After taking
+a look at some requests to a number of endpoints in the application, you would have
+a general idea of the structure and features of benign requests.</p>
+
+<p>Now you are presented with the following request:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /vulnbank/online/api.php <span style="color:#fff;font-weight:bold">HTTP</span>/<span style="color:#ff0;font-weight:bold">1.1</span>
+Host: 10.0.212.25
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://10.0.212.25/vulnbank/online/login.php
+Content-Type: application/x-www-form-urlencoded
+X-Requested-With: XMLHttpRequest
+Content-Length: 76
+Cookie: PHPSESSID=mlacs0uiou344i3fa53s7raut6
+Connection: keep-alive
+
+type=user&amp;action=login&amp;username=none&#39;+union+select+1,2,login,password,5,6,7,NULL,NULL,10,11,12,13,14,15,16,17+from+users+limit+1+--1</code></pre></div>
+<p>It immediately catches your eye that something is wrong here. It takes some
+more time to understand what it is and as soon as you locate the exact piece
+of request that is anomalous, you can start thinking about what type of attack
+it is.
+Essentially, our goal is to make our attack detection AI work in some fashion
+that resembles this human reasoning.</p>
+
+<p>A tricky moment here is that some traffic, looking malicious at first sight, might
+be normal for a specific web site.</p>
+
+<p>For instance, let&rsquo;s take a look at this request:</p>
+
+<p><img src="images/b_request1.PNG" alt="malicious" /></p>
+
+<p>Is it an anomaly?
+In fact, this request is issued by the Jira bug tracker and is typical for this service,
+which means that the request is benign.</p>
+
+<p>Now let&rsquo;s take a look at another case:</p>
+
+<p><img src="images/m_request1.PNG" alt="Joomla1" /></p>
+
+<p>At first sight the request looks like a typical user registration on a web site
+powered by Joomla CMS. However, the requested operation is &ldquo;user.register&rdquo; instead
+of normal &ldquo;registration.register&rdquo;. The former option is deprecated and contains
+a vulnerability allowing anybody to register themselves as an administrator.</p>
+
+<p>This exploit is known as &ldquo;Joomla &lt; 3.6.4 Account Creation / Privilege Escalation&rdquo; (CVE-2016-8869, CVE-2016-8870).</p>
+
+<p><img src="images/m_request2.PNG" alt="Joomla2" /></p>
+
+<h3 id="how-we-started">How we started</h3>
+
+<p>First of all, we have taken a look at previous research on the topic.
+Many attempts to create different statistical or machine learning algorithms to detect
+attacks have been made throughout the decades. One of the most frequent approaches is to solve
+a task of classification where classes are something like &ldquo;benign requests,
+SQL injections, XSS, CSRF, etc.&ldquo;. While one may achieve some decent accuracy
+on a given dataset with a classifier, this approach doesn&rsquo;t solve very important
+problems:</p>
+
+<ol>
+<li>The choice of class set. What if your model during learning is presented with
+three classes, say &ldquo;benign, SQLi, XSS&rdquo; and in production it encounters a
+&ldquo;CSRF&rdquo; attack or even a brand new attack technique?</li>
+<li>The meaning of these classes. Suppose you need to protect ten customers
+each of them running completely different web applications. For most of them
+you would have no idea what a single &ldquo;SQL Injection&rdquo; attack against their application
+really looks like. This means you would have to somehow artificially construct
+your learning datasets which is a horrible decision because you will end up
+learning on data from a completely different distribution than your real data is.</li>
+<li>Interpretability of the results of your model. Ok, it
+came up with the &ldquo;SQL Injection&rdquo; label, now what? You and most importantly your customer,
+who is the first one to see the alert and typically is not an expert in web attacks,
+has to guess which part of the request our model has considered to be malicious.</li>
+</ol>
+
+<p>Keeping that in mind we have decided to give classification a try anyway.</p>
+
+<p>Since HTTP protocol is text-based it was obvious that we had to take a look at modern
+text classifiers. One of the well-known examples is sentiment analysis of IMDB
+movie review dataset. Some solutions use RNNs to classify these reviews.
+We decided to use a similar RNN classification model with some slight differences.
+For instance, natural language classification RNNs use word embeddings, however
+it is not clear what words there are in a non-natural language like HTTP. That&rsquo;s why
+we decided to use character embeddings in our model.</p>
+
+<p>Ready-made embeddings are irrelevant for solving the problem, that is why we used
+simple mappings of characters to numeric codes with several internal markers like
+<code>&lt;GO&gt;</code> and <code>&lt;EOS&gt;</code>.</p>
+
+<p>After finishing developing and testing the model all the problems predicted earlier
+became obvious but at least our team has moved from useless speculations to some
+result.</p>
+
+<h3 id="how-we-proceeded">How we proceeded</h3>
+
+<p>From there we have decided to take some steps in the direction of making the
+results of our model more interpretable. At some point we came across the
+mechanism of &ldquo;attention&rdquo; and started to integrate it into our model. And that
+yielded some promising results: finally, everything came together
+and we got some human-interpretable results. Now our model started to output
+not only the labels but also the attention coefficients for every character
+of the input.</p>
+
+<p>If that could be visualized, say, in a web interface, we could color the exact
+place where the &ldquo;SQL Injection&rdquo; attack has been found. That was a good result, however,
+the other problems still remained unsolved.</p>
+
+<p>It was clear that we have to keep going in the direction of benefiting from the
+attention mechanism and to drift away from the task of classification. After
+reading a lot of related research (for instance, &ldquo;attention is all you need&rdquo;,
+&ldquo;word2vec&rdquo;, encoder-decoder architectures) on sequence models and experimenting with
+our data we were able to create an anomaly-detection model that would finally work
+more or less in a way how a human expert does.</p>
+
+<h3 id="autoencoders">Autoencoders</h3>
+
+<p>At some point it became clear that an sequence-to-sequqnce Autoencoder [5]
+fits our goal the most.</p>
+
+<p>A sequence-to-sequence model [7] consists of two multi-layaered LSTMs:
+an encoder and a decoder. The encoder maps the input sequence to vector
+of fixed dimensionality. The decoder decodes the target vector using this
+output of the encoder.</p>
+
+<p>Autoencoder is a sequence-to-sequence model that sets its target values equal to its input
+values. The idea is to teach the network to re-create things it has seen, or,
+in other words, approximate an identity function. If the trained autoencoder
+is given an anomalous sample it is likely to re-create it with a high degree
+of error.</p>
+
+<p><img src="images/detecting-web-attacks-rnn-02.png" alt="autoencoder" /></p>
+
+<h3 id="the-code">The code</h3>
+
+<p>Our solution is made up of several parts: model initialization, training, prediction,
+and validation.</p>
+
+<p>Most of the code located in the  <a href="https://github.com/PositiveTechnologies/seq2seq-web-attack-detection">repository</a>
+is self-explanatory, we will focus on important parts only.</p>
+
+<p>The model is initialized as an instance of the <code>Seq2Seq</code> class which has the following
+constructor arguments:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">batch_size - the number of samples in a batch
+embed_size - the dimension of embedding space (should be less than vocabulary size)
+hidden_size - the number of hidden states in lstm
+num_layers - the number of lstm blocks
+checkpoints - path to checkpoint directory
+std_factor - the number of stds that is used for defining a model threshold
+dropout - the probability that each element is kept
+vocab - the Vocabulary object</pre></div>
+<p>After that, the autoencoder layers are initialized. Firstly, the encoder:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  <span style="color:#007f7f"># Encoder</span>
+  cells = [self._lstm_cell(args[<span style="color:#0ff;font-weight:bold">&#39;hidden_size&#39;</span>]) <span style="color:#fff;font-weight:bold">for</span> _ in <span style="color:#fff;font-weight:bold">range</span>(args[<span style="color:#0ff;font-weight:bold">&#39;num_layers&#39;</span>])]
+  multilstm = tf.contrib.rnn.MultiRNNCell(cells, state_is_tuple=True)
+
+  _, enc_state = tf.nn.dynamic_rnn(
+      multilstm,
+      enc_embed_input,
+      sequence_length=self.lengths,
+      swap_memory=True,
+      dtype=tf.float32)</code></pre></div>
+<p>And then the decoder:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  <span style="color:#007f7f"># Decoder</span>
+output_lengths = tf.reduce_sum(tf.to_int32(tf.not_equal(self.targets, <span style="color:#ff0;font-weight:bold">1</span>)), <span style="color:#ff0;font-weight:bold">1</span>)
+helper = tf.contrib.seq2seq.TrainingHelper(
+    dec_embed_input,
+    output_lengths,
+    time_major=False)
+
+cells = [self._lstm_cell(args[<span style="color:#0ff;font-weight:bold">&#39;hidden_size&#39;</span>]) <span style="color:#fff;font-weight:bold">for</span> _ in <span style="color:#fff;font-weight:bold">range</span>(args[<span style="color:#0ff;font-weight:bold">&#39;num_layers&#39;</span>])]
+dec_cell = tf.contrib.rnn.MultiRNNCell(cells, state_is_tuple=True)
+
+decoder = tf.contrib.seq2seq.BasicDecoder(dec_cell, helper, enc_state)
+
+dec_outputs = tf.contrib.seq2seq.dynamic_decode(
+    decoder,
+    output_time_major=False,
+    impute_finished=True,
+    maximum_iterations=self.max_seq_len, swap_memory=True)</code></pre></div>
+<p>Since the problem we solve is an anomaly detection, the targets and inputs are the same.
+Thus our <code>feed_dict</code> looks this way:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">feed_dict = {
+  model.inputs: X,
+  model.targets: X,
+  model.lengths: L,
+  model.dropout: self.dropout,
+  model.batch_size: self.batch_size,
+  model.max_seq_len: seq_len}</code></pre></div>
+<p>After each epoch the best model is saved as a checkpoint, which can be later loaded
+to do predictions. For testing purposes a live web application was set up and was
+protected by the model so that it was possible to test if real attacks were successful or not.</p>
+
+<p>Being inspired by the attention mechanism we tried to apply it to the autoencoder but
+noticed that probabilities output from the last layer works better to mark the anomalous
+parts of a given request.</p>
+
+<p><img src="images/malicious.png" alt="attention" /></p>
+
+<p>At the testing stage with our samples we&rsquo;ve got very good results: precision and
+recall are close to 0.99. And the ROC curve is around 1. Looks amazing!</p>
+
+<p><img src="images/roc.PNG" alt="ROC" /></p>
+
+<p>The final code can be obtained
+<a href="https://github.com/PositiveTechnologies/seq2seq-web-attack-detection">here</a>.</p>
+
+<h3 id="the-results">The results</h3>
+
+<p>Suggested Seq2Seq autoencoder model proved to be able to detect anomalies in HTTP
+requests with high precision.</p>
+
+<p><img src="images/detecting-web-attacks-rnn-01.jpg" alt="bank" /></p>
+
+<p>This model acts more like a human does: it learns only the &ldquo;normal&rdquo; user
+requests to the web application. It detects anomalies in requests and it highlights
+the exact place of the request considered anomalous. We evaluated this model
+against some attacks on the test application and the results appeared to be promising.
+For instance, the image above depicts how our model detected the SQL injection
+split into two web form parameters. Such SQL injections are called &ldquo;fragmented&rdquo;,
+i.e. the attack payload portions are delivered in several HTTP parameters which makes it
+difficult for classic rule-based WAFs to detect such cases as they usually inspect each
+parameter individually.  The code of the model and the train/test data will be released
+as a Jupyter notebook so anyone can reproduce our results and suggest improvements.</p>
+
+<h3 id="further-steps-and-summary">Further steps and summary</h3>
+
+<p>There are several weak points to improve.</p>
+
+<p>First of all, the next step is to try to classify the attack. Recall how a human expert would detect
+an attack: first, he would notice the fact of an anomaly, then he would start reasoning
+if it is an attack and if so what kind of attack. Our model performs the first
+step of this, it finds some anomalous sequence inside the request. Now
+that we have reduced all the significant anomaly data to this small character sequence
+leaving all the application-specific parts of request that don&rsquo;t look like an anomaly, what if
+we try to run a classifier on it? It looks it could reproduce the second step
+of human reasoning about what kind of attack we are dealing with.</p>
+
+<p>The second problem is adversarial examples that can be used to evade our detection.
+In recent year we have seen numerous research papers on adversarial ML, people make models &ldquo;see&rdquo;
+whatever they want them to see. Obviously, if Eve tried to evade our detection model
+she would probably come up with some adversarial techniques to do so.</p>
+
+<p>The third problem is performance. Now it takes days to train on our small dataset
+on two GPUs, that is not scalable at all.</p>
+
+<p>However, we would argue that this work proposes an interesting approach to build a
+model for detecting attacks on Web Applications. One of the most important things
+in this research is the attempt to mimic the reasoning of a human expert
+in an unsupervised yet interpretable manner. It is also notable that we can clearly
+see the further steps in this research and the steps seem to be very sound. It is our hope
+that this work will kick-off the interest in using Deep Learning for Attack
+Detection in many other teams and researchers and we are looking forward to collaborating
+with them.</p>
+
+<h3 id="references">References</h3>
+
+<p>[1] <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM networks</a></p>
+
+<p>[2] <a href="https://distill.pub/2016/augmented-rnns/">Attention and Augmented Recurrent Neural Networks</a></p>
+
+<p>[3] <a href="https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html">Attention is all you need</a></p>
+
+<p>[4] <a href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">Attention is all you need (annotated)</a></p>
+
+<p>[5] <a href="https://github.com/tensorflow/nmt">Neural Machine Translation (seq2seq) Tutorial</a></p>
+
+<p>[6] <a href="http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/">Autoencoders</a></p>
+
+<p>[7] <a href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks</a></p>
+
+<p>[8] <a href="https://blog.keras.io/building-autoencoders-in-keras.html">Building autoencoders in Keras</a></p>
+
+  </article>
+
+  <br/>
+
+  
+      <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aivillage" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    <a href="https://twitter.com/aivillage_dc" target="_blank">TWITTER</a> | <a href="https://t.co/Tcqv22XI8i" target="_blank">SLACK</a> | <a href="https://github.com/aivillage" target="_blank">GITHUB</a> | <a href="mailto:contact@aivillage.org?Subject=Question%20for%20organizers" target="_top">EMAIL</a>
+  </section>
+</footer>
+
+    </main>
+
+  </body>
+
+</html>

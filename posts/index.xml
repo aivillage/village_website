@@ -6,10 +6,20 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aivillage.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Detecting Web Attacks with Recurrent Neural Networks</title>
+      <link>https://aivillage.org/posts/detecting-web-attacks-rnn/</link>
+      <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aivillage.org/posts/detecting-web-attacks-rnn/</guid>
+      <description>Attack detection has been a part of information security for decades. First known examples of IDS implementations date back to the early 80s. Here is what we read about that time on Wikipedia:
+ Dorothy E. Denning, assisted by Peter G. Neumann, published a model of an IDS in 1986 that formed the basis for many systems today.[20] Her model used statistics for anomaly detection, and resulted in an early IDS at SRI International named the Intrusion Detection Expert System (IDES), which ran on Sun workstations and could consider both user and network level data</description>
+    </item>
     
     <item>
       <title>AI Village: Intro to Data Masterclass at DEF CON 2018!</title>
