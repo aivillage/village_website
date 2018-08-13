@@ -5,6 +5,15 @@ slug = "team"
 
 Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https://t.co/Tcqv22XI8i))
 
+## Core Team
+* [@_delta_zero](https://twitter.com/_delta_zero)
+* [@adversariel](https://twitter.com/adversariel)
+* [@bwall](https://twitter.com/botnet_hunter)
+* [@cchio](https://twitter.com/cchio)
+* [@comath](https://twitter.com/comathematician)
+* [@filar](https://twitter.com/filar)
+* [Selena Rice](#)
+
 ## CFP Review Board
 
 * [@ak1010](https://twitter.com/ak1010)
@@ -13,31 +22,56 @@ Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https
 * [@gradient_janitor](#)
 * [@phtully](https://twitter.com/phtully)
 * [@redragonvn](https://twitter.com/redragonvn)
-* [@SaraTerp](https://twitter.com/bodaceacat)
-* [@Straithe](https://twitter.com/Straithe)
-* [@DavidFreeman](http://theory.stanford.edu/~dfreeman/)
-
-## Core
-* [@_delta_zero](https://twitter.com/_delta_zero)
-* [@adversariel](https://twitter.com/adversariel)
-* [@bwall](https://twitter.com/botnet_hunter)
-* [@cchio](https://twitter.com/cchio)
-* [@comath](https://twitter.com/comathematician)
-* [@filar](https://twitter.com/filar)
-* [@lysine_chan](#)
-
----
+* [@bodaceacat](https://twitter.com/bodaceacat)
+* [@straithe](https://twitter.com/Straithe)
 
 ## Speakers
-#### DEFCON CHINA BETA (11-13 May 2018)
+
+#### DEF CON 26 (10-12 Aug 2018)
+* [@_delta_zero](https://twitter.com/_delta_zero)
 * [@adversariel](https://twitter.com/adversariel)
-* [@BinZhao](#)
+* [Alex Long](#)
+* [@amirootyet](https://twitter.com/amirootyet)
+* [@Andrew___Morris](https://twitter.com/Andrew___Morris)
+* [@andyplayse4](https://twitter.com/andyplayse4)
+* [@aylin_cim](https://twitter.com/aylin_cim)
+* [@bbr_bbq](https://twitter.com/bbr_bbq)
+* [@BeepDj](https://twitter.com/BeepDj)
+* [@bodaceacat](https://twitter.com/bodaceacat)
+* [@briangenz](https://twitter.com/briangenz)
+* [@bwall](https://twitter.com/bwall)
+* [Chris Gardner](#)
+* [@comath](https://twitter.com/comath)
+* [@drhyrum](https://twitter.com/drhyrum)
+* [@eldracote](https://twitter.com/eldracote)
+* [@eugeneteo](https://twitter.com/eugeneteo)
+* [Evan Yang](#)
+* [Fedor Sakharov](#)
+* [@filar](https://twitter.com/filar)
+* [@gradient_janitor](https://twitter.com/gradient_janitor)
+* [@infosecanon](https://twitter.com/infosecanon)
+* [@IvanTorroledo](https://twitter.com/IvanTorroledo)
+* [Kang Li](#)
+* [Li Chen](#)
+* [@lmeyerov](https://twitter.com/lmeyerov)
+* [@malwareunicorn](https://twitter.com/malwareunicorn)
+* [@ManSoSec](https://twitter.com/ManSoSec)
+* [Mark Mager](#)
+* [Matt](#)
+* [@ram_ssk](https://twitter.com/ram_ssk)
+* [@raphael_norwitz](https://twitter.com/raphael_norwitz)
+* [@rharang](https://twitter.com/rharang)
+* [Rob Brandon](#)
+* [@Straithe](https://twitter.com/Straithe)
+* [TonTon Huang](#)
+
+#### DEF CON CHINA BETA (11-13 May 2018)
+* [@adversariel](https://twitter.com/adversariel)
+* [Bin Zhao](#)
 * [@cchio](https://twitter.com/cchio)
 * [@F1F1cin](https://twitter.com/F1F1cin)
 * [@raphael_norwitz](https://twitter.com/raphael_norwitz)
-* [@WenboGuo](http://www.personal.psu.edu/wzg13/)
-
----
+* [Wenbo Guo](http://www.personal.psu.edu/wzg13/)
 
 ## Team
 * [@antojosep007](https://twitter.com/antojosep007)
