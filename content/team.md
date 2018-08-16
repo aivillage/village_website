@@ -46,7 +46,7 @@ Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https
 * [@eldracote](https://twitter.com/eldracote)
 * [@eugeneteo](https://twitter.com/eugeneteo)
 * [Evan Yang](#)
-* [Fedor Sakharov](#)
+* [@m0nt3kk1](https://twitter.com/m0nt3kk1)
 * [@filar](https://twitter.com/filar)
 * [@gradientjanitor](https://twitter.com/gradientjanitor)
 * [@infosecanon](https://twitter.com/infosecanon)
