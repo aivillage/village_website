@@ -3,12 +3,13 @@ title = "TEAM"
 slug = "team"
 +++
 
-Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https://t.co/Tcqv22XI8i))
+Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https://join.slack.com/t/aivillage/shared_invite/enQtMzIyNzcwNDE2MjQzLWIwYmM5N2UzYjYyMWM3YzRmZjNlYjU2MWY5ODM0ZWIxNTJlMzViZDAyNTAzOThiNjQ2ZjY4NzZmN2NlNmEyZDE))
 
 ## Core Team
 * [@_delta_zero](https://twitter.com/_delta_zero)
 * [@adversariel](https://twitter.com/adversariel)
-* [@bwall](https://twitter.com/botnet_hunter)
+* [@bodaceacat](https://twitter.com/bodaceacat)
+* [@briangenz](https://twitter.com/briangenz)
 * [@cchio](https://twitter.com/cchio)
 * [@comath](https://twitter.com/comathematician)
 * [@filar](https://twitter.com/filar)
@@ -72,11 +73,3 @@ Join us on our [Slack](https://aivillage.slack.com/) channel ([invitation](https
 * [@F1F1cin](https://twitter.com/F1F1cin)
 * [@raphael_norwitz](https://twitter.com/raphael_norwitz)
 * [Wenbo Guo](http://www.personal.psu.edu/wzg13/)
-
-## Team
-* [@antojosep007](https://twitter.com/antojosep007)
-* [@dth0m](https://twitter.com/dth0m)
-* [@eugeneteo](https://twitter.com/eugeneteo)
-* [@grue_](https://twitter.com/grue_)
-* [@J_L_Igyarto](https://twitter.com/J_L_Igyarto)
-* [@rseymour](https://twitter.com/rseymour)
